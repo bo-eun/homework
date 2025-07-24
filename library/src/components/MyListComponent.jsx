@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 
 function MyLibraryComponent({ myList, returnBook }) {
@@ -13,6 +13,10 @@ function MyLibraryComponent({ myList, returnBook }) {
             setCheckedList(prev => prev.filter(list => list !== value));
         }
     }
+
+    useEffect(() => {
+        setCheckedList([]);
+    }, [myList])
 
     console.log(checkedList);
 
