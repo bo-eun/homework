@@ -7,6 +7,7 @@ function ListComponent({ bookList, bookInput, currentUser, updateList, setCurren
     const [checkedList, setCheckedList] = useState([]);
 
     const borrowBook = () => {
+        // 로그인이 안됐을 경우 대여 불가능하게 얼럿 띄움
         if (!currentUser.name) {
             alert('로그인 후 이용해주세요');
             return false;
@@ -17,6 +18,7 @@ function ListComponent({ bookList, bookInput, currentUser, updateList, setCurren
         setCurrentUser(prev => ({ ...prev, bookList: [...borrow] })); // 업데이트 전 책 리스트 + 체크한 책 합쳐서 전달
     };
 
+    // 체크한 인풋 배열에 저장
     const checkList = (e) => {
         const id = Number(e.target.id);
         if (e.target.checked) {

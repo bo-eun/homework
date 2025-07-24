@@ -64,8 +64,8 @@ function LibraryCont(props) {
     // 도서 목록 저장 배열
     const [bookList, listDispatch] = useReducer(listReducer, []);
 
+    // 전체 도서 목록 dispatch함수
     const updateList = (action, checkedArr) => {
-
         if (action === 'add') {
             const name = bookInput.current.value;
             const newBook = new Book(name, bookId.current++);
@@ -87,20 +87,28 @@ function LibraryCont(props) {
         setUsers([new Person('김철수', []), new Person('이명희', []), new Person('박보은', [])]);
     }, [])
 
+    // 로그인 시 실행되는 함수
+    // 현재 유저 정보 업데이트
     const login = (currentName) => {
         const loginUser = users.find(user => user.name == currentName);
         setCurrentUser(prev => ({ ...prev, ...loginUser }));
     };
 
+
+    // 책 반납 시 실행되는 함수
     const returnBook = (checkedArr) => {
+        // 현재 유저 정보의 대여 책 리스트 업데이트
         setCurrentUser((prev) => {
             const updateList = prev.bookList.filter(book => !checkedArr.includes(book.id))
             return { ...prev, bookList: updateList }
         });
+        // 반납 시 전체 책 목록 상태 변경
         updateList('return', checkedArr);
     };
 
+    // 현재 로그인한 유저 정보가 변경될 때 실행
     useEffect(() => {
+        // 현재 로그인한 유저 정보의 대여 리스트를 전체 유저 정보에 반영
         setUsers(prev => prev.map((user) => {
             if (user.name == currentUser.name) {
                 user.bookList = [...currentUser.bookList];
