@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 752px;
+  margin: 0 auto;
+  padding: 40px 0 0;
+}
+
+.button_box {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.button_box button {
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  background: #ddd;
+}
+
+.lotto_cont {
+  padding: 20px;
+}
+
+.lotto_list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.lotto_list li {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: orange;
+  font-weight: bold;
+  border-radius: 50%;
+}
+.lotto_list li:last-child {
+  background: royalblue;
+}
+.lotto_list li.plus {
+  background: tomato;
+  font-size: 30px;
+  font-weight: normal;
+}
+
+.my_lotto_cont {
+  padding: 10px 20px;
+}
+
+.my_lotto_list {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+}
+.my_lotto_list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 1px solid tomato;
+  color: tomato;
+  font-weight: bold;
+}
+.my_lotto_list li:last-child {
+  border: 0;
+  color: #444444;
+  font-size: 20px;
+}
+.my_lotto_list li.active {
+  background: tomato;
+  color: #fff;
+}
