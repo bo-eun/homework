@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+}
+
+.login_cont span {
+  min-width: 70px;
+  display: inline-block;
+}
+
+.todo_list_cont ul {
+  background: #f8f8f8;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.todo_list_cont li + li {
+  margin-top: 10px;
+}
+
+.todo_list_cont li label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+}
+.todo_list_cont li label span {
+  min-width: 400px;
+}
+
+.todo_list_cont li.done label {
+  background: #eee;
+}
+.todo_list_cont li.done label span {
+  text-decoration: line-through;
+}
