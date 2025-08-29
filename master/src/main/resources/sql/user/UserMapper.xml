@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="kr.exam.springs.user.mapper.UserMapper">
+
+
+<select id="getUserTotal" resultType="int">
+	select count(*) cnt from users	
+</select>
+
+<select id="getUsers" parameterType="map" resultType="users">
+	select user_id,
+			user_name,
+			birth,
+			phone,
+			email
+	from users
+	<where>
+	<!-- neq !=  neq는 spring mybatis에서만 지원됨 -->
+		<if test="type neq null and searchText neq null">
+			<choose>
+			<when test="type eq 'userId'">
+				and user_id like concat('%', #{searchText}, '%')
+			</when>
+			<when test="type eq 'userName'">
+				and user_name like concat('%', #{searchText}, '%')
+			</when>	
+			</choose>	
+		</if>
+	</where>
+	order by user_name asc
+	limit #{offSet}, ${count}
+</select>
+
+
+<select id="getLoginUser" parameterType="map" resultType="loginUser">
+	select user_id,
+			user_name,
+			birth
+	from users
+	where user_id = #{userId} and passwd = #{passwd}
+</select>
+
+
+<!-- DB에 회원가입할 아이디가 있는 경우를 찾기 위해 -->
+<select id="checkId" parameterType="map" resultType="int">
+	select count(*) cnt
+	from users 
+	where user_id = #{userId}
+</select>
+
+<insert id="addUser" parameterType="map">
+	insert into users(user_id, user_name, passwd, birth, phone, email)
+	values(#{userId}, #{userName}, #{passwd}, #{birth}, #{phone}, #{email});
+</insert>
+
+</mapper>

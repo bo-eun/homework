@@ -1,0 +1,474 @@
+INFO  2025-08-29 17:00:20 [main] DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+INFO  2025-08-29 17:00:20 [main] DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@290222c1, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@67f639d3, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6253c26, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@49049a04, org.springframework.test.context.support.DirtiesContextTestExecutionListener@71a8adcf, org.springframework.test.context.transaction.TransactionalTestExecutionListener@27462a88, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@82de64a, org.springframework.test.context.event.EventPublishingTestExecutionListener@659499f1]
+DEBUG 2025-08-29 17:00:21 [main] LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\test-classes\kr\exam\springs\BoardServiceTest.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\controller\BoardController.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Identified candidate component class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\mapper\BoardMapper.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\service\BoardService.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board$BoardFiles.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board$Detail.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board$Request.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board$Response.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\common\page\PageVO.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\controller\HomeController.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\interceptor\LoginInterceptor.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\service\TestService.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\controller\UserController.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Identified candidate component class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\mapper\UserMapper.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\service\UserService.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\vo\Users$LoginUser.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\vo\Users$UserInfo.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\vo\Users.class]
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Creating MapperFactoryBean with name 'boardMapper' and 'kr.exam.springs.board.mapper.BoardMapper' mapperInterface
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Enabling autowire by type for MapperFactoryBean with name 'boardMapper'.
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Creating MapperFactoryBean with name 'userMapper' and 'kr.exam.springs.user.mapper.UserMapper' mapperInterface
+DEBUG 2025-08-29 17:00:21 [main] ClassPathMapperScanner - Enabling autowire by type for MapperFactoryBean with name 'userMapper'.
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - Driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@75b84c92
+DEBUG 2025-08-29 17:00:21 [main] debug - log4jdbc-logj2 properties initialization...
+DEBUG 2025-08-29 17:00:21 [main] debug - Using logger: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.debug.stack.prefix is not defined
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.sqltiming.warn.threshold is not defined
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.sqltiming.error.threshold is not defined
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.dump.booleanastruefalse is not defined (using default value false)
+DEBUG 2025-08-29 17:00:21 [main] debug -   log4jdbc.dump.sql.maxlinelength = 0
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.dump.fulldebugstacktrace is not defined (using default value false)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.statement.warn is not defined (using default value false)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.dump.sql.select is not defined (using default value true)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.dump.sql.insert is not defined (using default value true)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.dump.sql.update is not defined (using default value true)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.dump.sql.delete is not defined (using default value true)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.dump.sql.create is not defined (using default value true)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.dump.sql.addsemicolon is not defined (using default value false)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.auto.load.popular.drivers is not defined (using default value true)
+DEBUG 2025-08-29 17:00:21 [main] debug -   log4jdbc.drivers = org.mariadb.jdbc.Driver
+DEBUG 2025-08-29 17:00:21 [main] debug -     will look for specific driver org.mariadb.jdbc.Driver
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.trim.sql is not defined (using default value true)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.trim.sql.extrablanklines is not defined (using default value true)
+DEBUG 2025-08-29 17:00:21 [main] debug - x log4jdbc.suppress.generated.keys.exception is not defined (using default value false)
+DEBUG 2025-08-29 17:00:21 [main] debug - log4jdbc-logj2 properties initialization done.
+DEBUG 2025-08-29 17:00:21 [main] debug - DriverSpy intialization...
+DEBUG 2025-08-29 17:00:21 [main] debug -   FOUND DRIVER org.mariadb.jdbc.Driver
+DEBUG 2025-08-29 17:00:21 [main] debug - DriverSpy intialization done.
+DEBUG 2025-08-29 17:00:21 [main] SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis-config.xml]'
+DEBUG 2025-08-29 17:00:21 [main] SqlSessionFactoryBean - Parsed mapper file: 'file [C:\uiux_class\web-workspace\master\target\classes\sql\board\BoardMapper.xml]'
+DEBUG 2025-08-29 17:00:21 [main] SqlSessionFactoryBean - Parsed mapper file: 'file [C:\uiux_class\web-workspace\master\target\classes\sql\user\UserMapper.xml]'
+DEBUG 2025-08-29 17:00:21 [main] Mappings - 
+	k.e.s.b.c.BoardController:
+	{GET [/board/delete.do]}: deleteBoard(int)
+	{POST [/board/update.do]}: updateBoard(Request)
+	{POST [/board/write.do]}: writeBoard(Request,LoginUser)
+	{PATCH [/board/like.do]}: updateLkie(Map)
+	{ [/board/list.do]}: boardListView(int)
+	{ [/board/list2.do]}: boardListView2(int)
+	{GET [/board/down.do]}: getFileDown(int,HttpServletResponse)
+	{GET [/board/detail.do]}: getBoardDetailView(int,int,String,HttpServletResponse)
+	{GET [/board/list/data.do]}: getListData(int)
+	{GET [/board/write/view.do]}: getWriteView(int)
+	{GET [/board/form.do]}: boardWriteview()
+DEBUG 2025-08-29 17:00:21 [main] Mappings - 
+	k.e.s.c.HomeController:
+	{GET [/hello.do]}: hello()
+DEBUG 2025-08-29 17:00:21 [main] Mappings - 
+	k.e.s.u.c.UserController:
+	{POST [/user/login.do]}: login(String,String,HttpServletRequest)
+	{POST [/user/register.do]}: addUser(UserInfo)
+	{GET [/user/search.do]}: searchUser(String,String)
+	{GET [/user/login.do]}: loginView()
+	{GET [/user/register.do]}: registView()
+	{GET [/user/list/data.do]}: getUsersData(int)
+	{GET [/user/list.do]}: boardUserListView(int)
+DEBUG 2025-08-29 17:00:21 [main] Mappings - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+DEBUG 2025-08-29 17:00:21 [main] Mappings - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/resources/**=ResourceHttpRequestHandler [classpath [resources/]]}
+DEBUG 2025-08-29 17:00:21 [main] Mappings - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#1' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]}
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - HikariPool-1 - configuration:
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - allowPoolSuspension.............false
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - autoCommit......................true
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - catalog.........................none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - connectionInitSql...............none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - connectionTestQuery.............none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - connectionTimeout...............30000
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - dataSource......................none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - dataSourceClassName.............none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - dataSourceJNDI..................none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - dataSourceProperties............{password=<masked>}
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - driverClassName................."net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - exceptionOverrideClassName......none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - healthCheckProperties...........{}
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - healthCheckRegistry.............none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - idleTimeout.....................600000
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - initializationFailTimeout.......1
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - isolateInternalQueries..........false
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - jdbcUrl.........................jdbc:log4jdbc:mariadb://localhost:3306/sp_db
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - keepaliveTime...................0
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - leakDetectionThreshold..........60000
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - maxLifetime.....................1800000
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - maximumPoolSize.................20
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - metricRegistry..................none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - metricsTrackerFactory...........none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - minimumIdle.....................5
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - password........................<masked>
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - poolName........................"HikariPool-1"
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - readOnly........................false
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - registerMbeans..................false
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - scheduledExecutor...............none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - schema..........................none
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - threadFactory...................internal
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - transactionIsolation............default
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - username........................"root"
+DEBUG 2025-08-29 17:00:21 [main] HikariConfig - validationTimeout...............5000
+INFO  2025-08-29 17:00:21 [main] HikariDataSource - HikariPool-1 - Starting...
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: SELECT @@tx_isolation
+INFO  2025-08-29 17:00:22 [main] HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@cda6019
+INFO  2025-08-29 17:00:22 [main] HikariDataSource - HikariPool-1 - Start completed.
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: set autocommit=0
+DEBUG 2025-08-29 17:00:22 [main] OkPacket - System variable change:  autocommit = OFF
+INFO  2025-08-29 17:00:22 [main] TransactionContext - Began transaction (1) for test context [DefaultTestContext@44ed0a8f testClass = BoardServiceTest, testInstance = kr.exam.springs.BoardServiceTest@32177fa5, testMethod = insertBoardWithoutFile@BoardServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@a96d56c testClass = BoardServiceTest, locations = '{file:src/main/webapp/WEB-INF/spring/root-context.xml, file:src/main/webapp/WEB-INF/spring/servlet-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@6ab4a5b]; rollback [true]
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Creating a new SqlSession
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c2dfa2]
+DEBUG 2025-08-29 17:00:22 [main] SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1984317333 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@cda6019] will be managed by Spring
+DEBUG 2025-08-29 17:00:22 [main] insertBoard - ==>  Preparing: insert into board(title, contents, writer) values(?, ?, ?)
+DEBUG 2025-08-29 17:00:22 [main] insertBoard - ==> Parameters: 테스트모드1(String), 테스트모드(String), admin(String)
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: insert into board(title, contents, writer)
+			values(?, ?, ?)
+DEBUG 2025-08-29 17:00:22 [main] insertBoard - <==    Updates: 1
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c2dfa2]
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c2dfa2]
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c2dfa2]
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: ROLLBACK
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: set autocommit=1
+DEBUG 2025-08-29 17:00:22 [main] OkPacket - System variable change:  autocommit = ON
+INFO  2025-08-29 17:00:22 [main] TransactionContext - Rolled back transaction for test: [DefaultTestContext@44ed0a8f testClass = BoardServiceTest, testInstance = kr.exam.springs.BoardServiceTest@32177fa5, testMethod = insertBoardWithoutFile@BoardServiceTest, testException = java.lang.RuntimeException: 글 등록 중 오류, mergedContextConfiguration = [MergedContextConfiguration@a96d56c testClass = BoardServiceTest, locations = '{file:src/main/webapp/WEB-INF/spring/root-context.xml, file:src/main/webapp/WEB-INF/spring/servlet-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Creating a new SqlSession
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7301eebe] was not registered for synchronization because synchronization is not active
+DEBUG 2025-08-29 17:00:22 [main] SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1841945133 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@cda6019] will not be managed by Spring
+DEBUG 2025-08-29 17:00:22 [main] getBoardTotal - ==>  Preparing: select count(*) cnt from board
+DEBUG 2025-08-29 17:00:22 [main] getBoardTotal - ==> Parameters: 
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: select count(*) cnt from board
+DEBUG 2025-08-29 17:00:22 [main] getBoardTotal - <==      Total: 1
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7301eebe]
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Creating a new SqlSession
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4db60246] was not registered for synchronization because synchronization is not active
+DEBUG 2025-08-29 17:00:22 [main] SpringManagedTransaction - JDBC Connection [HikariProxyConnection@498627971 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@cda6019] will not be managed by Spring
+DEBUG 2025-08-29 17:00:22 [main] getBoardList - ==>  Preparing: select brd_id, title, contents, writer, read_count, like_count, create_date, update_date from board order by brd_id desc limit ?, 10
+DEBUG 2025-08-29 17:00:22 [main] getBoardList - ==> Parameters: 0(Integer)
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: select brd_id, 
+				title, 
+				contents,
+				writer,
+				read_count,
+				like_count,
+				create_date,
+				update_date
+		from board
+		order by brd_id desc
+		limit ?, 10
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 housekeeper] HikariPool - HikariPool-1 - Before cleanup stats (total=1, active=1, idle=0, waiting=0)
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 housekeeper] HikariPool - HikariPool-1 - After cleanup  stats (total=1, active=1, idle=0, waiting=0)
+DEBUG 2025-08-29 17:00:22 [main] getBoardList - <==      Total: 10
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4db60246]
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection adder] HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3ae392a0
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: set autocommit=0
+DEBUG 2025-08-29 17:00:22 [main] OkPacket - System variable change:  autocommit = OFF
+INFO  2025-08-29 17:00:22 [main] TransactionContext - Began transaction (1) for test context [DefaultTestContext@44ed0a8f testClass = BoardServiceTest, testInstance = kr.exam.springs.BoardServiceTest@542f6803, testMethod = insertBoardWithFile@BoardServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@a96d56c testClass = BoardServiceTest, locations = '{file:src/main/webapp/WEB-INF/spring/root-context.xml, file:src/main/webapp/WEB-INF/spring/servlet-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@6ab4a5b]; rollback [true]
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Creating a new SqlSession
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@316acbb5]
+DEBUG 2025-08-29 17:00:22 [main] SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1194398327 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@cda6019] will be managed by Spring
+DEBUG 2025-08-29 17:00:22 [main] insertBoard - ==>  Preparing: insert into board(title, contents, writer) values(?, ?, ?)
+DEBUG 2025-08-29 17:00:22 [main] insertBoard - ==> Parameters: 테스트모드1(String), 테스트모드(String), admin(String)
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: insert into board(title, contents, writer)
+			values(?, ?, ?)
+DEBUG 2025-08-29 17:00:22 [main] insertBoard - <==    Updates: 1
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@316acbb5]
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection adder] HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@38e6c433
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@316acbb5] from current transaction
+DEBUG 2025-08-29 17:00:22 [main] insertBoardFiles - ==>  Preparing: insert into board_files(brd_id, file_name, stored_name, file_path, file_size) values(?,?, ?, ?, ?)
+DEBUG 2025-08-29 17:00:22 [main] insertBoardFiles - ==> Parameters: 38(Integer), test-file.txt(String), 20b1f00c4e8d4816.txt(String), C:\files\down\board\(String), 16(Long)
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: insert into board_files(brd_id, file_name, stored_name, file_path, file_size)
+		values(?,?, ?, ?, ?)
+DEBUG 2025-08-29 17:00:22 [main] insertBoardFiles - <==    Updates: 1
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@316acbb5]
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection adder] HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1567d541
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@316acbb5] from current transaction
+DEBUG 2025-08-29 17:00:22 [main] getBoard - ==>  Preparing: select b.brd_id, b.title, b.contents, b.writer, b.read_count, b.like_count, b.create_date, b.update_date, bf.bf_id, bf.file_name, bf.stored_name, bf.file_path from board b left join board_files bf on b.brd_id = bf.brd_id where b.brd_id = ?
+DEBUG 2025-08-29 17:00:22 [main] getBoard - ==> Parameters: 38(Integer)
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: select b.brd_id, 
+				b.title, 
+				b.contents, 
+				b.writer, 
+				b.read_count, 
+				b.like_count, 
+				b.create_date,
+				b.update_date, 
+				bf.bf_id,
+				bf.file_name,
+				bf.stored_name,
+				bf.file_path
+		from board b
+			left join board_files bf on b.brd_id = bf.brd_id
+		where b.brd_id = ?
+DEBUG 2025-08-29 17:00:22 [main] getBoard - <==      Total: 1
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@316acbb5]
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@316acbb5]
+DEBUG 2025-08-29 17:00:22 [main] SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@316acbb5]
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: ROLLBACK
+DEBUG 2025-08-29 17:00:22 [main] StandardClient - execute query: set autocommit=1
+DEBUG 2025-08-29 17:00:22 [main] OkPacket - System variable change:  autocommit = ON
+INFO  2025-08-29 17:00:22 [main] TransactionContext - Rolled back transaction for test: [DefaultTestContext@44ed0a8f testClass = BoardServiceTest, testInstance = kr.exam.springs.BoardServiceTest@542f6803, testMethod = insertBoardWithFile@BoardServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@a96d56c testClass = BoardServiceTest, locations = '{file:src/main/webapp/WEB-INF/spring/root-context.xml, file:src/main/webapp/WEB-INF/spring/servlet-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+INFO  2025-08-29 17:00:22 [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+DEBUG 2025-08-29 17:00:22 [SpringContextShutdownHook] HikariPool - HikariPool-1 - Before shutdown stats (total=4, active=0, idle=4, waiting=0)
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection closer] PoolBase - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@cda6019: (connection evicted)
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection closer] PoolBase - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@3ae392a0: (connection evicted)
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection adder] HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@44b27ff3
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection closer] PoolBase - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@38e6c433: (connection evicted)
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection closer] PoolBase - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1567d541: (connection evicted)
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection adder] HikariPool - HikariPool-1 - After adding stats (total=1, active=0, idle=1, waiting=0)
+DEBUG 2025-08-29 17:00:22 [HikariPool-1 connection closer] PoolBase - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@44b27ff3: (connection evicted)
+DEBUG 2025-08-29 17:00:22 [SpringContextShutdownHook] HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+INFO  2025-08-29 17:00:22 [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.
+INFO  2025-08-29 17:02:54 [main] DefaultTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+INFO  2025-08-29 17:02:54 [main] DefaultTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@23c30a20, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1e1a0406, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@3cebbb30, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@12aba8be, org.springframework.test.context.support.DirtiesContextTestExecutionListener@290222c1, org.springframework.test.context.transaction.TransactionalTestExecutionListener@67f639d3, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@6253c26, org.springframework.test.context.event.EventPublishingTestExecutionListener@49049a04]
+DEBUG 2025-08-29 17:02:55 [main] LogFactory - Logging initialized using 'class org.apache.ibatis.logging.slf4j.Slf4jImpl' adapter.
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\test-classes\kr\exam\springs\BoardServiceTest.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\controller\BoardController.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Identified candidate component class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\mapper\BoardMapper.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\service\BoardService.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board$BoardFiles.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board$Detail.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board$Request.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board$Response.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\board\vo\Board.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\common\page\PageVO.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\controller\HomeController.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\interceptor\LoginInterceptor.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\service\TestService.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\controller\UserController.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Identified candidate component class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\mapper\UserMapper.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\service\UserService.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\vo\Users$LoginUser.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\vo\Users$UserInfo.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Ignored because not a concrete top-level class: file [C:\uiux_class\web-workspace\master\target\classes\kr\exam\springs\user\vo\Users.class]
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Creating MapperFactoryBean with name 'boardMapper' and 'kr.exam.springs.board.mapper.BoardMapper' mapperInterface
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Enabling autowire by type for MapperFactoryBean with name 'boardMapper'.
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Creating MapperFactoryBean with name 'userMapper' and 'kr.exam.springs.user.mapper.UserMapper' mapperInterface
+DEBUG 2025-08-29 17:02:55 [main] ClassPathMapperScanner - Enabling autowire by type for MapperFactoryBean with name 'userMapper'.
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - Driver class net.sf.log4jdbc.sql.jdbcapi.DriverSpy found in Thread context class loader jdk.internal.loader.ClassLoaders$AppClassLoader@75b84c92
+DEBUG 2025-08-29 17:02:55 [main] debug - log4jdbc-logj2 properties initialization...
+DEBUG 2025-08-29 17:02:55 [main] debug - Using logger: net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.debug.stack.prefix is not defined
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.sqltiming.warn.threshold is not defined
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.sqltiming.error.threshold is not defined
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.dump.booleanastruefalse is not defined (using default value false)
+DEBUG 2025-08-29 17:02:55 [main] debug -   log4jdbc.dump.sql.maxlinelength = 0
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.dump.fulldebugstacktrace is not defined (using default value false)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.statement.warn is not defined (using default value false)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.dump.sql.select is not defined (using default value true)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.dump.sql.insert is not defined (using default value true)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.dump.sql.update is not defined (using default value true)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.dump.sql.delete is not defined (using default value true)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.dump.sql.create is not defined (using default value true)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.dump.sql.addsemicolon is not defined (using default value false)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.auto.load.popular.drivers is not defined (using default value true)
+DEBUG 2025-08-29 17:02:55 [main] debug -   log4jdbc.drivers = org.mariadb.jdbc.Driver
+DEBUG 2025-08-29 17:02:55 [main] debug -     will look for specific driver org.mariadb.jdbc.Driver
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.trim.sql is not defined (using default value true)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.trim.sql.extrablanklines is not defined (using default value true)
+DEBUG 2025-08-29 17:02:55 [main] debug - x log4jdbc.suppress.generated.keys.exception is not defined (using default value false)
+DEBUG 2025-08-29 17:02:55 [main] debug - log4jdbc-logj2 properties initialization done.
+DEBUG 2025-08-29 17:02:55 [main] debug - DriverSpy intialization...
+DEBUG 2025-08-29 17:02:55 [main] debug -   FOUND DRIVER org.mariadb.jdbc.Driver
+DEBUG 2025-08-29 17:02:55 [main] debug - DriverSpy intialization done.
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionFactoryBean - Parsed configuration file: 'class path resource [mybatis-config.xml]'
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionFactoryBean - Parsed mapper file: 'file [C:\uiux_class\web-workspace\master\target\classes\sql\board\BoardMapper.xml]'
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionFactoryBean - Parsed mapper file: 'file [C:\uiux_class\web-workspace\master\target\classes\sql\user\UserMapper.xml]'
+DEBUG 2025-08-29 17:02:55 [main] Mappings - 
+	k.e.s.b.c.BoardController:
+	{GET [/board/delete.do]}: deleteBoard(int)
+	{POST [/board/update.do]}: updateBoard(Request)
+	{POST [/board/write.do]}: writeBoard(Request,LoginUser)
+	{PATCH [/board/like.do]}: updateLkie(Map)
+	{GET [/board/write/view.do]}: getWriteView(int)
+	{GET [/board/form.do]}: boardWriteview()
+	{ [/board/list2.do]}: boardListView2(int)
+	{GET [/board/list/data.do]}: getListData(int)
+	{GET [/board/detail.do]}: getBoardDetailView(int,int,String,HttpServletResponse)
+	{GET [/board/down.do]}: getFileDown(int,HttpServletResponse)
+	{ [/board/list.do]}: boardListView(int)
+DEBUG 2025-08-29 17:02:55 [main] Mappings - 
+	k.e.s.c.HomeController:
+	{GET [/hello.do]}: hello()
+DEBUG 2025-08-29 17:02:55 [main] Mappings - 
+	k.e.s.u.c.UserController:
+	{POST [/user/login.do]}: login(String,String,HttpServletRequest)
+	{POST [/user/register.do]}: addUser(UserInfo)
+	{GET [/user/search.do]}: searchUser(String,String)
+	{GET [/user/register.do]}: registView()
+	{GET [/user/login.do]}: loginView()
+	{GET [/user/list.do]}: boardUserListView(int)
+	{GET [/user/list/data.do]}: getUsersData(int)
+DEBUG 2025-08-29 17:02:55 [main] Mappings - 'org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping' {}
+DEBUG 2025-08-29 17:02:55 [main] Mappings - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#0' {/resources/**=ResourceHttpRequestHandler [classpath [resources/]]}
+DEBUG 2025-08-29 17:02:55 [main] Mappings - 'org.springframework.web.servlet.handler.SimpleUrlHandlerMapping#1' {/webjars/**=ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]}
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - HikariPool-1 - configuration:
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - allowPoolSuspension.............false
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - autoCommit......................true
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - catalog.........................none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - connectionInitSql...............none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - connectionTestQuery.............none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - connectionTimeout...............30000
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - dataSource......................none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - dataSourceClassName.............none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - dataSourceJNDI..................none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - dataSourceProperties............{password=<masked>}
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - driverClassName................."net.sf.log4jdbc.sql.jdbcapi.DriverSpy"
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - exceptionOverrideClassName......none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - healthCheckProperties...........{}
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - healthCheckRegistry.............none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - idleTimeout.....................600000
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - initializationFailTimeout.......1
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - isolateInternalQueries..........false
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - jdbcUrl.........................jdbc:log4jdbc:mariadb://localhost:3306/sp_db
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - keepaliveTime...................0
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - leakDetectionThreshold..........60000
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - maxLifetime.....................1800000
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - maximumPoolSize.................20
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - metricRegistry..................none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - metricsTrackerFactory...........none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - minimumIdle.....................5
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - password........................<masked>
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - poolName........................"HikariPool-1"
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - readOnly........................false
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - registerMbeans..................false
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - scheduledExecutor...............none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - schema..........................none
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - threadFactory...................internal
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - transactionIsolation............default
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - username........................"root"
+DEBUG 2025-08-29 17:02:55 [main] HikariConfig - validationTimeout...............5000
+INFO  2025-08-29 17:02:55 [main] HikariDataSource - HikariPool-1 - Starting...
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: SELECT @@tx_isolation
+INFO  2025-08-29 17:02:55 [main] HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1cf0cacc
+INFO  2025-08-29 17:02:55 [main] HikariDataSource - HikariPool-1 - Start completed.
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: set autocommit=0
+DEBUG 2025-08-29 17:02:55 [main] OkPacket - System variable change:  autocommit = OFF
+INFO  2025-08-29 17:02:55 [main] TransactionContext - Began transaction (1) for test context [DefaultTestContext@2abe9173 testClass = BoardServiceTest, testInstance = kr.exam.springs.BoardServiceTest@235d29d6, testMethod = insertBoardWithoutFile@BoardServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1fdca564 testClass = BoardServiceTest, locations = '{file:src/main/webapp/WEB-INF/spring/root-context.xml, file:src/main/webapp/WEB-INF/spring/servlet-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@43f9dd56]; rollback [true]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Creating a new SqlSession
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4860827a]
+DEBUG 2025-08-29 17:02:55 [main] SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1269230672 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1cf0cacc] will be managed by Spring
+DEBUG 2025-08-29 17:02:55 [main] insertBoard - ==>  Preparing: insert into board(title, contents, writer) values(?, ?, ?)
+DEBUG 2025-08-29 17:02:55 [main] insertBoard - ==> Parameters: 테스트모드1(String), 테스트모드(String), admin(String)
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: insert into board(title, contents, writer)
+			values(?, ?, ?)
+DEBUG 2025-08-29 17:02:55 [main] insertBoard - <==    Updates: 1
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4860827a]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4860827a] from current transaction
+DEBUG 2025-08-29 17:02:55 [main] getBoard - ==>  Preparing: select b.brd_id, b.title, b.contents, b.writer, b.read_count, b.like_count, b.create_date, b.update_date, bf.bf_id, bf.file_name, bf.stored_name, bf.file_path from board b left join board_files bf on b.brd_id = bf.brd_id where b.brd_id = ?
+DEBUG 2025-08-29 17:02:55 [main] getBoard - ==> Parameters: 39(Integer)
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: select b.brd_id, 
+				b.title, 
+				b.contents, 
+				b.writer, 
+				b.read_count, 
+				b.like_count, 
+				b.create_date,
+				b.update_date, 
+				bf.bf_id,
+				bf.file_name,
+				bf.stored_name,
+				bf.file_path
+		from board b
+			left join board_files bf on b.brd_id = bf.brd_id
+		where b.brd_id = ?
+DEBUG 2025-08-29 17:02:55 [main] getBoard - <==      Total: 1
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4860827a]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4860827a]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4860827a]
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: ROLLBACK
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: set autocommit=1
+DEBUG 2025-08-29 17:02:55 [main] OkPacket - System variable change:  autocommit = ON
+INFO  2025-08-29 17:02:55 [main] TransactionContext - Rolled back transaction for test: [DefaultTestContext@2abe9173 testClass = BoardServiceTest, testInstance = kr.exam.springs.BoardServiceTest@235d29d6, testMethod = insertBoardWithoutFile@BoardServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1fdca564 testClass = BoardServiceTest, locations = '{file:src/main/webapp/WEB-INF/spring/root-context.xml, file:src/main/webapp/WEB-INF/spring/servlet-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Creating a new SqlSession
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@766a49c7] was not registered for synchronization because synchronization is not active
+DEBUG 2025-08-29 17:02:55 [main] SpringManagedTransaction - JDBC Connection [HikariProxyConnection@498537855 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1cf0cacc] will not be managed by Spring
+DEBUG 2025-08-29 17:02:55 [main] getBoardTotal - ==>  Preparing: select count(*) cnt from board
+DEBUG 2025-08-29 17:02:55 [main] getBoardTotal - ==> Parameters: 
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: select count(*) cnt from board
+DEBUG 2025-08-29 17:02:55 [main] getBoardTotal - <==      Total: 1
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@766a49c7]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Creating a new SqlSession
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6749fe50] was not registered for synchronization because synchronization is not active
+DEBUG 2025-08-29 17:02:55 [main] SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1400324426 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1cf0cacc] will not be managed by Spring
+DEBUG 2025-08-29 17:02:55 [main] getBoardList - ==>  Preparing: select brd_id, title, contents, writer, read_count, like_count, create_date, update_date from board order by brd_id desc limit ?, 10
+DEBUG 2025-08-29 17:02:55 [main] getBoardList - ==> Parameters: 0(Integer)
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: select brd_id, 
+				title, 
+				contents,
+				writer,
+				read_count,
+				like_count,
+				create_date,
+				update_date
+		from board
+		order by brd_id desc
+		limit ?, 10
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 housekeeper] HikariPool - HikariPool-1 - Before cleanup stats (total=1, active=1, idle=0, waiting=0)
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 housekeeper] HikariPool - HikariPool-1 - After cleanup  stats (total=1, active=1, idle=0, waiting=0)
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 connection adder] HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1770e699
+DEBUG 2025-08-29 17:02:55 [main] getBoardList - <==      Total: 10
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6749fe50]
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: set autocommit=0
+DEBUG 2025-08-29 17:02:55 [main] OkPacket - System variable change:  autocommit = OFF
+INFO  2025-08-29 17:02:55 [main] TransactionContext - Began transaction (1) for test context [DefaultTestContext@2abe9173 testClass = BoardServiceTest, testInstance = kr.exam.springs.BoardServiceTest@47311277, testMethod = insertBoardWithFile@BoardServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1fdca564 testClass = BoardServiceTest, locations = '{file:src/main/webapp/WEB-INF/spring/root-context.xml, file:src/main/webapp/WEB-INF/spring/servlet-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.jdbc.datasource.DataSourceTransactionManager@43f9dd56]; rollback [true]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Creating a new SqlSession
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40230eb9]
+DEBUG 2025-08-29 17:02:55 [main] SpringManagedTransaction - JDBC Connection [HikariProxyConnection@1102135101 wrapping net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1cf0cacc] will be managed by Spring
+DEBUG 2025-08-29 17:02:55 [main] insertBoard - ==>  Preparing: insert into board(title, contents, writer) values(?, ?, ?)
+DEBUG 2025-08-29 17:02:55 [main] insertBoard - ==> Parameters: 테스트모드1(String), 테스트모드(String), admin(String)
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: insert into board(title, contents, writer)
+			values(?, ?, ?)
+DEBUG 2025-08-29 17:02:55 [main] insertBoard - <==    Updates: 1
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40230eb9]
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 connection adder] HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@21e18b46
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40230eb9] from current transaction
+DEBUG 2025-08-29 17:02:55 [main] insertBoardFiles - ==>  Preparing: insert into board_files(brd_id, file_name, stored_name, file_path, file_size) values(?,?, ?, ?, ?)
+DEBUG 2025-08-29 17:02:55 [main] insertBoardFiles - ==> Parameters: 40(Integer), test-file.txt(String), 91f253857b53452e.txt(String), C:\files\down\board\(String), 16(Long)
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: insert into board_files(brd_id, file_name, stored_name, file_path, file_size)
+		values(?,?, ?, ?, ?)
+DEBUG 2025-08-29 17:02:55 [main] insertBoardFiles - <==    Updates: 1
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40230eb9]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40230eb9] from current transaction
+DEBUG 2025-08-29 17:02:55 [main] getBoard - ==>  Preparing: select b.brd_id, b.title, b.contents, b.writer, b.read_count, b.like_count, b.create_date, b.update_date, bf.bf_id, bf.file_name, bf.stored_name, bf.file_path from board b left join board_files bf on b.brd_id = bf.brd_id where b.brd_id = ?
+DEBUG 2025-08-29 17:02:55 [main] getBoard - ==> Parameters: 40(Integer)
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: select b.brd_id, 
+				b.title, 
+				b.contents, 
+				b.writer, 
+				b.read_count, 
+				b.like_count, 
+				b.create_date,
+				b.update_date, 
+				bf.bf_id,
+				bf.file_name,
+				bf.stored_name,
+				bf.file_path
+		from board b
+			left join board_files bf on b.brd_id = bf.brd_id
+		where b.brd_id = ?
+DEBUG 2025-08-29 17:02:55 [main] getBoard - <==      Total: 1
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40230eb9]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40230eb9]
+DEBUG 2025-08-29 17:02:55 [main] SqlSessionUtils - Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@40230eb9]
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: ROLLBACK
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 connection adder] HikariPool - HikariPool-1 - Added connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@12353ba2
+DEBUG 2025-08-29 17:02:55 [main] StandardClient - execute query: set autocommit=1
+DEBUG 2025-08-29 17:02:55 [main] OkPacket - System variable change:  autocommit = ON
+INFO  2025-08-29 17:02:55 [main] TransactionContext - Rolled back transaction for test: [DefaultTestContext@2abe9173 testClass = BoardServiceTest, testInstance = kr.exam.springs.BoardServiceTest@47311277, testMethod = insertBoardWithFile@BoardServiceTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@1fdca564 testClass = BoardServiceTest, locations = '{file:src/main/webapp/WEB-INF/spring/root-context.xml, file:src/main/webapp/WEB-INF/spring/servlet-context.xml}', classes = '{}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+INFO  2025-08-29 17:02:55 [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown initiated...
+DEBUG 2025-08-29 17:02:55 [SpringContextShutdownHook] HikariPool - HikariPool-1 - Before shutdown stats (total=4, active=0, idle=4, waiting=0)
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 connection closer] PoolBase - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1cf0cacc: (connection evicted)
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 connection closer] PoolBase - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@1770e699: (connection evicted)
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 connection closer] PoolBase - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@21e18b46: (connection evicted)
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 connection closer] PoolBase - HikariPool-1 - Closing connection net.sf.log4jdbc.sql.jdbcapi.ConnectionSpy@12353ba2: (connection evicted)
+DEBUG 2025-08-29 17:02:55 [HikariPool-1 connection adder] HikariPool - HikariPool-1 - After adding stats (total=0, active=0, idle=0, waiting=0)
+DEBUG 2025-08-29 17:02:55 [SpringContextShutdownHook] HikariPool - HikariPool-1 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+INFO  2025-08-29 17:02:55 [SpringContextShutdownHook] HikariDataSource - HikariPool-1 - Shutdown completed.

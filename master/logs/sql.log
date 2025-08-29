@@ -1,0 +1,325 @@
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+ {executed in 1 msec}
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+ {executed in 1 msec}
+2025-08-29 17:00:22 - 
+|----------|
+|insert_id |
+|----------|
+|37        |
+|----------|
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select count(*) cnt from board
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select count(*) cnt from board
+ {executed in 0 msec}
+2025-08-29 17:00:22 - 
+|----|
+|cnt |
+|----|
+|27  |
+|----|
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select brd_id, 
+				title, 
+				contents,
+				writer,
+				read_count,
+				like_count,
+				create_date,
+				update_date
+		from board
+		order by brd_id desc
+		limit 0, 10
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select brd_id, 
+				title, 
+				contents,
+				writer,
+				read_count,
+				like_count,
+				create_date,
+				update_date
+		from board
+		order by brd_id desc
+		limit 0, 10
+ {executed in 1 msec}
+2025-08-29 17:00:22 - 
+|-------|--------|----------|-------|-----------|-----------|----------------------|----------------------|
+|brd_id |title   |contents  |writer |read_count |like_count |create_date           |update_date           |
+|-------|--------|----------|-------|-----------|-----------|----------------------|----------------------|
+|36     |gg      |aa        |admin  |0          |0          |2025-08-29 12:43:14.0 |[null]                |
+|34     |agaga11 |111       |admin  |1          |25         |2025-08-25 17:59:21.0 |2025-08-27 12:58:41.0 |
+|32     |ㅎㅎ^^    |ㅁㅁㅇㅀㄴㅇㅎㅇㄶ |admin  |3          |1          |2025-08-25 17:58:24.0 |2025-08-27 12:55:21.0 |
+|31     |ㅎㅎ      |ㅁㅁ        |admin  |2          |0          |2025-08-25 17:51:25.0 |[null]                |
+|30     |ㅎㅎ      |ㅁㅁ        |admin  |1          |0          |2025-08-25 17:51:25.0 |[null]                |
+|29     |ㅎㅎ      |ㅁㅁ        |admin  |1          |0          |2025-08-25 17:51:20.0 |[null]                |
+|28     |ㅎㅎ      |ㅁㅁ        |admin  |1          |0          |2025-08-25 17:51:19.0 |[null]                |
+|27     |ㅎㅎ      |ㅁㅁ        |admin  |0          |0          |2025-08-25 17:51:19.0 |[null]                |
+|26     |ㅎㅎ      |ㅁㅁ        |admin  |1          |0          |2025-08-25 17:51:19.0 |[null]                |
+|25     |ㅎㅎ      |ㅁㅁ        |admin  |0          |0          |2025-08-25 17:51:18.0 |[null]                |
+|-------|--------|----------|-------|-----------|-----------|----------------------|----------------------|
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+ {executed in 0 msec}
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+ {executed in 0 msec}
+2025-08-29 17:00:22 - 
+|----------|
+|insert_id |
+|----------|
+|38        |
+|----------|
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board_files(brd_id, file_name, stored_name, file_path, file_size)
+		values(38,'test-file.txt', '20b1f00c4e8d4816.txt', 'C:\files\down\board\', 16)
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board_files(brd_id, file_name, stored_name, file_path, file_size)
+		values(38,'test-file.txt', '20b1f00c4e8d4816.txt', 'C:\files\down\board\', 16)
+ {executed in 1 msec}
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select b.brd_id, 
+				b.title, 
+				b.contents, 
+				b.writer, 
+				b.read_count, 
+				b.like_count, 
+				b.create_date,
+				b.update_date, 
+				bf.bf_id,
+				bf.file_name,
+				bf.stored_name,
+				bf.file_path
+		from board b
+			left join board_files bf on b.brd_id = bf.brd_id
+		where b.brd_id = 38
+
+2025-08-29 17:00:22 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select b.brd_id, 
+				b.title, 
+				b.contents, 
+				b.writer, 
+				b.read_count, 
+				b.like_count, 
+				b.create_date,
+				b.update_date, 
+				bf.bf_id,
+				bf.file_name,
+				bf.stored_name,
+				bf.file_path
+		from board b
+			left join board_files bf on b.brd_id = bf.brd_id
+		where b.brd_id = 38
+ {executed in 1 msec}
+2025-08-29 17:00:22 - 
+|-------|-------|---------|-------|-----------|-----------|----------------------|------------|------|--------------|---------------------|---------------------|
+|brd_id |title  |contents |writer |read_count |like_count |create_date           |update_date |bf_id |file_name     |stored_name          |file_path            |
+|-------|-------|---------|-------|-----------|-----------|----------------------|------------|------|--------------|---------------------|---------------------|
+|38     |테스트모드1 |테스트모드    |admin  |0          |0          |2025-08-29 17:00:22.0 |[null]      |19    |test-file.txt |20b1f00c4e8d4816.txt |C:\files\down\board\ |
+|-------|-------|---------|-------|-----------|-----------|----------------------|------------|------|--------------|---------------------|---------------------|
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+ {executed in 1 msec}
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+ {executed in 0 msec}
+2025-08-29 17:02:55 - 
+|----------|
+|insert_id |
+|----------|
+|39        |
+|----------|
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select b.brd_id, 
+				b.title, 
+				b.contents, 
+				b.writer, 
+				b.read_count, 
+				b.like_count, 
+				b.create_date,
+				b.update_date, 
+				bf.bf_id,
+				bf.file_name,
+				bf.stored_name,
+				bf.file_path
+		from board b
+			left join board_files bf on b.brd_id = bf.brd_id
+		where b.brd_id = 39
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select b.brd_id, 
+				b.title, 
+				b.contents, 
+				b.writer, 
+				b.read_count, 
+				b.like_count, 
+				b.create_date,
+				b.update_date, 
+				bf.bf_id,
+				bf.file_name,
+				bf.stored_name,
+				bf.file_path
+		from board b
+			left join board_files bf on b.brd_id = bf.brd_id
+		where b.brd_id = 39
+ {executed in 0 msec}
+2025-08-29 17:02:55 - 
+|-------|-------|---------|-------|-----------|-----------|----------------------|------------|-------|----------|------------|----------|
+|brd_id |title  |contents |writer |read_count |like_count |create_date           |update_date |bf_id  |file_name |stored_name |file_path |
+|-------|-------|---------|-------|-----------|-----------|----------------------|------------|-------|----------|------------|----------|
+|39     |테스트모드1 |테스트모드    |admin  |0          |0          |2025-08-29 17:02:55.0 |[null]      |[null] |null      |null        |null      |
+|-------|-------|---------|-------|-----------|-----------|----------------------|------------|-------|----------|------------|----------|
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select count(*) cnt from board
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select count(*) cnt from board
+ {executed in 0 msec}
+2025-08-29 17:02:55 - 
+|----|
+|cnt |
+|----|
+|27  |
+|----|
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select brd_id, 
+				title, 
+				contents,
+				writer,
+				read_count,
+				like_count,
+				create_date,
+				update_date
+		from board
+		order by brd_id desc
+		limit 0, 10
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select brd_id, 
+				title, 
+				contents,
+				writer,
+				read_count,
+				like_count,
+				create_date,
+				update_date
+		from board
+		order by brd_id desc
+		limit 0, 10
+ {executed in 1 msec}
+2025-08-29 17:02:55 - 
+|-------|--------|----------|-------|-----------|-----------|----------------------|----------------------|
+|brd_id |title   |contents  |writer |read_count |like_count |create_date           |update_date           |
+|-------|--------|----------|-------|-----------|-----------|----------------------|----------------------|
+|36     |gg      |aa        |admin  |0          |0          |2025-08-29 12:43:14.0 |[null]                |
+|34     |agaga11 |111       |admin  |1          |25         |2025-08-25 17:59:21.0 |2025-08-27 12:58:41.0 |
+|32     |ㅎㅎ^^    |ㅁㅁㅇㅀㄴㅇㅎㅇㄶ |admin  |3          |1          |2025-08-25 17:58:24.0 |2025-08-27 12:55:21.0 |
+|31     |ㅎㅎ      |ㅁㅁ        |admin  |2          |0          |2025-08-25 17:51:25.0 |[null]                |
+|30     |ㅎㅎ      |ㅁㅁ        |admin  |1          |0          |2025-08-25 17:51:25.0 |[null]                |
+|29     |ㅎㅎ      |ㅁㅁ        |admin  |1          |0          |2025-08-25 17:51:20.0 |[null]                |
+|28     |ㅎㅎ      |ㅁㅁ        |admin  |1          |0          |2025-08-25 17:51:19.0 |[null]                |
+|27     |ㅎㅎ      |ㅁㅁ        |admin  |0          |0          |2025-08-25 17:51:19.0 |[null]                |
+|26     |ㅎㅎ      |ㅁㅁ        |admin  |1          |0          |2025-08-25 17:51:19.0 |[null]                |
+|25     |ㅎㅎ      |ㅁㅁ        |admin  |0          |0          |2025-08-25 17:51:18.0 |[null]                |
+|-------|--------|----------|-------|-----------|-----------|----------------------|----------------------|
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+ {executed in 1 msec}
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyStatement.getGeneratedKeys(ProxyStatement.java:229)
+1. getGeneratedKeys on query: insert into board(title, contents, writer)
+			values('테스트모드1', '테스트모드', 'admin')
+ {executed in 0 msec}
+2025-08-29 17:02:55 - 
+|----------|
+|insert_id |
+|----------|
+|40        |
+|----------|
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board_files(brd_id, file_name, stored_name, file_path, file_size)
+		values(40,'test-file.txt', '91f253857b53452e.txt', 'C:\files\down\board\', 16)
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. insert into board_files(brd_id, file_name, stored_name, file_path, file_size)
+		values(40,'test-file.txt', '91f253857b53452e.txt', 'C:\files\down\board\', 16)
+ {executed in 0 msec}
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select b.brd_id, 
+				b.title, 
+				b.contents, 
+				b.writer, 
+				b.read_count, 
+				b.like_count, 
+				b.create_date,
+				b.update_date, 
+				bf.bf_id,
+				bf.file_name,
+				bf.stored_name,
+				bf.file_path
+		from board b
+			left join board_files bf on b.brd_id = bf.brd_id
+		where b.brd_id = 40
+
+2025-08-29 17:02:55 -  com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+1. select b.brd_id, 
+				b.title, 
+				b.contents, 
+				b.writer, 
+				b.read_count, 
+				b.like_count, 
+				b.create_date,
+				b.update_date, 
+				bf.bf_id,
+				bf.file_name,
+				bf.stored_name,
+				bf.file_path
+		from board b
+			left join board_files bf on b.brd_id = bf.brd_id
+		where b.brd_id = 40
+ {executed in 1 msec}
+2025-08-29 17:02:55 - 
+|-------|-------|---------|-------|-----------|-----------|----------------------|------------|------|--------------|---------------------|---------------------|
+|brd_id |title  |contents |writer |read_count |like_count |create_date           |update_date |bf_id |file_name     |stored_name          |file_path            |
+|-------|-------|---------|-------|-----------|-----------|----------------------|------------|------|--------------|---------------------|---------------------|
+|40     |테스트모드1 |테스트모드    |admin  |0          |0          |2025-08-29 17:02:55.0 |[null]      |20    |test-file.txt |91f253857b53452e.txt |C:\files\down\board\ |
+|-------|-------|---------|-------|-----------|-----------|----------------------|------------|------|--------------|---------------------|---------------------|
+

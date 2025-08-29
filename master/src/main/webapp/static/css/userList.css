@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+h2 {margin-top: 5vh;}
+.container {display: flex; flex-direction: column; align-items: center; margin-top: 7vh;}
+.contents {width: 100%}
+.data-list {width: 100%; min-height:500px; margin-top: 10px;}
+
+.sch {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	height: 60px;
+	gap: 10px;
+}
+
+.sch-input {
+	width: 300px;
+	margin-left: 5px;
+}
+
+.btn-primary {margin-left: auto;}
