@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Builder
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED) // 파라미터 없는 생성자 자동 등록
 @AllArgsConstructor
 public class MembersDTO {
     private String memId;

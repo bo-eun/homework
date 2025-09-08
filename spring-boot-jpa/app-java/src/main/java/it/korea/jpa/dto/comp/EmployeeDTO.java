@@ -18,13 +18,15 @@ public class EmployeeDTO {
     private String emName;
     private String deptId;
     private String deptName;
+    private int profitAccount;
 
     public static EmployeeDTO of(EmployeeEntity entity) {
         return EmployeeDTO.builder()
                 .emId(entity.getEmId())
                 .emName(entity.getEmName())
-                .deptId(entity.getDeptId())
-                .deptName(entity.getDeptName())
+                .deptId(entity.getDepartment().getDeptId())
+                .deptName(entity.getDepartment().getDeptName())
+                .profitAccount(entity.getCard().getBalance())
                 .build();
     }
 }
