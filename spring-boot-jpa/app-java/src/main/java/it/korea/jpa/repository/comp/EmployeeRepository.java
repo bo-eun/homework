@@ -24,7 +24,7 @@ public interface EmployeeRepository extends JpaRepository<EmployeeEntity, String
     Page<EmployeeEntity> findAll(Pageable pageable);
 
     // JPQL 문법 중 native SQL 사용
-    // native SQL는 dto를 못씀
+    // native SQL는 dto를 못씀, 그래서 데이터 담을 객체나 배열 만들어 dto에 값 전달
     @Query(value = """
             select e.em_id,
                     e.em_name,

@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 public class LockEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto_increment 명시
     private int lockNum;
 
     private int numbers;
