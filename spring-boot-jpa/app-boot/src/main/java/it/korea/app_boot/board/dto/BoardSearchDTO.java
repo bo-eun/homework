@@ -8,6 +8,8 @@ public class BoardSearchDTO {
     private int size;
     private String sidx;
     private String sord;
+    private String schType;
+    private String schText;
     
     // 헤더 정렬 시 순서 만들어주기
     public String getOrderStr() {

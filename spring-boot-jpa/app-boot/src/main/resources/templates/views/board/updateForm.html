@@ -107,29 +107,6 @@
             return true;
         };
 
-        const writeBoard = () => {
-            if(validated()) {
-                const frm = document.querySelector('#frm');
-                const formData = new FormData(frm);
-                const header = {
-                    'Content-type' : 'multipart/form-data'
-                };
-
-                axios.post('/api/v1/board', formData, header)
-                    .then(res => {
-                        if(res.data.resultCode == 200) {
-                            alert('게시글이 등록되었습니다.');
-                            location.href = '/board/list';
-                        } else {
-                            alert('게시글 등록을 실패했습니다.');
-                        }
-                    })
-                    .catch(error => {
-                        alert(error);
-                    });
-            }
-        };
-
         const goList = () => {
             location.href = "/board/list";
         };
@@ -138,15 +115,39 @@
         const delFile = (bfId) => {
             const isConfirm = confirm('삭제하시면 수정을 취소해도 삭제됩니다. \n진행하시겠습니까?');
             if(isConfirm) {
-                // 지운 다음 가지고 있는 개수 지우기
-                $('#isFlie').val(0);
+                const brdId = document.getElementById('brdId').value;
+                axios.delete(`/api/v1/board/file/${bfId}`)
+                .then(res => {
+                    if(res.data.resultCode == 200) {
+                        // 지운 다음 가지고 있는 개수 지우기
+                        $('#isFile').val(0);
+                        alert('파일이 삭제되었습니다.');
+                        location.href = `/board/update/${brdId}`;
+                    } else {
+                        alert('파일 삭제를 실패했습니다.');
+                    }
+                });
             }
         }
 
         // 구현하기
         const updateBoard = () => {
             if(validated()) {
-                alert('수정됨');
+                const brdId = document.getElementById('brdId').value;
+                const frm = document.querySelector('#frm');
+                const formData = new FormData(frm);
+
+                axios.put(`/api/v1/board/${brdId}`, formData)
+                .then(res => {
+                    if(res.data.resultCode == 200) {
+                        alert('게시글이 수정되었습니다.');
+                        location.href = `/board/${brdId}`;
+                    } else {
+                        alert('게시글 수정을 실패했습니다.');
+                    }
+                }).catch(error => {
+                    alert(error);
+                })
             }
         }
 

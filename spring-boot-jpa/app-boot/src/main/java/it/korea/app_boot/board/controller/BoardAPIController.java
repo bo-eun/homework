@@ -22,11 +22,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 // rest api용 클래스이기 때문에 RestController, view가 아닌 data가 return
 @RestController
@@ -78,7 +80,7 @@ public class BoardAPIController {
         Pageable pageable = PageRequest.of(searchDTO.getPage(), searchDTO.getSize(), Sort.by(sorts));
 
         try {
-            resultMap = jpaService.getBoardList(pageable);
+            resultMap = jpaService.getBoardList(searchDTO, pageable);
         } catch(Exception e) {
             status = HttpStatus.INTERNAL_SERVER_ERROR;
             e.printStackTrace();
@@ -106,6 +108,39 @@ public class BoardAPIController {
 
         resultMap = jpaService.writeBoard(request);
 
+        return new ResponseEntity<>(resultMap, status);
+    }
+
+    @PutMapping("/board/{brdId}")
+    public ResponseEntity<Map<String, Object>> updateBoard(@Valid @ModelAttribute BoardDTO.Request request,
+                                                             @PathVariable int brdId) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+        HttpStatus status = HttpStatus.OK;
+
+        resultMap = jpaService.updateBoard(request, brdId);
+        
+        return new ResponseEntity<>(resultMap, status);
+    }
+
+    // 파일삭제
+    @DeleteMapping("/board/file/{bfId}")
+    public ResponseEntity<Map<String, Object>> deleteFile(@PathVariable int bfId) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+        HttpStatus status = HttpStatus.OK;
+
+        resultMap = jpaService.deleteFile(bfId);
+        
+        return new ResponseEntity<>(resultMap, status);
+    }
+
+    // 게시물 삭제
+    @DeleteMapping("/board/{brdId}")
+    public ResponseEntity<Map<String, Object>> deleteBoard(@PathVariable("brdId") int brdId) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+        HttpStatus status = HttpStatus.OK;
+
+        resultMap = jpaService.deleteBoard(brdId);
+        
         return new ResponseEntity<>(resultMap, status);
     }
 

@@ -1,7 +1,6 @@
 package it.korea.app_boot.board.service;
 
 import java.io.File;
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -9,10 +8,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.javassist.NotFoundException;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ContentDisposition;
@@ -25,24 +25,44 @@ import org.springframework.transaction.annotation.Transactional;
 
 import it.korea.app_boot.board.dto.BoardDTO;
 import it.korea.app_boot.board.dto.BoardFileDTO;
+import it.korea.app_boot.board.dto.BoardSearchDTO;
 import it.korea.app_boot.board.entity.BoardEntity;
 import it.korea.app_boot.board.entity.BoardFileEntity;
 import it.korea.app_boot.board.repository.BoardFileRepository;
 import it.korea.app_boot.board.repository.BoardRepository;
+import it.korea.app_boot.board.repository.BoardSearchSpecification;
 import it.korea.app_boot.common.files.FileUtils;
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
 public class BoardJPAService {
+    @Value("${server.file.upload.path}")
+    private String filePath;
+
     private final BoardRepository boardRepository;
     private final FileUtils fileUtils;
     private final BoardFileRepository fileRepository;
 
-    public Map<String, Object> getBoardList(Pageable pageable) throws Exception {
+    public Map<String, Object> getBoardList(BoardSearchDTO searchDTO , Pageable pageable) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
         // findAll() -> select * from board;
-        Page<BoardEntity> pageObj = boardRepository.findAll(pageable);
+        // Page<BoardEntity> pageObj = boardRepository.findAll(pageable);
+        Page<BoardEntity> pageObj = null;
+
+        // search 검색 비교
+        // StringUtils.isBlank() null 또는 빈 값을 체크함
+        if(!StringUtils.isBlank(searchDTO.getSchType()) && !StringUtils.isBlank(searchDTO.getSchText())) {
+            // if(searchDTO.getSchType().equals("title")) {
+            //     pageObj = boardRepository.findByTitleContaining(searchDTO.getSchType(), pageable);
+            // } else if(searchDTO.getSchType().equals("writer")) {
+            //     pageObj = boardRepository.findByWriterContaining(searchDTO.getSchText(), pageable);
+            // } 
+            BoardSearchSpecification searchSpecification = new BoardSearchSpecification(searchDTO);
+            pageObj = boardRepository.findAll(searchSpecification, pageable);
+        } else {
+            pageObj = boardRepository.findAll(pageable);
+        }
 
         // List of Entity -> List of DTO
         // JDK16 메서드. toList()로 List를 만들면 불변값임
@@ -51,6 +71,7 @@ public class BoardJPAService {
 
         resultMap.put("total", pageObj.getTotalElements());
         resultMap.put("content", list);
+        
         return resultMap;
     }
 
@@ -72,7 +93,7 @@ public class BoardJPAService {
     public Map<String, Object> writeBoard(BoardDTO.Request request) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
 
-        Map<String, Object> fileMap = fileUtils.uploadFiles(request.getFile(), "board");
+        Map<String, Object> fileMap = fileUtils.uploadFiles(request.getFile(), filePath);
         BoardEntity entity = new BoardEntity();
         entity.setTitle(request.getTitle());
         entity.setContents(request.getContents());
@@ -89,6 +110,59 @@ public class BoardJPAService {
         }
 
         boardRepository.save(entity);
+
+        resultMap.put("resultCode", 200);
+        resultMap.put("resultMsg", "OK");
+
+        return resultMap;
+    }
+
+    @Transactional
+    public Map<String, Object> updateBoard(BoardDTO.Request request, int brdId) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        Map<String, Object> fileMap = fileUtils.uploadFiles(request.getFile(), filePath);
+        BoardEntity entity = boardRepository.getBoard(brdId).orElseThrow(() -> new RuntimeException("게시글 없음"));
+
+        entity.setTitle(request.getTitle());
+        entity.setContents(request.getContents());
+
+        if(fileMap != null) {
+            BoardFileEntity fileEntity = new BoardFileEntity();
+            fileEntity.setFileName(fileMap.get("fileName").toString());
+            fileEntity.setStoredName(fileMap.get("storedFileName").toString());
+            fileEntity.setFilePath(fileMap.get("filePath").toString());
+            fileEntity.setFileSize(request.getFile().getSize());
+
+            entity.addFiles(fileEntity);
+        }
+
+        boardRepository.save(entity);
+
+        resultMap.put("resultCode", 200);
+        resultMap.put("resultMsg", "OK");
+
+        return resultMap;
+
+    }
+
+    @Transactional
+    public Map<String, Object> deleteFile(int bfId) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        fileRepository.deleteById(bfId);
+
+        resultMap.put("resultCode", 200);
+        resultMap.put("resultMsg", "OK");
+
+        return resultMap;
+    }
+
+    @Transactional
+    public Map<String, Object> deleteBoard(int brdId) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        boardRepository.deleteById(brdId);
 
         resultMap.put("resultCode", 200);
         resultMap.put("resultMsg", "OK");
