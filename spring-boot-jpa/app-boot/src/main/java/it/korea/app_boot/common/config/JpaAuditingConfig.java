@@ -1,3 +1,5 @@
+package it.korea.app_boot.common.config;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.auditing.DateTimeProvider;

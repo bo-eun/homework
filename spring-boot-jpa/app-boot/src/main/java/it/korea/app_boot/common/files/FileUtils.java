@@ -57,7 +57,7 @@ public class FileUtils {
     /*
      * 파일 삭제 기능
      */
-    public void deleteFIle(String filePath) throws Exception {
+    public void deleteFile(String filePath) throws Exception {
         File deleteFile = new File(filePath);
 
         if(deleteFile.exists()) {

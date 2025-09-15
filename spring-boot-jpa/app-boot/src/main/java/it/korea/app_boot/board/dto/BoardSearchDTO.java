@@ -3,6 +3,10 @@ package it.korea.app_boot.board.dto;
 import lombok.Data;
 
 @Data
+/*
+ * 검색 페이지 정보를 받아서
+ * query문으로 변경하는 클래스
+ */
 public class BoardSearchDTO {
     private int page;
     private int size;

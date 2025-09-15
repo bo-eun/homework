@@ -93,21 +93,22 @@
             location.href = `/board/update/${brdId}`;
         }
 
-        const deleteBoard = () => {
+        const deleteBoard = async () => {
             const isDelete = confirm('게시글을 삭제하시겠습니까?');
-            if(isDelete) {
-                const brdId = $('#brdId').val();
-                axios.delete(`/api/v1/board/${brdId}`)
-                .then(res => {
-                    if(res.data.resultCode == 200) {
-                        alert('게시글이 삭제되었습니다.');
-                        location.href = `/board/list`;
-                    } else {
-                        alert('게시글 삭제를 실패했습니다.');
-                    }
-                }).catch(error => {
-                    alert(error);
-                })
+            if(!isDelete) return false;
+
+            const brdId = $('#brdId').val();
+            try {
+                const result = await axios.delete(`/api/v1/board/${brdId}`);
+
+                if(result.data.resultCode == 200) {
+                    alert('게시글이 삭제되었습니다.');
+                    location.href = `/board/list`;
+                }  else {
+                    alert('게시글 삭제를 실패했습니다.');
+                }
+            } catch(error) {
+                alert(error);
             }
         }
     </script>

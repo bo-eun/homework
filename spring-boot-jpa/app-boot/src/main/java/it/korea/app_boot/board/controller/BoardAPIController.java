@@ -8,6 +8,7 @@ import it.korea.app_boot.board.service.BoardJPAService;
 import it.korea.app_boot.board.service.BoardService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -34,6 +35,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1")
+@Slf4j
 public class BoardAPIController {
 
     private final BoardService service;
@@ -63,6 +65,7 @@ public class BoardAPIController {
     public ResponseEntity<Map<String, Object>> getBoardData(BoardSearchDTO searchDTO) {
         Map<String, Object> resultMap = new HashMap<>();
         HttpStatus status = HttpStatus.OK;
+        log.info("============== 게시판 가져오기 ==============");
 
         List<Sort.Order> sorts = new ArrayList<>();
         String[] sidxs = searchDTO.getSidx().split(",");
@@ -111,13 +114,12 @@ public class BoardAPIController {
         return new ResponseEntity<>(resultMap, status);
     }
 
-    @PutMapping("/board/{brdId}")
-    public ResponseEntity<Map<String, Object>> updateBoard(@Valid @ModelAttribute BoardDTO.Request request,
-                                                             @PathVariable int brdId) throws Exception {
+    @PutMapping("/board")
+    public ResponseEntity<Map<String, Object>> updateBoard(@Valid @ModelAttribute BoardDTO.Request request) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
         HttpStatus status = HttpStatus.OK;
 
-        resultMap = jpaService.updateBoard(request, brdId);
+        resultMap = jpaService.updateBoard(request);
         
         return new ResponseEntity<>(resultMap, status);
     }
