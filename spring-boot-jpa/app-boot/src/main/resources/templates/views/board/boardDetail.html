@@ -108,6 +108,7 @@
                     alert('게시글 삭제를 실패했습니다.');
                 }
             } catch(error) {
+                console.log(error.response)
                 alert(error);
             }
         }
