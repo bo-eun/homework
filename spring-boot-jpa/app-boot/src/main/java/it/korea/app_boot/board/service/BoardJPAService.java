@@ -97,7 +97,7 @@ public class BoardJPAService {
         BoardEntity entity = new BoardEntity();
         entity.setTitle(request.getTitle());
         entity.setContents(request.getContents());
-        entity.setWriter("admin");
+        entity.setWriter(request.getWriter());
 
         if(fileMap != null) {
             BoardFileEntity fileEntity = new BoardFileEntity();

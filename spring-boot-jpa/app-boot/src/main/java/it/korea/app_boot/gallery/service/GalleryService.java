@@ -7,11 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import org.apache.ibatis.javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import it.korea.app_boot.common.dto.PageVO;
 import it.korea.app_boot.common.files.FileUtils;
@@ -51,7 +53,76 @@ public class GalleryService {
 
     @Transactional
     public void addGallery(GalleryRequest request) throws Exception {
-        String fileName = request.getFile().getOriginalFilename();
+        // 파일 업로드 처리
+        Map<String, Object> fileMap = this.uploadImageFiles(request.getFile());
+        GalleryEntity entity = new GalleryEntity();
+        // 갤러리 랜덤 ID 생성
+        String newNums = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 10);
+
+        entity.setNums(newNums);
+        entity.setTitle(request.getTitle());
+        entity.setWriter("admin");
+        entity.setFileName(fileMap.get("fileName").toString());
+        entity.setStoredName(fileMap.get("storedFileName").toString());
+        entity.setFilePath(filePath);
+        entity.setFileThumbName(fileMap.get("thumbName").toString());
+
+        galleryRepository.save(entity);
+    }
+
+    @Transactional
+    public void updateGallery(GalleryRequest request) throws Exception {
+        GalleryEntity entity = galleryRepository.findById(request.getNums()).orElseThrow(() -> new RuntimeException("게시물 정보 없음"));
+        entity.setTitle(request.getTitle());
+        // 기존 파일 삭제를 위해 기존 정보를 dto에 넣는다.
+        GalleryDTO dto = GalleryDTO.of(entity);
+
+        Map<String, Object> fileMap = null;
+
+        if(!request.getFile().isEmpty()) {
+            // 파일 업로드
+            fileMap = this.uploadImageFiles(request.getFile());
+            entity.setFileName(fileMap.get("fileName").toString());
+            entity.setStoredName(fileMap.get("storedFileName").toString());
+            entity.setFilePath(filePath);
+            entity.setFileThumbName(fileMap.get("thumbName").toString());
+        }
+
+        // 업데이트
+        galleryRepository.save(entity);
+
+        // 기존 파일 지우기
+        if(fileMap != null) {
+            String originFilePath = dto.getFilePath() + dto.getStoredName();
+            String thumbFilePath = dto.getFilePath() + "thumb" + File.separator + dto.getFileThumbName();
+
+            fileUtils.deleteFile(originFilePath);
+            fileUtils.deleteFile(thumbFilePath);
+        }
+
+
+    }
+
+    @Transactional
+    public void deleteGalleryList(String ids) throws Exception {
+
+        String[] deleteIds = ids.split(",");
+        List<GalleryEntity> entityList = galleryRepository.findByNumsIn(deleteIds);
+
+        for(GalleryEntity entity : entityList) {
+            String originFilePath = entity.getFilePath() + entity.getStoredName();
+            String thumbFilePath = entity.getFilePath() + "thumb" + File.separator + entity.getFileThumbName();
+
+            fileUtils.deleteFile(originFilePath);
+            fileUtils.deleteFile(thumbFilePath);
+        }   
+        galleryRepository.deleteAll(entityList);
+    }
+
+
+    // 파일 업로드 별도 처리
+    private Map<String, Object> uploadImageFiles(MultipartFile file) throws Exception {
+        String fileName = file.getOriginalFilename();
         String ext = fileName.substring(fileName.lastIndexOf(".") + 1);
 
         if(!extentions.contains(ext)) {
@@ -59,33 +130,24 @@ public class GalleryService {
         }
 
 
-        Map<String, Object> fileMap = fileUtils.uploadFiles(request.getFile(), filePath);
+        Map<String, Object> fileMap = fileUtils.uploadFiles(file, filePath);
 
         if(fileMap == null) {
             throw new RuntimeException("파일 업로드가 실패했습니다.");
         }
 
         String thumbFilePath = filePath + "thumb" + File.separator;
-        String storedFilePath = filePath + fileMap.get("storedFileName").toString();
+        String storedFilePath = filePath + fileMap.get("storedFileName").toString();   
 
-        File file = new File(storedFilePath) ;
+        File thumbFile = new File(storedFilePath) ;
 
-        if(!file.exists()) {
+        if(!thumbFile.exists()) {
             throw new RuntimeException("업로드 파일이 존재하지 않음");
         }
 
-        String thumbName = fileUtils.thumbNailFile(150, 150, file, thumbFilePath);
-        String newNums = UUID.randomUUID().toString().replaceAll("-", "").substring(0, 10);
-        
-        GalleryEntity entity = new GalleryEntity();
-        entity.setNums(newNums);
-        entity.setTitle(request.getTitle());
-        entity.setWriter("admin");
-        entity.setFileName(fileMap.get("fileName").toString());
-        entity.setStoredName(fileMap.get("storedFileName").toString());
-        entity.setFilePath(filePath);
-        entity.setFileThumbName(thumbName);
+        String thumbName = fileUtils.thumbNailFile(150, 150, thumbFile, thumbFilePath); 
+        fileMap.put("thumbName", thumbName);
 
-        galleryRepository.save(entity);
+        return fileMap;
     }
 }

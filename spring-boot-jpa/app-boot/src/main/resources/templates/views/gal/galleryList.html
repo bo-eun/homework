@@ -137,11 +137,7 @@
             >
               글 등록
             </button>
-            <button
-              type="button"
-              class="btn btn-danger"
-              onclick="openModal('update')"
-            >
+            <button type="button" class="btn btn-danger" onclick="deleteList()">
               글 삭제
             </button>
           </div>
@@ -171,6 +167,7 @@
           </div>
           <div class="modal-body">
             <form id="gallFrm">
+              <input type="hidden" id="nums" name="nums" />
               <div class="row mb-3">
                 <div class="col-auto">
                   <label for="title" class="col-form-label">제목 : </label>
@@ -188,7 +185,7 @@
                 <div class="col-auto">
                   <label for="title" class="col-form-label">파일 : </label>
                 </div>
-                <div class="col-9">
+                <div class="col-9 file_cont">
                   <input
                     type="file"
                     class="form-control"
@@ -223,13 +220,13 @@
       let modalType = "";
       const titles = ["등록", "수정"];
 
-      const openModal = (type) => {
+      const openModal = (type, data) => {
         modalType = type;
 
         if (modalType === "add") {
           addModal(titles[0]);
         } else {
-          updateModal(titles[1]);
+          updateModal(titles[1], data);
         }
       };
 
@@ -237,12 +234,62 @@
         const addModal = $("#gallModal");
         addModal.modal("show");
         addModal.on("shown.bs.modal", (evt) => {
+          $("#gallFrm")[0].reset();
           $("#gallModalLabel").text(title);
         });
 
         addModal.on("hidden.bs.modal", (evt) => {
           $("#gallFrm")[0].reset(); // 모든 폼 입력 취소
         });
+      }
+
+      function updateModal(title, data) {
+        const updateModal = $("#gallModal");
+        updateModal.modal("show");
+
+        updateModal.on("shown.bs.modal", (evt) => {
+          $("#gallModalLabel").text(title);
+          $("#title").val(data.title);
+          $("#nums").val(data.nums);
+        });
+
+        updateModal.on("hidden.bs.modal", (evt) => {
+          $("#gallFrm")[0].reset(); // 모든 폼 입력 취소
+        });
+      }
+
+      async function deleteList() {
+        const checkedArr = $('input[name="imgChk"]:checked');
+        const idArr = [];
+
+        $.each(checkedArr, (index, obj) => {
+          idArr.push(obj.value);
+        });
+
+        if (checkedArr.length == 0) {
+          alert("삭제할 이미지를 한 개 이상 체크하세요");
+          return false;
+        }
+
+        if (!confirm("정말 삭제하시겠습니까?")) {
+          return false;
+        }
+
+        try {
+          const res = await axios.delete(
+            `/api/v1/gal?idList=${idArr.join(",")}`
+          );
+
+          if (res.data.resultCode == 200) {
+            alert("게시글이 삭제되었습니다.");
+          } else {
+            alert("게시글 삭제를 실패했습니다.");
+          }
+        } catch (e) {
+          console.log(e);
+        } finally {
+          getData();
+        }
       }
 
       function closeModal() {
@@ -278,7 +325,7 @@
         }
 
         const maxSize = 1024 * 1024 * 50;
-        if (file[0].files[0].size > maxSize) {
+        if (file[0].files.length > 0 && file[0].files[0].size > maxSize) {
           alert("파일 최대 크기는 50MB까지 가능합니다.");
         }
 
@@ -294,13 +341,21 @@
           };
 
           try {
-            const resp = await axios.post("/api/v1/gal", formData, header);
+            const methodType = modalType === "add" ? "post" : "put";
+            const keywords = modalType === "add" ? "등록" : "수정";
+            const resp = await axios({
+              url: "/api/v1/gal",
+              method: methodType,
+              data: formData,
+              headers: header,
+            });
+
             if (resp.data.resultCode == 200) {
-              alert("이미지가 등록되었습니다.");
+              alert(`${keywords} 되었습니다.`);
               // location.relaod(); // 페이지 새로고침
               getData(); // 데이터만 새로 그리기
             } else {
-              alert("이미지 등록 실패");
+              alert(`${keywords} 실패`);
             }
           } catch (error) {
             alert(error);
@@ -339,7 +394,7 @@
 
       function makeGalleryBox(data) {
         const rootDiv = $(
-          '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12"></div>'
+          '<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 gall-box"></div>'
         );
         const checkBox = $(
           `<input type="checkbox" name="imgChk" value="${data.nums}" />`
@@ -351,6 +406,8 @@
         const titleSpan = $(`<span style="font-size: 20px;"></span>`);
         const dateSpan = $(`<span> | ${data.lastModifiedDate}</span>`);
         const link = $(`<a href="javascript:void(0)">${data.title}</a>`);
+
+        link.on("click", () => openModal("update", data));
 
         imgBox.append(img);
         rootDiv.append(checkBox);

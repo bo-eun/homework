@@ -38,6 +38,7 @@ public class SecurityConfig {
         return web -> 
             web
             .ignoring()
+            .requestMatchers("/static/imgs/**")
             // 리소스 관련 모든 파일들 무시
             .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
             // 마지막 명령어는 스프링 리소스 관련 처리
@@ -65,7 +66,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/.well-known/**").permitAll()
                         .requestMatchers("/favicon.ico").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/gal/**", "/api/v1/gal/**").permitAll()
+                        .requestMatchers("/gal/**", "/api/v1/gal/**").permitAll()
                        // .requestMatchers(HttpMethod.GET, "/board/**", "/api/v1/board/**").permitAll()
                         .requestMatchers("/admin/**", "/api/v1/admin/**").hasAnyRole("ADMIN") // ADMIN 권한이 있어야 해당 링크에 접속 가능
                         .anyRequest().authenticated() // 나머지 리퀘스트 전부 인증처리하겠다는 의미
