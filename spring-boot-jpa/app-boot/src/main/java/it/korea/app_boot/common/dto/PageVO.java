@@ -22,9 +22,9 @@ public class PageVO {
 		this.page = page;
 		this.totalRows = totalRows;
 		//한페이지 보여줄 개수
-		this.pagePerRows = 10;
+		this.pagePerRows = 8;
 		//한블럭당 보여줄 페이지 개수
-		this.blckPerCount = 10;
+		this.blckPerCount = 8;
 	}
 	
 	//SQL 조건식에 넣을 시작지점
