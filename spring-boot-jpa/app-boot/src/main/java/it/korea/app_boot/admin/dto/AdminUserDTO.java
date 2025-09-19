@@ -2,7 +2,10 @@ package it.korea.app_boot.admin.dto;
 
 import java.time.LocalDateTime;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 import it.korea.app_boot.user.entity.UserEntity;
 import jakarta.persistence.Id;
@@ -33,9 +36,9 @@ public class AdminUserDTO {
     private String delYn;
     private String userRole;
     private String roleName;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape=Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createDate;
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(shape=Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime updateDate;
 
     public static AdminUserDTO of(UserEntity entity) {
@@ -51,6 +54,26 @@ public class AdminUserDTO {
                 .addrDetail(entity.getAddrDetail())
                 .userRole(entity.getRole().getRoleId())
                 .roleName(entity.getRole().getRoleName())
+                .createDate(entity.getCreateDate())
+                .updateDate(entity.getUpdateDate())
+                .useYn(entity.getUseYn())
+                .delYn(entity.getDelYn())
+                .build();
+    }
+
+    public static AdminUserDTO of(AdminUserProjection entity) {
+        return AdminUserDTO
+                .builder()
+                .userId(entity.getUserId())
+                .userName(entity.getUserName())
+                .birth(entity.getBirth())
+                .gender(entity.getGender())
+                .phone(entity.getPhone())
+                .email(entity.getEmail())
+                .addr(entity.getAddr())
+                .addrDetail(entity.getAddrDetail())
+                .userRole(entity.getRoleId())
+                .roleName(entity.getRoleName())
                 .createDate(entity.getCreateDate())
                 .updateDate(entity.getUpdateDate())
                 .useYn(entity.getUseYn())

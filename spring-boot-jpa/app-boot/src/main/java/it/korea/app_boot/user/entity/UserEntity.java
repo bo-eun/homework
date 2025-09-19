@@ -36,7 +36,7 @@ public class UserEntity extends BaseEntity{
     @JdbcTypeCode(SqlTypes.CHAR)
     private String delYn;
 
-    @ManyToOne(fetch=FetchType.EAGER)
+    @ManyToOne(fetch=FetchType.LAZY, optional=false)
     @JoinColumn(name="user_role")
     private UserRoleEntity role;
 }

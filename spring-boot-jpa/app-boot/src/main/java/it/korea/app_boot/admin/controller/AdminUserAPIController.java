@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.korea.app_boot.admin.dto.AdminUserSearchDTO;
 import it.korea.app_boot.admin.service.AdminUserService;
 import lombok.RequiredArgsConstructor;
 
@@ -23,9 +24,10 @@ public class AdminUserAPIController {
 
     @GetMapping("/admin/user")
     public ResponseEntity<Map<String, Object>> getUserList(
-        @PageableDefault(page = 0, size = 10, sort = "createDate", direction= Direction.DESC) Pageable pageable) throws Exception {
+        @PageableDefault(page = 0, size = 10, sort = "createDate", direction= Direction.DESC) Pageable pageable,
+        AdminUserSearchDTO searchDTO) throws Exception {
         
-        Map<String, Object> resultMap = userService.getUserList(pageable);
+        Map<String, Object> resultMap = userService.getUserList(pageable, searchDTO);
 
         return new ResponseEntity<>(resultMap, HttpStatus.OK);
     }

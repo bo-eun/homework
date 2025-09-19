@@ -42,6 +42,16 @@ li {
   padding: 6px 7px;
 }
 
+.admin-table td a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+.admin-table td a:hover {
+  color: #b9b9b9;
+  font-weight: bold;
+}
+
 .sch-list {
   display: flex;
   align-items: center;
