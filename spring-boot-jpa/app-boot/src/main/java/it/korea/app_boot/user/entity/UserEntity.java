@@ -1,8 +1,11 @@
 package it.korea.app_boot.user.entity;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
+
+import it.korea.app_boot.admin.dto.AdminUserDTO;
 import it.korea.app_boot.common.entity.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +26,7 @@ public class UserEntity extends BaseEntity{
     private String userId;
     private String passwd;
     private String userName;
-    private String  birth;
+    private String birth;
     private String gender;
     private String phone;
     private String email;
@@ -33,10 +36,12 @@ public class UserEntity extends BaseEntity{
     @JdbcTypeCode(SqlTypes.CHAR)
     private String useYn;
     @Column(name="del_yn", length=1, columnDefinition = "char(1)")
+    @ColumnDefault("N")
     @JdbcTypeCode(SqlTypes.CHAR)
     private String delYn;
 
     @ManyToOne(fetch=FetchType.LAZY, optional=false)
     @JoinColumn(name="user_role")
     private UserRoleEntity role;
+
 }

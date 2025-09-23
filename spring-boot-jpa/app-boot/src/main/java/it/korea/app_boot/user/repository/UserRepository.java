@@ -4,8 +4,10 @@ import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -13,12 +15,15 @@ import it.korea.app_boot.admin.dto.AdminUserProjection;
 import it.korea.app_boot.user.entity.UserEntity;
 
 
-public interface UserRepository extends JpaRepository<UserEntity, String> {
+public interface UserRepository extends JpaRepository<UserEntity, String>, JpaSpecificationExecutor<UserEntity> {
     
     @EntityGraph(attributePaths ={"role"})
     Page<UserEntity> findAll(Pageable pageable);
 
-    Page<UserEntity> findByUserIdContainingOrUserNameContaining(String searchText1, String searchText2, Pageable pageable);
+    @EntityGraph(attributePaths ={"role"})
+    Page<UserEntity> findAll(Specification<UserEntity> userSearchSpecification, Pageable pageable);
+
+    // Page<UserEntity> findByUserIdContainingOrUserNameContaining(String searchText1, String searchText2, Pageable pageable);
 
     @Query(value = """
             select u.user_id,

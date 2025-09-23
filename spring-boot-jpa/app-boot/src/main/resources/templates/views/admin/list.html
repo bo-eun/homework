@@ -25,13 +25,22 @@
                 placeholder="아이디 또는 이름"
               />
             </li>
+            <li class="mx-2">
+              <select name="delYn" id="delYn" class="form-select">
+                <option value="ALL" selected>전체보기</option>
+                <option value="N">회원보기</option>
+                <option value="Y">삭제된 회원보기</option>
+              </select>
+            </li>
             <li>
               <button type="button" class="btn btn-warning" onclick="search();">
                 검색
               </button>
             </li>
             <li class="ms-auto">
-              <button type="button" class="btn btn-primary">등록</button>
+              <button type="button" class="btn btn-primary" onclick="goWrite()">
+                등록
+              </button>
             </li>
           </ul>
         </section>
@@ -112,6 +121,7 @@
       function makeSearchParam() {
         return {
           searchText: $("#searchText").val(),
+          delYn: $("#delYn").val(),
           page: $("#page").val(),
           size: $("#size").val(),
         };
@@ -174,6 +184,9 @@
 
       const search = () => {
         getSearchData();
+      };
+      const goWrite = () => {
+        location.href = "/admin/write";
       };
     </script>
   </div>

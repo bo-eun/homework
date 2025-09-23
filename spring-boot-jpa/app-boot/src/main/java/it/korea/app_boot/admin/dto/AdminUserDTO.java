@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 import it.korea.app_boot.user.entity.UserEntity;
+import it.korea.app_boot.user.entity.UserRoleEntity;
 import jakarta.persistence.Id;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -84,7 +85,7 @@ public class AdminUserDTO {
     public static UserEntity to(AdminUserDTO dto) {
         UserEntity entity = new UserEntity();
 
-        entity.setUseYn(dto.getUserId());
+        entity.setUserId(dto.getUserId());
         entity.setPasswd(dto.getPasswd());
         entity.setUserName(dto.getUserName());
         entity.setBirth(dto.getBirth());
@@ -92,6 +93,8 @@ public class AdminUserDTO {
         entity.setPhone(dto.getPhone());
         entity.setEmail(dto.getEmail());
         entity.setAddr(dto.getAddr());
+        entity.setUseYn(dto.getUseYn());
+        entity.setDelYn(dto.getDelYn() == null ? "N" : dto.getDelYn());
         entity.setAddrDetail(dto.getAddrDetail());
 
         return entity;

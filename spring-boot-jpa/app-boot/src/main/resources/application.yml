@@ -34,13 +34,13 @@ spring:
     database: mysql
     generate-ddl: false
     open-in-view: false
-    show-sql: true
+    show-sql: true #console에 자동으로 생성되는 sql 출력
     hibernate:
       ddl-auto: validate
     properties:
       hibernate:
         generate_statistics: false
-        format_sql: true
+        format_sql: true #console에 자동으로 생성되는 sql 출력
         use_sql_comments: false
         cache:
           use_sql_comments: false
@@ -75,14 +75,18 @@ mybatis:
 #log 설정
 logging:
   level:
+    root: INFO
     org:
       springframework:
         boot:
           autoconfigure: OFF
       thymeleaf: OFF
       hibernate:
-        SQL: debug
+        SQL: debug #자세한 sql문 로그 출력
         type:
           descriptor:
-          sql: trace
+          sql: trace #자세한 sql문 로그 출력
   config: classpath:logback.xml
+  charset:
+    console: UTF-8
+    file: UTF-8

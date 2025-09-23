@@ -58,4 +58,12 @@ public class AdminUserController {
         return view;
     }
 
+    @GetMapping("/write")
+    public ModelAndView adminUserWrite() {
+        ModelAndView view = new ModelAndView();
+        view.setViewName("views/admin/write");
+
+        return view;
+    }
+
 }
