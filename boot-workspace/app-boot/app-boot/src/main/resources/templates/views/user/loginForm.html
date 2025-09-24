@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <th:block th:replace="~{fragments/config::config}"></th:block>
+    <style>
+      .container {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
+      .contents {
+        width: 450px;
+        border: 1px solid #eee;
+        border-radius: 10px;
+        box-shadow: 0 0 10px 0px #ddd;
+        padding: 2rem 2rem;
+        box-sizing: border-box;
+      }
+      .box {
+        display: flex;
+        justify-content: center;
+        height: 50px;
+        margin-bottom: 10px;
+      }
+      input::placeholder {
+        color: #b11c1c;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <section class="contents">
+        <div class="box text-center">
+          <h2>로그인</h2>
+        </div>
+        <!-- security로 보낼 때 무조건 Post로 보내야 함 -->
+        <form
+          action="/login/proc"
+          method="post"
+          autocomplete="off"
+          id="loginFrm"
+        >
+          <div class="box">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-control"
+              placeholder="아이디"
+            />
+          </div>
+          <div class="box">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="비밀번호"
+            />
+          </div>
+        </form>
+        <div class="mt-3 text-center">
+          <button
+            type="button"
+            class="btn btn-primary me-1"
+            onclick="goLogin();"
+          >
+            로그인
+          </button>
+          <button type="button" class="btn btn-success">회원가입</button>
+        </div>
+      </section>
+    </main>
+    <script>
+      function validated() {
+        const userName = document.querySelector("#username");
+        const password = document.querySelector("#password");
+
+        if (userName.value.trim().length === 0) {
+          alert("아이디를 입력하세요");
+          userName.focus();
+          return false;
+        }
+
+        if (password.value.trim().length === 0) {
+          alert("아이디를 입력하세요");
+          password.focus();
+          return false;
+        }
+
+        return true;
+      }
+
+      function goLogin() {
+        if (validated()) {
+          $("#loginFrm").submit();
+        }
+      }
+    </script>
+  </body>
+</html>

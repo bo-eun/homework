@@ -1,0 +1,1810 @@
+[2025-09-24 12:42:42:641][background-preinit] INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+[2025-09-24 12:42:42:687][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 12:42:42:687][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 12:42:42:724][restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2025-09-24 12:42:42:725][restartedMain] INFO  o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2025-09-24 12:42:43:1419][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 12:42:43:1494][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 68 ms. Found 2 JPA repository interfaces.
+[2025-09-24 12:42:43:2239][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 12:42:43:2257][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:42:43:2262][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 12:42:43:2262][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 12:42:44:2337][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 12:42:44:2337][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1612 ms
+[2025-09-24 12:42:44:2596][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 12:42:44:2663][restartedMain] INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.29.Final
+[2025-09-24 12:42:44:2700][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 12:42:44:2939][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 12:42:44:2962][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+[2025-09-24 12:42:44:3086][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection org.mariadb.jdbc.Connection@b71aa7a
+[2025-09-24 12:42:44:3088][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+[2025-09-24 12:42:44:3125][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 12:42:44:3149][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 12:42:45:3892][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 12:42:45:3944][restartedMain] INFO  p6spy - 25.09.24 12:42:45 | OperationTime : 30ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 12:42:45:3970][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:42:46:4442][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 12:42:46:4442][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 12:42:46:4562][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:42:46:4563][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@1746f502. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:42:46:4825][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 12:42:46:4840][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:42:46:4852][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 12:42:46:4858][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 4.545 seconds (process running for 5.188)
+[2025-09-24 12:43:03:21351][http-nio-9090-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-09-24 12:43:03:21351][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2025-09-24 12:43:03:21352][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2025-09-24 12:43:03:21372][http-nio-9090-exec-2] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:43:03:21522][http-nio-9090-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id=?
+[2025-09-24 12:43:03:21570][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 12:43:03 | OperationTime : 45ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id='admin'
+[2025-09-24 12:43:03:21606][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 12:43:03 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 12:43:36:54449][http-nio-9090-exec-3] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:43:53:72167][http-nio-9090-exec-4] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:44:28:107304][http-nio-9090-exec-5] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:44:55:133548][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 12:44:55:133550][Thread-11] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 12:44:55:133551][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:44:55:133553][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 12:44:55:133554][Thread-11] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:44:55:133557][Thread-11] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:44:55:133560][Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+[2025-09-24 12:44:55:133566][Thread-11] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+[2025-09-24 12:44:55:133660][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 12:44:55:133661][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 12:44:55:133893][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 12:44:55:133921][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 26 ms. Found 2 JPA repository interfaces.
+[2025-09-24 12:44:55:134020][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 12:44:55:134021][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:44:55:134021][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 12:44:55:134021][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 12:44:55:134040][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 12:44:55:134041][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 378 ms
+[2025-09-24 12:44:55:134083][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 12:44:55:134087][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 12:44:55:134096][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 12:44:55:134097][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+[2025-09-24 12:44:55:134100][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection org.mariadb.jdbc.Connection@3f96a8db
+[2025-09-24 12:44:55:134100][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+[2025-09-24 12:44:55:134101][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 12:44:55:134101][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 12:44:55:134190][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 12:44:55:134192][restartedMain] INFO  p6spy - 25.09.24 12:44:55 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 12:44:55:134203][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:44:55:134305][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 12:44:55:134305][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 12:44:55:134320][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:44:55:134320][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@68d6edef. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:44:56:134363][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 12:44:56:134368][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:44:56:134371][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 12:44:56:134373][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.756 seconds (process running for 134.702)
+[2025-09-24 12:44:56:134374][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 12:44:58:137303][http-nio-9090-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-09-24 12:44:58:137303][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2025-09-24 12:44:58:137304][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2025-09-24 12:44:58:137306][http-nio-9090-exec-2] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:45:06:144537][http-nio-9090-exec-3] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:45:06:144593][http-nio-9090-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id=?
+[2025-09-24 12:45:06:144594][http-nio-9090-exec-3] INFO  p6spy - 25.09.24 12:45:06 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id='admin'
+[2025-09-24 12:45:06:144597][http-nio-9090-exec-3] INFO  p6spy - 25.09.24 12:45:06 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 12:45:12:151022][http-nio-9090-exec-4] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:45:24:163203][http-nio-9090-exec-5] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:45:58:196971][http-nio-9090-exec-6] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:47:22:280689][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 12:47:22:280690][Thread-13] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 12:47:22:280691][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:47:22:280693][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 12:47:22:280693][Thread-13] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:47:22:280695][Thread-13] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:47:22:280695][Thread-13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+[2025-09-24 12:47:22:280698][Thread-13] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+[2025-09-24 12:47:22:280774][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 12:47:22:280774][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 12:47:22:280980][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 12:47:22:281006][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 2 JPA repository interfaces.
+[2025-09-24 12:47:22:281095][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 12:47:22:281096][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:47:22:281096][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 12:47:22:281096][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 12:47:22:281113][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 12:47:22:281113][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 337 ms
+[2025-09-24 12:47:22:281146][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 12:47:22:281151][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 12:47:22:281161][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 12:47:22:281162][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+[2025-09-24 12:47:22:281165][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection org.mariadb.jdbc.Connection@4304de41
+[2025-09-24 12:47:22:281165][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+[2025-09-24 12:47:22:281166][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 12:47:22:281167][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 12:47:22:281250][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 12:47:22:281252][restartedMain] INFO  p6spy - 25.09.24 12:47:22 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 12:47:22:281265][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:47:23:281353][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 12:47:23:281353][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 12:47:23:281365][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:47:23:281365][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@5ffc7550. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:47:23:281388][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 12:47:23:281392][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:47:23:281396][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 12:47:23:281398][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.655 seconds (process running for 281.728)
+[2025-09-24 12:47:23:281398][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 12:48:05:323545][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 12:48:05:323546][Thread-20] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 12:48:05:323546][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:05:323549][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 12:48:05:323549][Thread-20] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:05:323551][Thread-20] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:48:05:323552][Thread-20] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+[2025-09-24 12:48:05:323557][Thread-20] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+[2025-09-24 12:48:05:323636][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 12:48:05:323636][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 12:48:05:323851][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 12:48:05:323876][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 2 JPA repository interfaces.
+[2025-09-24 12:48:05:323965][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 12:48:05:323965][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:05:323965][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 12:48:05:323966][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 12:48:05:323983][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 12:48:05:323983][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 345 ms
+[2025-09-24 12:48:05:324015][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 12:48:05:324019][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 12:48:05:324027][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 12:48:05:324029][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+[2025-09-24 12:48:05:324032][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection org.mariadb.jdbc.Connection@33889674
+[2025-09-24 12:48:05:324032][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+[2025-09-24 12:48:05:324032][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 12:48:05:324033][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 12:48:05:324119][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 12:48:05:324121][restartedMain] INFO  p6spy - 25.09.24 12:48:05 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 12:48:05:324133][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:48:05:324226][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 12:48:05:324226][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 12:48:05:324237][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:48:05:324237][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@185dc310. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:48:05:324264][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 12:48:05:324269][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:05:324271][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 12:48:05:324273][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.671 seconds (process running for 324.603)
+[2025-09-24 12:48:05:324274][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 12:48:15:334108][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 12:48:15:334109][Thread-27] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 12:48:15:334110][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:15:334113][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 12:48:15:334114][Thread-27] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:15:334115][Thread-27] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:48:15:334115][Thread-27] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown initiated...
+[2025-09-24 12:48:15:334118][Thread-27] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Shutdown completed.
+[2025-09-24 12:48:15:334190][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 12:48:15:334190][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 12:48:16:334376][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 12:48:16:334398][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 22 ms. Found 2 JPA repository interfaces.
+[2025-09-24 12:48:16:334466][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 12:48:16:334467][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:16:334467][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 12:48:16:334467][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 12:48:16:334483][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 12:48:16:334483][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 291 ms
+[2025-09-24 12:48:16:334514][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 12:48:16:334518][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 12:48:16:334526][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 12:48:16:334527][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+[2025-09-24 12:48:16:334530][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection org.mariadb.jdbc.Connection@25939765
+[2025-09-24 12:48:16:334530][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+[2025-09-24 12:48:16:334531][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 12:48:16:334532][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 12:48:16:334609][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 12:48:16:334611][restartedMain] INFO  p6spy - 25.09.24 12:48:16 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 12:48:16:334624][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:48:16:334706][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 12:48:16:334706][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 12:48:16:334715][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:48:16:334715][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@2a3d09c. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:48:16:334736][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 12:48:16:334739][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:16:334741][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 12:48:16:334742][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.581 seconds (process running for 335.073)
+[2025-09-24 12:48:16:334743][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 12:48:26:344569][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 12:48:26:344570][Thread-34] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 12:48:26:344570][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:26:344572][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 12:48:26:344572][Thread-34] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:26:344574][Thread-34] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:48:26:344574][Thread-34] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown initiated...
+[2025-09-24 12:48:26:344576][Thread-34] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Shutdown completed.
+[2025-09-24 12:48:26:344648][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 12:48:26:344648][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 12:48:26:344832][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 12:48:26:344852][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+[2025-09-24 12:48:26:344916][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 12:48:26:344916][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:26:344916][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 12:48:26:344916][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 12:48:26:344933][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 12:48:26:344933][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 283 ms
+[2025-09-24 12:48:26:344960][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 12:48:26:344964][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 12:48:26:344972][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 12:48:26:344973][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+[2025-09-24 12:48:26:344976][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-6 - Added connection org.mariadb.jdbc.Connection@6c76c2ac
+[2025-09-24 12:48:26:344976][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+[2025-09-24 12:48:26:344977][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 12:48:26:344978][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 12:48:26:345048][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 12:48:26:345050][restartedMain] INFO  p6spy - 25.09.24 12:48:26 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 12:48:26:345062][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 12:48:26:345141][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 12:48:26:345141][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 12:48:26:345153][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:48:26:345153][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@30cb6535. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 12:48:26:345179][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 12:48:26:345182][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 12:48:26:345184][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 12:48:26:345186][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.567 seconds (process running for 345.515)
+[2025-09-24 12:48:26:345186][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 12:48:31:349923][http-nio-9090-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-09-24 12:48:31:349923][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2025-09-24 12:48:31:349924][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2025-09-24 12:48:31:349926][http-nio-9090-exec-2] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 12:48:31:350003][http-nio-9090-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id=?
+[2025-09-24 12:48:31:350004][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 12:48:31 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id='admin'
+[2025-09-24 12:48:31:350006][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 12:48:31 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 12:48:37:355502][http-nio-9090-exec-3] ERROR i.b.back_app.common.utils.JWTUtils - 유효하지 않은 JWT 서명입니다.
+[2025-09-24 12:51:18:516983][http-nio-9090-exec-6] INFO  i.b.b.b.c.BoardRestController - ------------ 게시글 가져오기 -------------
+[2025-09-24 12:51:18:517062][http-nio-9090-exec-6] WARN  org.hibernate.orm.query - HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+[2025-09-24 12:51:18:517100][http-nio-9090-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 12:51:18:517106][http-nio-9090-exec-6] INFO  p6spy - 25.09.24 12:51:18 | OperationTime : 5ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 12:51:18:517132][http-nio-9090-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 12:51:18:517135][http-nio-9090-exec-6] INFO  p6spy - 25.09.24 12:51:18 | OperationTime : 2ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 12:51:18:517136][http-nio-9090-exec-6] INFO  p6spy - 25.09.24 12:51:18 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 14:12:13:5371590][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+[2025-09-24 14:12:13:5371592][Thread-41] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:12:13:5371593][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:12:13:5371595][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:12:13:5371596][Thread-41] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:12:13:5371599][Thread-41] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:12:13:5371599][Thread-41] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown initiated...
+[2025-09-24 14:12:13:5371603][Thread-41] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Shutdown completed.
+[2025-09-24 14:12:13:5371739][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:12:13:5371739][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:12:13:5372208][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:12:13:5372248][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 38 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:12:14:5372486][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:12:14:5372489][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:12:14:5372489][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:12:14:5372489][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:12:14:5372515][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:12:14:5372515][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 771 ms
+[2025-09-24 14:12:14:5372615][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:12:14:5372620][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:12:14:5372642][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:12:14:5372644][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+[2025-09-24 14:12:14:5372648][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-7 - Added connection org.mariadb.jdbc.Connection@7f4f4c29
+[2025-09-24 14:12:14:5372648][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+[2025-09-24 14:12:14:5372650][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:12:14:5372651][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:12:14:5372790][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:12:14:5372795][restartedMain] INFO  p6spy - 25.09.24 14:12:14 | OperationTime : 1ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:12:14:5372815][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:12:14:5373006][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:12:14:5373007][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:12:14:5373032][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:12:14:5373032][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@3fb6ce0b. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:12:14:5373097][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:12:14:5373105][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:12:14:5373109][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:12:14:5373117][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 1.471 seconds (process running for 5373.446)
+[2025-09-24 14:12:14:5373118][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:12:20:5378736][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 14:12:20:5378737][Thread-48] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:12:20:5378738][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:12:20:5378741][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:12:20:5378741][Thread-48] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:12:20:5378743][Thread-48] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:12:20:5378743][Thread-48] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown initiated...
+[2025-09-24 14:12:20:5378745][Thread-48] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Shutdown completed.
+[2025-09-24 14:12:20:5378832][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:12:20:5378832][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:12:20:5379059][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:12:20:5379091][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 30 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:12:20:5379247][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:12:20:5379248][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:12:20:5379248][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:12:20:5379248][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:12:20:5379267][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:12:20:5379267][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 433 ms
+[2025-09-24 14:12:20:5379304][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:12:20:5379310][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:12:20:5379321][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:12:20:5379323][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Starting...
+[2025-09-24 14:12:20:5379327][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-8 - Added connection org.mariadb.jdbc.Connection@5084f252
+[2025-09-24 14:12:20:5379327][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Start completed.
+[2025-09-24 14:12:20:5379329][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:12:20:5379331][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:12:21:5379472][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:12:21:5379477][restartedMain] INFO  p6spy - 25.09.24 14:12:21 | OperationTime : 1ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:12:21:5379517][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:12:21:5379648][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:12:21:5379649][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:12:21:5379660][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:12:21:5379660][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@6910a7f0. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:12:21:5379684][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:12:21:5379692][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:12:21:5379697][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:12:21:5379700][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.907 seconds (process running for 5380.031)
+[2025-09-24 14:12:21:5379701][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:12:27:5385416][http-nio-9090-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-09-24 14:12:27:5385416][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2025-09-24 14:12:27:5385417][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2025-09-24 14:12:27:5385418][http-nio-9090-exec-2] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 14:12:27:5385492][http-nio-9090-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id=?
+[2025-09-24 14:12:27:5385493][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 14:12:27 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id='admin'
+[2025-09-24 14:12:27:5385495][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 14:12:27 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 14:13:00:5418667][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 2 class path changes (0 additions, 0 deletions, 2 modifications)
+[2025-09-24 14:13:00:5418668][Thread-55] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:13:00:5418669][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:13:00:5418672][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:13:00:5418672][Thread-55] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:13:00:5418674][Thread-55] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:13:00:5418674][Thread-55] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown initiated...
+[2025-09-24 14:13:00:5418676][Thread-55] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-8 - Shutdown completed.
+[2025-09-24 14:13:00:5418781][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:13:00:5418781][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:13:00:5418994][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:13:00:5419020][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 25 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:13:00:5419108][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:13:00:5419109][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:13:00:5419109][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:13:00:5419109][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:13:00:5419142][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:13:00:5419142][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 359 ms
+[2025-09-24 14:13:00:5419205][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:13:00:5419211][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:13:00:5419223][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:13:00:5419225][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Starting...
+[2025-09-24 14:13:00:5419228][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-9 - Added connection org.mariadb.jdbc.Connection@67d39718
+[2025-09-24 14:13:00:5419228][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Start completed.
+[2025-09-24 14:13:00:5419228][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:13:00:5419229][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:13:00:5419331][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:13:01:5419333][restartedMain] INFO  p6spy - 25.09.24 14:13:01 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:13:01:5419350][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:13:01:5419446][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:13:01:5419447][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:13:01:5419469][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:13:01:5419469][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@2c28d912. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:13:01:5419517][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:13:01:5419522][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:13:01:5419523][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:13:01:5419525][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.795 seconds (process running for 5419.855)
+[2025-09-24 14:13:01:5419526][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:13:02:5420994][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 14:13:02:5420995][Thread-62] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:13:02:5420996][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:13:02:5420998][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:13:02:5420999][Thread-62] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:13:02:5421000][Thread-62] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:13:02:5421001][Thread-62] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown initiated...
+[2025-09-24 14:13:02:5421002][Thread-62] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-9 - Shutdown completed.
+[2025-09-24 14:13:02:5421083][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:13:02:5421083][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:13:02:5421259][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:13:02:5421280][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:13:03:5421345][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:13:03:5421345][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:13:03:5421345][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:13:03:5421345][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:13:03:5421361][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:13:03:5421361][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 277 ms
+[2025-09-24 14:13:03:5421385][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:13:03:5421391][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:13:03:5421399][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:13:03:5421400][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Starting...
+[2025-09-24 14:13:03:5421402][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-10 - Added connection org.mariadb.jdbc.Connection@530c4c10
+[2025-09-24 14:13:03:5421402][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Start completed.
+[2025-09-24 14:13:03:5421403][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:13:03:5421404][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:13:03:5421475][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:13:03:5421477][restartedMain] INFO  p6spy - 25.09.24 14:13:03 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:13:03:5421490][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:13:03:5421576][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:13:03:5421576][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:13:03:5421593][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:13:03:5421593][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@5f6b3e72. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:13:03:5421615][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:13:03:5421618][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:13:03:5421620][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:13:03:5421622][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.573 seconds (process running for 5421.952)
+[2025-09-24 14:13:03:5421622][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:14:22:5501325][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 14:14:22:5501326][Thread-69] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:14:22:5501326][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:14:22:5501328][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:14:22:5501328][Thread-69] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:14:22:5501330][Thread-69] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:14:22:5501331][Thread-69] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown initiated...
+[2025-09-24 14:14:23:5501334][Thread-69] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-10 - Shutdown completed.
+[2025-09-24 14:14:23:5501407][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:14:23:5501407][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:14:23:5501585][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:14:23:5501607][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:14:23:5501664][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:14:23:5501665][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:14:23:5501665][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:14:23:5501665][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:14:23:5501679][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:14:23:5501679][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 269 ms
+[2025-09-24 14:14:23:5501705][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:14:23:5501709][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:14:23:5501716][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:14:23:5501717][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Starting...
+[2025-09-24 14:14:23:5501720][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-11 - Added connection org.mariadb.jdbc.Connection@73718fc0
+[2025-09-24 14:14:23:5501720][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Start completed.
+[2025-09-24 14:14:23:5501721][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:14:23:5501722][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:14:23:5501790][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:14:23:5501792][restartedMain] INFO  p6spy - 25.09.24 14:14:23 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:14:23:5501804][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:14:23:5501891][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:14:23:5501891][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:14:23:5501903][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:14:23:5501903][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@594071f7. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:14:23:5501927][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:14:23:5501930][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:14:23:5501933][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:14:23:5501935][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.556 seconds (process running for 5502.265)
+[2025-09-24 14:14:23:5501936][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:14:38:5516948][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 14:14:38:5516949][Thread-76] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:14:38:5516949][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:14:38:5516952][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:14:38:5516952][Thread-76] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:14:38:5516954][Thread-76] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:14:38:5516955][Thread-76] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown initiated...
+[2025-09-24 14:14:38:5516957][Thread-76] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-11 - Shutdown completed.
+[2025-09-24 14:14:38:5517027][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:14:38:5517027][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:14:38:5517209][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:14:38:5517228][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:14:38:5517288][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:14:38:5517289][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:14:38:5517289][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:14:38:5517290][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:14:38:5517305][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:14:38:5517305][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 277 ms
+[2025-09-24 14:14:38:5517327][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:14:38:5517331][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:14:39:5517338][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:14:39:5517339][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Starting...
+[2025-09-24 14:14:39:5517342][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-12 - Added connection org.mariadb.jdbc.Connection@509f5018
+[2025-09-24 14:14:39:5517342][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Start completed.
+[2025-09-24 14:14:39:5517343][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:14:39:5517343][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:14:39:5517413][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:14:39:5517415][restartedMain] INFO  p6spy - 25.09.24 14:14:39 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:14:39:5517428][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:14:39:5517513][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:14:39:5517514][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:14:39:5517525][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:14:39:5517525][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@51c83fd6. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:14:39:5517547][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:14:39:5517550][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:14:39:5517552][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:14:39:5517554][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.553 seconds (process running for 5517.884)
+[2025-09-24 14:14:39:5517554][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:15:24:5562798][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 14:15:24:5562798][Thread-83] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:15:24:5562799][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:15:24:5562800][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:15:24:5562801][Thread-83] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:15:24:5562802][Thread-83] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:15:24:5562802][Thread-83] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown initiated...
+[2025-09-24 14:15:24:5562804][Thread-83] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-12 - Shutdown completed.
+[2025-09-24 14:15:24:5562878][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:15:24:5562878][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:15:24:5563050][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:15:24:5563070][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:15:24:5563127][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:15:24:5563128][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:15:24:5563128][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:15:24:5563128][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:15:24:5563142][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:15:24:5563142][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 264 ms
+[2025-09-24 14:15:24:5563166][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:15:24:5563170][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:15:24:5563177][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:15:24:5563178][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Starting...
+[2025-09-24 14:15:24:5563180][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-13 - Added connection org.mariadb.jdbc.Connection@343c63ed
+[2025-09-24 14:15:24:5563180][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Start completed.
+[2025-09-24 14:15:24:5563181][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:15:24:5563182][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:15:24:5563254][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:15:24:5563256][restartedMain] INFO  p6spy - 25.09.24 14:15:24 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:15:24:5563269][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:15:25:5563356][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:15:25:5563356][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:15:25:5563367][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:15:25:5563367][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@74c87705. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:15:25:5563388][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:15:25:5563392][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:15:25:5563394][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:15:25:5563395][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.545 seconds (process running for 5563.725)
+[2025-09-24 14:15:25:5563395][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:15:30:5568342][http-nio-9090-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-09-24 14:15:30:5568342][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2025-09-24 14:15:30:5568343][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2025-09-24 14:15:30:5568344][http-nio-9090-exec-2] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 14:15:30:5568420][http-nio-9090-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id=?
+[2025-09-24 14:15:30:5568420][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 14:15:30 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id='admin'
+[2025-09-24 14:15:30:5568422][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 14:15:30 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 14:15:36:5574596][http-nio-9090-exec-3] INFO  i.b.b.b.c.BoardRestController - ------------ 게시글 가져오기 -------------
+[2025-09-24 14:15:36:5574597][http-nio-9090-exec-3] WARN  org.hibernate.orm.query - HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+[2025-09-24 14:15:36:5574598][http-nio-9090-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 14:15:36:5574599][http-nio-9090-exec-3] INFO  p6spy - 25.09.24 14:15:36 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 14:15:36:5574606][http-nio-9090-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 14:15:36:5574606][http-nio-9090-exec-3] INFO  p6spy - 25.09.24 14:15:36 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 14:15:36:5574608][http-nio-9090-exec-3] INFO  p6spy - 25.09.24 14:15:36 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 14:25:09:6148051][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 14:25:09:6148053][Thread-90] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:25:09:6148053][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:25:09:6148056][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:25:09:6148057][Thread-90] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:25:09:6148058][Thread-90] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:25:09:6148059][Thread-90] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Shutdown initiated...
+[2025-09-24 14:25:09:6148061][Thread-90] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-13 - Shutdown completed.
+[2025-09-24 14:25:09:6148130][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:25:09:6148130][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:25:09:6148298][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:25:09:6148317][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:25:10:6148373][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:25:10:6148373][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:25:10:6148373][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:25:10:6148373][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:25:10:6148386][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:25:10:6148386][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 254 ms
+[2025-09-24 14:25:10:6148410][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:25:10:6148414][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:25:10:6148421][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:25:10:6148422][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Starting...
+[2025-09-24 14:25:10:6148425][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-14 - Added connection org.mariadb.jdbc.Connection@624a3ed0
+[2025-09-24 14:25:10:6148425][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Start completed.
+[2025-09-24 14:25:10:6148426][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:25:10:6148426][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:25:10:6148484][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:25:10:6148491][restartedMain] INFO  p6spy - 25.09.24 14:25:10 | OperationTime : 6ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:25:10:6148506][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:25:10:6148578][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:25:10:6148578][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:25:10:6148589][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:25:10:6148589][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@74500691. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:25:10:6148606][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:25:10:6148611][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:25:10:6148613][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:25:10:6148614][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.507 seconds (process running for 6148.944)
+[2025-09-24 14:25:10:6148614][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:26:39:6237592][http-nio-9090-exec-4] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-09-24 14:26:39:6237592][http-nio-9090-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2025-09-24 14:26:39:6237593][http-nio-9090-exec-4] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2025-09-24 14:26:39:6237594][http-nio-9090-exec-4] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 14:26:39:6237650][http-nio-9090-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id=?
+[2025-09-24 14:26:39:6237651][http-nio-9090-exec-4] INFO  p6spy - 25.09.24 14:26:39 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id='admin'
+[2025-09-24 14:26:39:6237654][http-nio-9090-exec-4] INFO  p6spy - 25.09.24 14:26:39 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 14:26:45:6243761][http-nio-9090-exec-3] INFO  i.b.b.b.c.BoardRestController - ------------ 게시글 가져오기 -------------
+[2025-09-24 14:26:45:6243763][http-nio-9090-exec-3] WARN  org.hibernate.orm.query - HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+[2025-09-24 14:26:45:6243764][http-nio-9090-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 14:26:45:6243765][http-nio-9090-exec-3] INFO  p6spy - 25.09.24 14:26:45 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 14:26:45:6243770][http-nio-9090-exec-3] DEBUG org.hibernate.SQL - 
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 14:26:45:6243771][http-nio-9090-exec-3] INFO  p6spy - 25.09.24 14:26:45 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 14:26:45:6243773][http-nio-9090-exec-3] INFO  p6spy - 25.09.24 14:26:45 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 14:26:56:6254337][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 14:26:56:6254337][Thread-97] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:26:56:6254338][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:26:56:6254341][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:26:56:6254341][Thread-97] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:26:56:6254342][Thread-97] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:26:56:6254344][Thread-97] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Shutdown initiated...
+[2025-09-24 14:26:56:6254346][Thread-97] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-14 - Shutdown completed.
+[2025-09-24 14:26:56:6254417][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:26:56:6254417][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:26:56:6254577][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:26:56:6254595][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 17 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:26:56:6254647][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:26:56:6254647][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:26:56:6254647][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:26:56:6254647][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:26:56:6254662][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:26:56:6254662][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 242 ms
+[2025-09-24 14:26:56:6254686][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:26:56:6254690][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:26:56:6254697][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:26:56:6254698][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-15 - Starting...
+[2025-09-24 14:26:56:6254701][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-15 - Added connection org.mariadb.jdbc.Connection@54e767d6
+[2025-09-24 14:26:56:6254701][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-15 - Start completed.
+[2025-09-24 14:26:56:6254702][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:26:56:6254703][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:26:56:6254766][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:26:56:6254768][restartedMain] INFO  p6spy - 25.09.24 14:26:56 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:26:56:6254781][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:26:56:6254853][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:26:56:6254854][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:26:56:6254863][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:26:56:6254863][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@2882e25d. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:26:56:6254883][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:26:56:6254886][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:26:56:6254888][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:26:56:6254890][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.496 seconds (process running for 6255.22)
+[2025-09-24 14:26:56:6254890][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:27:05:6263664][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 14:27:05:6263664][Thread-104] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 14:27:05:6263665][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:27:05:6263667][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 14:27:05:6263667][Thread-104] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:27:05:6263668][Thread-104] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:27:05:6263668][Thread-104] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-15 - Shutdown initiated...
+[2025-09-24 14:27:05:6263669][Thread-104] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-15 - Shutdown completed.
+[2025-09-24 14:27:05:6263744][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 14:27:05:6263744][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 14:27:05:6263904][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 14:27:05:6263924][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 18 ms. Found 2 JPA repository interfaces.
+[2025-09-24 14:27:05:6263976][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 14:27:05:6263976][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:27:05:6263977][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 14:27:05:6263977][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 14:27:05:6263990][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 14:27:05:6263990][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 245 ms
+[2025-09-24 14:27:05:6264015][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 14:27:05:6264019][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 14:27:05:6264027][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 14:27:05:6264028][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-16 - Starting...
+[2025-09-24 14:27:05:6264030][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-16 - Added connection org.mariadb.jdbc.Connection@210633f0
+[2025-09-24 14:27:05:6264030][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-16 - Start completed.
+[2025-09-24 14:27:05:6264030][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 14:27:05:6264031][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 14:27:05:6264097][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 14:27:05:6264099][restartedMain] INFO  p6spy - 25.09.24 14:27:05 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 14:27:05:6264111][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 14:27:05:6264185][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 14:27:05:6264185][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 14:27:05:6264195][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:27:05:6264195][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@280e374. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 14:27:05:6264213][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 14:27:05:6264216][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 14:27:05:6264218][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 14:27:05:6264220][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.5 seconds (process running for 6264.55)
+[2025-09-24 14:27:05:6264220][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 14:27:08:6267110][http-nio-9090-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-09-24 14:27:08:6267110][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2025-09-24 14:27:08:6267111][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+[2025-09-24 14:27:08:6267112][http-nio-9090-exec-2] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 14:27:08:6267170][http-nio-9090-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id=?
+[2025-09-24 14:27:08:6267172][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 14:27:08 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id='admin'
+[2025-09-24 14:27:08:6267174][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 14:27:08 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 14:27:14:6272607][http-nio-9090-exec-6] INFO  i.b.b.b.c.BoardRestController - ------------ 게시글 가져오기 -------------
+[2025-09-24 14:27:14:6272608][http-nio-9090-exec-6] WARN  org.hibernate.orm.query - HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+[2025-09-24 14:27:14:6272609][http-nio-9090-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 14:27:14:6272610][http-nio-9090-exec-6] INFO  p6spy - 25.09.24 14:27:14 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 14:27:14:6272614][http-nio-9090-exec-6] DEBUG org.hibernate.SQL - 
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 14:27:14:6272615][http-nio-9090-exec-6] INFO  p6spy - 25.09.24 14:27:14 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 14:27:14:6272617][http-nio-9090-exec-6] INFO  p6spy - 25.09.24 14:27:14 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 16:16:42:12840600][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 16:16:42:12840602][Thread-111] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 16:16:42:12840604][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:16:42:12840606][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 16:16:42:12840606][Thread-111] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:16:42:12840608][Thread-111] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 16:16:42:12840609][Thread-111] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-16 - Shutdown initiated...
+[2025-09-24 16:16:42:12840612][Thread-111] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-16 - Shutdown completed.
+[2025-09-24 16:16:42:12840732][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 16:16:42:12840733][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 16:16:42:12841100][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 16:16:42:12841134][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 2 JPA repository interfaces.
+[2025-09-24 16:16:42:12841328][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 16:16:42:12841331][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:16:42:12841332][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 16:16:42:12841332][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 16:16:43:12841361][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 16:16:43:12841361][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 623 ms
+[2025-09-24 16:16:43:12841457][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 16:16:43:12841462][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 16:16:43:12841478][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 16:16:43:12841480][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-17 - Starting...
+[2025-09-24 16:16:43:12841484][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-17 - Added connection org.mariadb.jdbc.Connection@4da60951
+[2025-09-24 16:16:43:12841484][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-17 - Start completed.
+[2025-09-24 16:16:43:12841485][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 16:16:43:12841487][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 16:16:43:12841642][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 16:16:43:12841647][restartedMain] INFO  p6spy - 25.09.24 16:16:43 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 16:16:43:12841667][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 16:16:43:12841843][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 16:16:43:12841843][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 16:16:43:12841868][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 16:16:43:12841869][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@5f29ea49. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 16:16:43:12841933][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 16:16:43:12841940][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:16:43:12841943][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 16:16:43:12841948][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 1.296 seconds (process running for 12842.278)
+[2025-09-24 16:16:43:12841949][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 16:18:01:12919581][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 16:18:01:12919582][Thread-118] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 16:18:01:12919583][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:18:01:12919585][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 16:18:01:12919585][Thread-118] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:18:01:12919586][Thread-118] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 16:18:01:12919587][Thread-118] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-17 - Shutdown initiated...
+[2025-09-24 16:18:01:12919590][Thread-118] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-17 - Shutdown completed.
+[2025-09-24 16:18:01:12919668][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 16:18:01:12919668][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 16:18:01:12919887][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 16:18:01:12919912][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 2 JPA repository interfaces.
+[2025-09-24 16:18:01:12919991][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 16:18:01:12919991][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:18:01:12919992][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 16:18:01:12919992][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 16:18:01:12920009][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 16:18:01:12920009][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 339 ms
+[2025-09-24 16:18:01:12920044][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 16:18:01:12920048][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 16:18:01:12920057][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 16:18:01:12920058][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-18 - Starting...
+[2025-09-24 16:18:01:12920061][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-18 - Added connection org.mariadb.jdbc.Connection@59c74a07
+[2025-09-24 16:18:01:12920061][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-18 - Start completed.
+[2025-09-24 16:18:01:12920062][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 16:18:01:12920063][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 16:18:01:12920153][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 16:18:01:12920156][restartedMain] INFO  p6spy - 25.09.24 16:18:01 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 16:18:01:12920168][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 16:18:01:12920275][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 16:18:01:12920275][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 16:18:01:12920288][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 16:18:01:12920288][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@77204c19. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 16:18:01:12920313][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 16:18:01:12920317][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:18:01:12920318][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 16:18:01:12920320][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.688 seconds (process running for 12920.65)
+[2025-09-24 16:18:01:12920321][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 16:28:34:13552844][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 16:28:34:13552845][Thread-125] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 16:28:34:13552845][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:28:34:13552847][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 16:28:34:13552848][Thread-125] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:28:34:13552850][Thread-125] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 16:28:34:13552850][Thread-125] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-18 - Shutdown initiated...
+[2025-09-24 16:28:34:13552852][Thread-125] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-18 - Shutdown completed.
+[2025-09-24 16:28:34:13552923][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 16:28:34:13552923][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 16:28:34:13553115][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 16:28:34:13553139][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 23 ms. Found 2 JPA repository interfaces.
+[2025-09-24 16:28:34:13553211][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 16:28:34:13553211][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:28:34:13553211][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 16:28:34:13553211][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 16:28:34:13553228][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 16:28:34:13553228][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 304 ms
+[2025-09-24 16:28:34:13553255][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 16:28:34:13553259][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 16:28:34:13553268][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 16:28:34:13553270][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-19 - Starting...
+[2025-09-24 16:28:34:13553272][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-19 - Added connection org.mariadb.jdbc.Connection@27b39735
+[2025-09-24 16:28:34:13553273][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-19 - Start completed.
+[2025-09-24 16:28:34:13553273][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 16:28:34:13553274][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 16:28:35:13553350][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 16:28:35:13553353][restartedMain] INFO  p6spy - 25.09.24 16:28:35 | OperationTime : 1ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 16:28:35:13553366][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 16:28:35:13553459][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 16:28:35:13553460][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 16:28:35:13553473][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 16:28:35:13553473][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@42f35b91. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 16:28:35:13553495][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 16:28:35:13553498][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:28:35:13553500][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 16:28:35:13553502][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.609 seconds (process running for 13553.831)
+[2025-09-24 16:28:35:13553503][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 16:29:42:13620718][File Watcher] INFO  o.s.b.d.a.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+[2025-09-24 16:29:42:13620719][Thread-132] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Commencing graceful shutdown. Waiting for active requests to complete
+[2025-09-24 16:29:42:13620719][tomcat-shutdown] INFO  o.a.coyote.http11.Http11NioProtocol - Pausing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:29:42:13620721][tomcat-shutdown] INFO  o.s.b.w.e.tomcat.GracefulShutdown - Graceful shutdown complete
+[2025-09-24 16:29:42:13620722][Thread-132] INFO  o.a.coyote.http11.Http11NioProtocol - Stopping ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:29:42:13620724][Thread-132] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 16:29:42:13620724][Thread-132] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-19 - Shutdown initiated...
+[2025-09-24 16:29:42:13620728][Thread-132] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-19 - Shutdown completed.
+[2025-09-24 16:29:42:13620797][restartedMain] INFO  i.back.back_app.BackAppApplication - Starting BackAppApplication using Java 21.0.7 with PID 4412 (C:\uiux_class\boot-workspace\back-app\bin\main started by ITSC in C:\uiux_class\boot-workspace\back-app)
+[2025-09-24 16:29:42:13620797][restartedMain] INFO  i.back.back_app.BackAppApplication - No active profile set, falling back to 1 default profile: "default"
+[2025-09-24 16:29:42:13620979][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2025-09-24 16:29:42:13621001][restartedMain] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+[2025-09-24 16:29:42:13621066][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 9090 (http)
+[2025-09-24 16:29:42:13621066][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:29:42:13621066][restartedMain] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+[2025-09-24 16:29:42:13621067][restartedMain] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.46]
+[2025-09-24 16:29:42:13621083][restartedMain] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+[2025-09-24 16:29:42:13621083][restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 284 ms
+[2025-09-24 16:29:42:13621110][restartedMain] INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[2025-09-24 16:29:42:13621114][restartedMain] INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+[2025-09-24 16:29:42:13621121][restartedMain] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+[2025-09-24 16:29:42:13621122][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-20 - Starting...
+[2025-09-24 16:29:42:13621125][restartedMain] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-20 - Added connection org.mariadb.jdbc.Connection@7247bd34
+[2025-09-24 16:29:42:13621125][restartedMain] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-20 - Start completed.
+[2025-09-24 16:29:42:13621126][restartedMain] WARN  org.hibernate.orm.deprecation - HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+[2025-09-24 16:29:42:13621126][restartedMain] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'p6SpyDataSourceDecorator [com.p6spy.engine.spy.P6DataSource] -> dataSource [com.zaxxer.hikari.HikariDataSource]']
+	Database driver: undefined/unknown
+	Database version: 11.8.2
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+[2025-09-24 16:29:42:13621197][restartedMain] INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[2025-09-24 16:29:42:13621199][restartedMain] INFO  p6spy - 25.09.24 16:29:42 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        table_name 
+    from
+        information_schema.TABLES 
+    where
+        table_schema=database() 
+        and table_type='SEQUENCE'
+[2025-09-24 16:29:42:13621212][restartedMain] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2025-09-24 16:29:42:13621294][restartedMain] INFO  o.s.s.c.a.a.c.InitializeAuthenticationProviderBeanManagerConfigurer$InitializeAuthenticationProviderManagerConfigurer - Global AuthenticationManager configured with AuthenticationProvider bean with name authProvider
+[2025-09-24 16:29:42:13621294][restartedMain] WARN  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+[2025-09-24 16:29:42:13621306][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore Deferred [Mvc [pattern='/static/imgs/**'], Ant [pattern='/static/imgs/**']]. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 16:29:42:13621306][restartedMain] WARN  o.s.s.c.a.web.builders.WebSecurity - You are asking Spring Security to ignore org.springframework.boot.autoconfigure.security.servlet.StaticResourceRequest$StaticResourceRequestMatcher@689c6ad3. This is not recommended -- please use permitAll via HttpSecurity#authorizeHttpRequests instead.
+[2025-09-24 16:29:42:13621326][restartedMain] INFO  o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729
+[2025-09-24 16:29:42:13621330][restartedMain] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9090"]
+[2025-09-24 16:29:42:13621332][restartedMain] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 9090 (http) with context path '/'
+[2025-09-24 16:29:43:13621333][restartedMain] INFO  i.back.back_app.BackAppApplication - Started BackAppApplication in 0.563 seconds (process running for 13621.663)
+[2025-09-24 16:29:43:13621334][restartedMain] INFO  o.s.b.d.a.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+[2025-09-24 16:34:58:13936986][http-nio-9090-exec-2] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2025-09-24 16:34:58:13936986][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[2025-09-24 16:34:58:13936987][http-nio-9090-exec-2] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+[2025-09-24 16:34:58:13936988][http-nio-9090-exec-2] INFO  it.back.back_app.filter.JWTFilter - accessToken is null
+[2025-09-24 16:34:58:13937065][http-nio-9090-exec-2] DEBUG org.hibernate.SQL - 
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id=?
+[2025-09-24 16:34:58:13937067][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 16:34:58 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        ue1_0.user_id,
+        ue1_0.addr,
+        ue1_0.addr_detail,
+        ue1_0.birth,
+        ue1_0.create_date,
+        ue1_0.del_yn,
+        ue1_0.email,
+        ue1_0.gender,
+        ue1_0.passwd,
+        ue1_0.phone,
+        ue1_0.user_role,
+        ue1_0.update_date,
+        ue1_0.use_yn,
+        ue1_0.user_name 
+    from
+        tb_users ue1_0 
+    where
+        ue1_0.user_id='admin'
+[2025-09-24 16:34:58:13937069][http-nio-9090-exec-2] INFO  p6spy - 25.09.24 16:34:58 | OperationTime : 0ms | 
+P6Spy sql: 
+
+[2025-09-24 16:35:28:13966465][http-nio-9090-exec-4] INFO  i.b.b.b.c.BoardRestController - ------------ 게시글 가져오기 -------------
+[2025-09-24 16:35:28:13966467][http-nio-9090-exec-4] WARN  org.hibernate.orm.query - HHH90003004: firstResult/maxResults specified with collection fetch; applying in memory
+[2025-09-24 16:35:28:13966467][http-nio-9090-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 16:35:28:13966469][http-nio-9090-exec-4] INFO  p6spy - 25.09.24 16:35:28 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        be1_0.brd_id,
+        be1_0.contents,
+        be1_0.create_date,
+        fl1_0.brd_id,
+        fl1_0.bf_id,
+        fl1_0.stored_name,
+        fl1_0.create_date,
+        fl1_0.file_name,
+        fl1_0.file_path,
+        fl1_0.file_size,
+        be1_0.like_count,
+        be1_0.read_count,
+        be1_0.title,
+        be1_0.update_date,
+        be1_0.writer 
+    from
+        board be1_0 
+    left join
+        board_files fl1_0 
+            on be1_0.brd_id=fl1_0.brd_id 
+    order by
+        be1_0.create_date desc
+[2025-09-24 16:35:28:13966476][http-nio-9090-exec-4] DEBUG org.hibernate.SQL - 
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 16:35:28:13966477][http-nio-9090-exec-4] INFO  p6spy - 25.09.24 16:35:28 | OperationTime : 0ms | 
+(P6Spy sql,Hibernate format):
+
+    select
+        count(be1_0.brd_id) 
+    from
+        board be1_0
+[2025-09-24 16:35:28:13966480][http-nio-9090-exec-4] INFO  p6spy - 25.09.24 16:35:28 | OperationTime : 0ms | 
+P6Spy sql: 
+
