@@ -1,7 +1,6 @@
 package it.back.back_app.filter;
 
 import java.io.IOException;
-import java.net.CookieManager;
 import java.util.Iterator;
 
 import org.json.JSONObject;
@@ -95,6 +94,7 @@ public class LoginFilter extends UsernamePasswordAuthenticationFilter{
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response,
             AuthenticationException failed) throws IOException, ServletException {
         
+        // response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         // http에 전달하는 status
         response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);

@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import it.back.back_app.board.entity.BoardEntity;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
@@ -25,7 +27,9 @@ public class BoardDTO {
 		private String writer;
 		private int readCount;
 		private int likeCount;
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 		private LocalDateTime createDate;
+        @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 		private LocalDateTime updateDate;
 
         public static Response of(BoardEntity entity) {

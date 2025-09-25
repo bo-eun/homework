@@ -35,4 +35,11 @@ public class BoardService {
 
         return resultMap;
     }
+
+    @Transactional(readOnly = true)
+    public BoardDTO.Detail getBoard(int brdId) {
+        BoardEntity entity = boardRepository.getBoard(brdId).orElseThrow(() -> new RuntimeException("찾는 게시글이 없음"));
+        
+        return BoardDTO.Detail.of(entity);
+    }
 }

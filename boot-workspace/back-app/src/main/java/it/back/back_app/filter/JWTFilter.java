@@ -62,7 +62,7 @@ public class JWTFilter extends OncePerRequestFilter {
         } catch(Exception e) {
             // response 한다
             PrintWriter writer = response.getWriter();
-            writer.println("토큰일 유효하지 않습니다.");
+            writer.println("토큰이 유효하지 않습니다.");
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
             return; // 함수 종료
         }

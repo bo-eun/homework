@@ -1,5 +1,12 @@
 #서버 포트 설정
 server:
+  # 문자 인코딩
+  servlet:
+    encoding:
+      charset: "UTF-8"
+      enabled: true
+      force: true
+      force-request: true
   port: 9090
   file:
     upload:

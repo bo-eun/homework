@@ -8,10 +8,12 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import it.back.back_app.board.dto.ApiResponse;
+import it.back.back_app.board.dto.BoardDTO;
 import it.back.back_app.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +32,15 @@ public class BoardRestController {
         log.info("------------ 게시글 가져오기 -------------");
         Map<String, Object> resultMap = boardService.getBoardList(pageable);
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+    }
+
+    @GetMapping("/board/{brdId}")
+    public ResponseEntity<ApiResponse<BoardDTO.Detail>> getBoard(@PathVariable(value="brdId") int brdId) throws Exception {
+
+        log.info("------------ "+ brdId+" 번 글 가져오기 -------------");
+        BoardDTO.Detail detail = boardService.getBoard(brdId);
+
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(detail));
     }
 
 }
