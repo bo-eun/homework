@@ -36,7 +36,7 @@ function MenuBar(props) {
                                 <>
                                     <NavDropdown title={userName} id="navbarScrollDropdown">
                                         <NavDropdown.Item href="#">회원정보</NavDropdown.Item>
-                                        <NavDropdown.Item onClick={handleLogout}>회원정보</NavDropdown.Item>
+                                        <NavDropdown.Item onClick={handleLogout}>로그아웃</NavDropdown.Item>
                                     </NavDropdown>
                                 </>
                             ) :

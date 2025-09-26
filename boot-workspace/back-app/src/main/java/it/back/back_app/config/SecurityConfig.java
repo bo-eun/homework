@@ -31,7 +31,6 @@ import lombok.RequiredArgsConstructor;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -112,7 +111,8 @@ public class SecurityConfig {
         config.setAllowedHeaders(List.of("*"));
         // 메서드 설정
         config.setAllowedMethods(List.of("GET", "POST", "DELETE", "PUT", "PATCH", "OPTIONS"));
-        config.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:4000"));
+        config.setAllowedOrigins(List.of("http://localhost:3000", "http://localhost:4000", "http://localhost:3001", "http://localhost:4001"));
+        // config.setAllowedOriginPatterns(List.of("*")); 
         config.setAllowCredentials(true);
         config.setMaxAge(3600L);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

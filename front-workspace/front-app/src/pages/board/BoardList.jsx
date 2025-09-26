@@ -3,13 +3,15 @@ import Pagination from '../../components/Pagination';
 import "../../assets/css/boardList.css";
 import { useQuery } from '@tanstack/react-query';
 import { boardAPI } from '../../service/boardService';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 function BoardList(props) {
 
     const [page, setPage] = useState(0);
     const [boardList, setBoardList] = useState([]);
     const [totalRows, setTotalRows] = useState(0);
+
+    const navigate = useNavigate();
 
     const { data, isLoading, error } = useQuery({
         queryKey: ['board', page],
@@ -29,13 +31,20 @@ function BoardList(props) {
         setPage(pageNum);
     };
 
+    const goWrite = () => {
+        navigate("/board/add");
+    }
+
     return (
         <>
             <main className='board container'>
-                <header className="header">
+                <header className="header mt-5 mb-3">
                     <h2>게시글 리스트</h2>
                 </header>
                 <section className="contents">
+                    <div className="text-end mb-3">
+                        <button type="button" className='btn btn-outline-primary' onClick={goWrite}>등록</button>
+                    </div>
                     <table className="table">
                         <colgroup>
                             <col width="10%" />
