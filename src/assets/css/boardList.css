@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.board.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contents {
+  width: 100%;
+  min-height: 500px;
+  margin-bottom: 20px;
+}
