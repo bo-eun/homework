@@ -29,7 +29,7 @@ public class BoardService {
     private final FileUtils fileUtils;
     private final BoardFileRepository boardFileRepository;
 
-    @Value("${server.file.upload.path}")
+    @Value("${server.file.review.path}")
     String filePath;
 
     @Transactional(readOnly = true)

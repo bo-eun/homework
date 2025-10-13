@@ -113,10 +113,25 @@ a:active {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="file"] {
   padding-left: 10px;
   padding-right: 10px;
   box-sizing: border-box;
+  height: 40px;
+}
+
+input[type="file"] {
+  line-height: 30px;
+}
+select {
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+button {
+  height: 40px;
 }
 
 dl {

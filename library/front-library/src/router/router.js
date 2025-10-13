@@ -2,6 +2,9 @@ import { createBrowserRouter } from "react-router";
 import Layout from "../pages/Layout";
 import Main from "../pages/Main";
 import Login from "../pages/login/Login";
+import BookList from "../pages/admin/list/BookList";
+import AdminLayout from "../pages/admin/AdminLayout";
+import AddBook from "../pages/admin/upload/AddBook";
 
 export const router = createBrowserRouter([
   {
@@ -13,8 +16,23 @@ export const router = createBrowserRouter([
         index: true,
       },
       {
-        path: "/login",
+        path: "login",
         Component: Login,
+      },
+    ],
+  },
+
+  {
+    path: "/admin",
+    Component: AdminLayout,
+    children: [
+      {
+        Component: BookList,
+        index: true,
+      },
+      {
+        path: "add",
+        Component: AddBook,
       },
     ],
   },

@@ -9,10 +9,10 @@ server:
       force-request: true
   port: 9090
   file:
-    upload:
-      path: C:\\files\\upload\\board\\
-    gallery:
-      path: C:\\files\\upload\\gallery\\
+    book:
+      path: C:\\files\\upload\\book\\
+    review:
+      path: C:\\files\\upload\\review\\
 
 spring:
   main:

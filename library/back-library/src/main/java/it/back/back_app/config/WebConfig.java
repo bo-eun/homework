@@ -20,7 +20,7 @@ import jakarta.servlet.MultipartConfigElement;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Value("${server.file.gallery.path}")
+    @Value("${server.file.book.path}")
     private String filePath;
 
     // resource 경로 설정
@@ -28,7 +28,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
-        registry.addResourceHandler("/static/imgs/**")
+        registry.addResourceHandler("/static/images/**")
         .addResourceLocations("file:" + filePath)
         .setCachePeriod(0)
         .resourceChain(true)

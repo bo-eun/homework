@@ -67,6 +67,7 @@ public class SecurityConfig {
             .httpBasic(AbstractHttpConfigurer::disable)
             .formLogin(AbstractHttpConfigurer::disable) // 세션 로그인할 때 필요
             .authorizeHttpRequests(auth -> auth.dispatcherTypeMatchers(DispatcherType.FORWARD).permitAll()
+                                            .requestMatchers("/api/v1/books/**").permitAll()
                                             .requestMatchers("/api/v1/login/**").permitAll()
                                             .requestMatchers("/api/v1/logout/**").permitAll()
                                             .requestMatchers("/api/v1/refresh").permitAll()
