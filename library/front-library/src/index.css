@@ -130,8 +130,14 @@ select {
   padding-right: 10px;
 }
 
-button {
+button,
+a.btn {
   height: 40px;
+}
+
+button.btn-lg,
+a.btn-lg {
+  height: 50px;
 }
 
 dl {
@@ -143,4 +149,8 @@ dt {
 }
 dd {
   margin: 0;
+}
+
+input:read-only {
+  background: #eee;
 }

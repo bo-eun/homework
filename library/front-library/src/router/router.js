@@ -5,6 +5,7 @@ import Login from "../pages/login/Login";
 import BookList from "../pages/admin/list/BookList";
 import AdminLayout from "../pages/admin/AdminLayout";
 import AddBook from "../pages/admin/upload/AddBook";
+import Join from "../pages/login/Join";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
       {
         path: "login",
         Component: Login,
+      },
+      {
+        path: "join",
+        Component: Join,
       },
     ],
   },

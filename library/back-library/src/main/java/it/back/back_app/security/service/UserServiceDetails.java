@@ -21,7 +21,7 @@ public class UserServiceDetails implements UserDetailsService{
 
         UserEntity user = userRepository.findById(username).orElseThrow(() -> new UsernameNotFoundException(username + "을 찾을 수 없습니다."));
 
-        return new UserSecureDTO(user.getUserId(), user.getUserName(), user.getPasswd(), user.getRole().getRoleId());
+        return new UserSecureDTO(user.getUserId(), user.getName(), user.getPassword(), user.getRole().name());
     }
 
 }
