@@ -66,10 +66,13 @@ public class UserDTO {
                     .name(entity.getName())
                     .password(entity.getPassword())
                     .email(entity.getEmail())
+                    .phone(entity.getPhone())
                     .address(entity.getAddress())
                     .addressDetail(entity.getAddressDetail())
                     .cache(entity.getCache())
                     .role(entity.getRole().name())
+                    .createDate(entity.getCreateDate())
+                    .updateDate(entity.getUpdateDate())
                     .build();
         }
 
@@ -79,6 +82,7 @@ public class UserDTO {
                 .name(detail.getName())
                 .password(detail.getPassword())
                 .email(detail.getEmail())
+                .phone(detail.getPhone())
                 .address(detail.getAddress())
                 .addressDetail(detail.getAddressDetail())
                 .cache(detail.getCache())
@@ -94,7 +98,7 @@ public class UserDTO {
     @Data
     public static class Request {
         @NotBlank(message="아이디는 필수 항목입니다.")
-        private String id;
+        private String userId;
         @NotBlank(message="이름은 필수 항목입니다.")
         private String name;
         @NotBlank(message="이메일은 필수 항목입니다.")

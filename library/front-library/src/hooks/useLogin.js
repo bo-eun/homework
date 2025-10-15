@@ -36,7 +36,7 @@ export const useLogin = () => {
   const joinMutation = useMutation({
     mutationFn: async (userInfo) => {
       try {
-        const response = await api.post("/api/v1/join", userInfo, {
+        const response = await api.post("/api/v1/user", userInfo, {
           headers: { "Content-Type": "application/json" },
         });
 
@@ -46,7 +46,7 @@ export const useLogin = () => {
       }
     },
     onSuccess: (data) => {
-      console.log(data);
+      alert("회원가입이 완료되었습니다.");
 
       navigate("/login");
     },

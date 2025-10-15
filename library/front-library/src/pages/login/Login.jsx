@@ -12,7 +12,6 @@ const schema = yup.object({
 });
 
 function Login(props) {
-
   const {
     register,
     handleSubmit,
@@ -38,7 +37,7 @@ function Login(props) {
   };
 
   return (
-    <Container className="w-25 vh-100">
+    <Container className="vh-100" style={{ maxWidth: "500px" }}>
       <h2 className="text-center">로그인</h2>
       <div className="login_box">
         <form action="" onSubmit={handleSubmit(goLogin)} autoComplete="off">
@@ -46,22 +45,30 @@ function Login(props) {
             <label htmlFor="id" className="form-label">
               아이디
             </label>
-            <input type="text"
-              className={`form-control ${errors.username ? 'is-invalid' : ''}`}
-              id='username' {...register('username')}
+            <input
+              type="text"
+              className={`form-control ${errors.username ? "is-invalid" : ""}`}
+              id="username"
+              {...register("username")}
             />
-            {errors.username && <div className='invalid-feedback'>{errors.username.message}</div>}
+            {errors.username && (
+              <div className="invalid-feedback">{errors.username.message}</div>
+            )}
           </div>
 
           <div className="mt-3">
             <label htmlFor="password" className="form-label">
               비밀번호
             </label>
-            <input type="password"
-              className={`form-control ${errors.password ? 'is-invalid' : ''}`}
-              id='password' {...register('password')}
+            <input
+              type="password"
+              className={`form-control ${errors.password ? "is-invalid" : ""}`}
+              id="password"
+              {...register("password")}
             />
-            {errors.password && <div className='invalid-feedback'>{errors.password.message}</div>}
+            {errors.password && (
+              <div className="invalid-feedback">{errors.password.message}</div>
+            )}
           </div>
           <div className="text-center mt-4">
             <button type="submit" className="btn btn-dark btn-lg w-100 py-3">

@@ -1,9 +1,9 @@
 package it.back.back_app.books.entity;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import it.back.back_app.common.domain.BaseEntity;
 import jakarta.persistence.CascadeType;
@@ -15,17 +15,22 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
+@Builder
 @Table(name="book")
 public class BookEntity extends BaseEntity {
     @Id
@@ -39,23 +44,23 @@ public class BookEntity extends BaseEntity {
     private int stock;
     private String intro;
     private String shortIntro;
-    private LocalDate publicationDate;
 
-    // book_author은 book_id, author_id만 있는 순수 연결 테이블이기 때문에 entity를 만들지 않아도 됨
-    // @ManyToMany가 자동으로 매핑해준다. 
-    // 다른 컬럼이 있을 경우 entity를 만들어야함
-    @ManyToMany
-    @JoinTable(
-        name = "book_author",
-        joinColumns = @JoinColumn(name = "book_id"),
-        inverseJoinColumns = @JoinColumn(name = "author_id")
-    )
-    private List<AuthorEntity> authors = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "publishing_id")
     private PublishingHouseEntity publishingHouse;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id")
+    private AuthorEntity author;
+
+    @Builder.Default
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<BookImageEntity> bookImages;
+    private Set<BookImageEntity> bookImages = new HashSet<>();
+
+    public void addFiles(BookImageEntity entity) {
+        if(bookImages == null) this.bookImages = new HashSet<>();
+        entity.setBook(this);
+        bookImages.add(entity);
+    }
 }

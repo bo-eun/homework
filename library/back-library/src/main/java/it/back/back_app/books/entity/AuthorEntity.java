@@ -11,7 +11,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,7 +32,7 @@ public class AuthorEntity extends BaseEntity {
     private Nationality nationality;
     private LocalDate birthDate;
     
-    @ManyToMany(mappedBy = "authors")
+    @OneToMany(mappedBy = "author")
     private List<BookEntity> books = new ArrayList<>();
 
 }

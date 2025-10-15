@@ -5,7 +5,6 @@ import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,11 +25,11 @@ public class UserRestController {
     private final UserService userService;
     
     /* 회원가입 */
-    @PostMapping("/join")
+    @PostMapping("/user")
     public ResponseEntity<ApiResponse<Map<String, Object>>> createUser(@RequestBody UserDTO.Detail userDTO) throws Exception {
         try {
             log.info("------------ 회원 가입하기 -------------");
-            log.info("name : {}", userDTO.getName());
+            log.info("phone : {}", userDTO.getPhone());
             Map<String, Object> resultMap = userService.createUser(userDTO);
             return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
         } catch (RuntimeException e) {

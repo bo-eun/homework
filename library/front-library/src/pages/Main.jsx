@@ -12,9 +12,8 @@ function Main(props) {
   const [page, setPage] = useState(0);
   const [recommendBooks, setRecommendBooks] = useState([]);
 
-
   const { data, isLoading, error } = useQuery({
-    queryKey: ['book', page],
+    queryKey: ["book", page],
     queryFn: () => bookAPI.list(page),
   });
 
@@ -23,7 +22,7 @@ function Main(props) {
       console.log(data);
       setRecommendBooks(data.content);
     }
-  }, [data])
+  }, [data]);
 
   return (
     <>
@@ -50,22 +49,24 @@ function Main(props) {
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              {recommendBooks.length > 0 && recommendBooks.map((book) => {
-                return <SwiperSlide>
-                  <div className="d-flex">
-                    <div className="img_box">
-                      <img />
-                    </div>
-                    <div className="info_box">
-                      <p className="title">{book.bookName}</p>
-                      <p className="writer">{book.authorNames.join(', ')}</p>
-                      <p className="">{book.shortIntro}</p>
-                      <p>{book.intro}</p>
-                    </div>
-
-                  </div>
-                </SwiperSlide>
-              })}
+              {recommendBooks.length > 0 &&
+                recommendBooks.map((book) => {
+                  return (
+                    <SwiperSlide>
+                      <div className="d-flex">
+                        <div className="img_box">
+                          <img />
+                        </div>
+                        <div className="info_box">
+                          <p className="title">{book.bookName}</p>
+                          <p className="writer">{book.authorNames}</p>
+                          <p className="">{book.shortIntro}</p>
+                          <p>{book.intro}</p>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
             </Swiper>
           </div>
         </section>

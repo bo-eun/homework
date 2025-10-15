@@ -1,32 +1,73 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { bookAPI } from "../service/bookService";
+import { useNavigate } from "react-router";
+import api from "../api/axiosApi";
 
 export const useBooks = () => {
-  const queryClient = useQueryClient;
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
 
-  const createBook = useMutation({
-    mutationFn: (formData) => bookAPI.create(formData),
+  const createMutation = useMutation({
+    mutationFn: async (formData) => {
+      try {
+        const response = await api.post("/api/v1/book", formData);
+
+        return response.data;
+      } catch (error) {
+        throw error.response?.data || error;
+      }
+    },
+
     onSuccess: () => {
       console.log("등록 완료");
-      queryClient.invalidateQueries({ queryKey: ["book", 0] });
+      queryClient.invalidateQueries({ queryKey: ["book"] });
+      navigate("/admin");
+    },
+    onError: (error) => {
+      console.error("등록 실패", error);
     },
   });
 
-  const updateBook = useMutation({
-    mutationFn: (formData) => bookAPI.update(formData),
+  const updateMutation = useMutation({
+    mutationFn: async (formData) => {
+      try {
+        const response = await api.put("/api/v1/book", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
+
+        return response.data;
+      } catch (error) {
+        throw error.response?.data || error;
+      }
+    },
     onSuccess: () => {
-      console.log("업데이트 완료");
-      queryClient.invalidateQueries({ queryKey: ["book", 0] });
+      console.log("수정 완료");
+      queryClient.invalidateQueries({ queryKey: ["book"] });
+      navigate("/admin");
+    },
+    onError: (error) => {
+      console.error("수정 실패", error);
     },
   });
 
-  const deleteBook = useMutation({
-    mutationFn: (brdId) => bookAPI.delete(brdId),
+  const deleteMutation = useMutation({
+    mutationFn: async (bookId) => {
+      try {
+        const response = await api.delete(`/api/v1/book?bookId=${bookId}`);
+
+        return response.data;
+      } catch (error) {
+        throw error.response?.data || error;
+      }
+    },
     onSuccess: () => {
       console.log("삭제 완료");
-      queryClient.invalidateQueries({ queryKey: ["book", 0] });
+      queryClient.invalidateQueries({ queryKey: ["book"] });
+      navigate("/admin");
+    },
+    onError: (error) => {
+      console.error("삭제 실패", error);
     },
   });
 
-  return { createBook, updateBook, deleteBook };
+  return { createMutation, updateMutation, deleteMutation };
 };

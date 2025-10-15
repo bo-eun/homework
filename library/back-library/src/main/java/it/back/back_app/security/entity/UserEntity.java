@@ -7,14 +7,18 @@ import jakarta.persistence.Enumerated;
 
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name="users")
 public class UserEntity extends BaseEntity{
     @Id
@@ -27,6 +31,7 @@ public class UserEntity extends BaseEntity{
     private String addressDetail;
     private int cache;
     @Enumerated(EnumType.STRING)
+    @Builder.Default
     private UserRole role = UserRole.USER;
 
 }

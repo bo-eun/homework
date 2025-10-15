@@ -1,4 +1,4 @@
-package it.back.back_app.books.entity;
+package it.back.back_app.board.entity;
 
 import java.time.LocalDateTime;
 
@@ -10,31 +10,31 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+@Entity
+@Table(name="review_file")
 @Getter
 @Setter
-@Entity
-@Table(name="book_image")
-public class BookImageEntity {
+public class ReviewFileEntity {
+
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private int imageId;
-    
-    private String fileName;
-    private String storedName;
-    private String filePath;
-    private String fileThumbName;
-    private Long fileSize; 
-    
+    private int fileId;
 
-    @Column(name = "create_date", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
+    private String fileName;
+    private String StoredName;
+    private String filePath;
+
+    // DB에 default value를 설정했지만 entity에서 값이 없을 경우 DB에 null이 들어갈 수 있음
+    // 이 문제를 예방하기 위해 Auditing 기능 사용
+    @Column(updatable = false) // 업데이트 막음
     private LocalDateTime createDate;
 
+    // 게시글 레이지 매핑
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "book_id")
-    private BookEntity book;
+    @JoinColumn(name = "review_id")
+    private ReviewEntity review;
 }
