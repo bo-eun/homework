@@ -17,5 +17,7 @@ public interface UserRepository extends JpaRepository<UserEntity, String>, JpaSp
 
     @EntityGraph(attributePaths ={"role"})
     Page<UserEntity> findAll(Specification<UserEntity> userSearchSpecification, Pageable pageable);
+
+    boolean existsByUserId(String userId);
     
 }

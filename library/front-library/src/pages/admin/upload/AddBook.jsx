@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
+import CommonModal from '../../../components/CommonModal';
+import AuthorForm from '../../../components/admin/AuthorForm';
+import PublishingForm from '../../../components/admin/PublishingForm';
 
 function AddBook(props) {
+    const [show, setShow] = useState(false);
+    const [modalTitle, setModalTitle] = useState("");
+    const handleClose = () => setShow(false);
+    const handleShow = (title) => {
+        setShow(true);
+        setModalTitle(title);
+    }
     return (
         <>
             <h2 className='title text-center mb-5'>도서 등록</h2>
@@ -30,7 +40,7 @@ function AddBook(props) {
                                     <option value="1">1</option>
                                 </select>
                             </div>
-                            <button type="button" className='btn btn-light col-2'>추가</button>
+                            <button type="button" className='btn btn-light col-2' onClick={() => handleShow("출판사 등록")}>추가</button>
                         </div>
                     </div>
                     <div className="row mb-2">
@@ -41,7 +51,7 @@ function AddBook(props) {
                                     <option value="1">1</option>
                                 </select>
                             </div>
-                            <button type="button" className='btn btn-light col-2'>추가</button>
+                            <button type="button" className='btn btn-light col-2' onClick={() => handleShow('저자 등록')}>추가</button>
                         </div>
                     </div>
                     <div className="row mb-2">
@@ -73,12 +83,15 @@ function AddBook(props) {
                         </div>
 
                     </div>
-                    <div className="btn_box d-flex justify-content-center gap-2 mt-4">
-                        <button type="submit" className='btn btn-dark w-100'>등록</button>
-                        <button type="submit" className='btn btn-outline-dark w-100'>취소</button>
+                    <div className="btn_box d-flex justify-content-center gap-2 my-4">
+                        <button type="submit" className='btn btn-dark btn-lg w-25'>등록</button>
+                        <button type="submit" className='btn btn-outline-dark btn-lg w-25'>취소</button>
                     </div>
                 </form>
             </Container>
+            <CommonModal show={show} handleClose={handleClose} title={modalTitle}>
+                {modalTitle == '저자 등록' ? <AuthorForm /> : <PublishingForm />}
+            </CommonModal>
         </>
     );
 }

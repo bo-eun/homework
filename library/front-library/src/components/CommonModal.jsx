@@ -12,6 +12,7 @@ function CommonModal({ show, handleClose, title, children }) {
             <Modal.Body>
                 {children}
             </Modal.Body>
+
         </Modal>
     );
 }

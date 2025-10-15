@@ -27,6 +27,6 @@ public class UserEntity extends BaseEntity{
     private String addressDetail;
     private int cache;
     @Enumerated(EnumType.STRING)
-    private UserRole role;
+    private UserRole role = UserRole.USER;
 
 }

@@ -23,11 +23,13 @@ public class UserService {
     public Map<String, Object> createUser(UserDTO.Detail dto) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
 
-        UserEntity checkUser = userRepository.findById(dto.getUserId()).orElse(null);
-
-        if(checkUser != null) {
-            throw new RuntimeException("해당 사용자가 존재함");
+        if(dto.getUserId() == null || dto.getUserId().trim().isEmpty()) {
+            throw new IllegalArgumentException("사용자 ID는 필수 입력값입니다.");
         }
+
+        if (userRepository.existsByUserId(dto.getUserId())) {
+        throw new RuntimeException("이미 존재하는 사용자 ID입니다.");
+    }
          
         UserEntity entity = UserDTO.Detail.to(dto);
         // 비밀번호 암호화

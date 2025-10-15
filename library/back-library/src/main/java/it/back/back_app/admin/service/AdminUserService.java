@@ -15,7 +15,6 @@ import it.back.back_app.admin.dto.AdminUserSearchDTO;
 import it.back.back_app.admin.repository.AdminUserRepository;
 import it.back.back_app.admin.repository.AdminUserSearchSpecification;
 import it.back.back_app.security.entity.UserEntity;
-import it.back.back_app.security.repository.UserRepository;
 import it.back.back_app.user.dto.UserDTO;
 import lombok.RequiredArgsConstructor;
 
@@ -44,14 +43,14 @@ public class AdminUserService {
 
     /* 검색한 유저 리스트 */
     @Transactional
-    public Map<String, Object> getUserList(Pageable pageable, AdminUserSearchDTO searchDTO) {
-        Map<String, Object> resultMap = new HashMap<>();
+    public Map<String, Object> getUserList(AdminUserSearchDTO searchDTO, Pageable pageable) {
+       Map<String, Object> resultMap = new HashMap<>();
         
         Page<UserEntity> pageList = null;
 
         AdminUserSearchSpecification adminUserSearchSpecification = new AdminUserSearchSpecification(searchDTO);
    
-        pageList = adminUserRepository.findAll(adminUserSearchSpecification);
+        pageList = adminUserRepository.findAll(adminUserSearchSpecification, pageable);
 
         List<UserDTO.Response> list = pageList.getContent().stream().map(UserDTO.Response::of).toList();
 
@@ -63,10 +62,10 @@ public class AdminUserService {
     }
 
     @Transactional
-    public UserDTO getUser(String userId) throws Exception {
-        AdminUserProjection user = adminUserRepository.getUserById(userId).orElseThrow(() -> new RuntimeException("사용자 없음"));
+    public UserDTO.Detail getUser(String userId) throws Exception {
+        UserEntity user = adminUserRepository.getUserByUserId(userId).orElseThrow(() -> new RuntimeException("사용자 없음"));
 
-        return UserDTO.of(user);
+        return UserDTO.Detail.of(user);
     }
 
     /* 유저 정보 수정 */

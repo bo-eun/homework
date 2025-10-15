@@ -37,7 +37,7 @@ export const useLogin = () => {
     mutationFn: async (userInfo) => {
       try {
         const response = await api.post("/api/v1/join", userInfo, {
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          headers: { "Content-Type": "application/json" },
         });
 
         return response.data;

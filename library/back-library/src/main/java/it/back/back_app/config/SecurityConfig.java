@@ -70,6 +70,7 @@ public class SecurityConfig {
                                             .requestMatchers("/api/v1/books/**").permitAll()
                                             .requestMatchers("/api/v1/login/**").permitAll()
                                             .requestMatchers("/api/v1/logout/**").permitAll()
+                                            .requestMatchers("/api/v1/join/**").permitAll()
                                             .requestMatchers("/api/v1/refresh").permitAll()
                                             .anyRequest().authenticated()
             // LoginFilter 전에 JWTFilter를 실행

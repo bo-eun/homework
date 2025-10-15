@@ -1,24 +1,22 @@
-
 import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import DaumPostcode from 'react-daum-postcode';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
-import { Link } from "react-router";
-import { Container } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
-import CommonModal from '../../components/CommonModal';
 import { useLogin } from '../../hooks/useLogin';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
+import CommonModal from '../CommonModal';
 
 const schema = yup.object({
-    userId: yup.string().required("아이디를 입력하세요"),
     password: yup.string().required("비밀번호를 입력하세요"),
     name: yup.string().required("이름을 입력하세요"),
     email: yup.string().required("이메일 주소를 입력하세요"),
     phone: yup.string().required("휴대폰번호를 입력하세요"),
 });
 
-function Join(props) {
 
+function UserForm(props) {
     const [show, setShow] = useState(false);
 
     const [address, setAddress] = useState('');
@@ -28,11 +26,11 @@ function Join(props) {
     const handleShow = () => setShow(true);
 
     const { joinMutation } = useLogin();
+    const navigate = useNavigate();
 
     const {
         register,
         handleSubmit,
-        setValue,
         formState: { errors },
     } = useForm({ resolver: yupResolver(schema) });
 
@@ -41,7 +39,6 @@ function Join(props) {
         const { address, zonecode } = data;
         setAddress(address);
         setZonecode(zonecode);
-        setValue("address", address);
     };
 
     const goJoin = async (formData) => {
@@ -54,16 +51,15 @@ function Join(props) {
         }
     };
     return (
-        <>
-            <Container className='w-25 mt-5'>
-                <h2 className='text-center'>회원가입</h2>
+        <section>
+            <h2 className="text-center">회원정보 수정</h2>
+            <Container className='w-md-50'>
                 <form action="" name="joinFrm" id="joinFrm" className='mb-5' onSubmit={handleSubmit(goJoin)} autoComplete="off">
                     <div className="mt-5">
-                        <label htmlFor="userId" className="form-label">
+                        <label htmlFor="id" className="form-label">
                             아이디
                         </label>
-                        <input type="text" id="userId" name="userId" {...register("userId")} className={`form-control ${errors.userId ? 'is-invalid' : ''}`} />
-                        {errors.userId && <div className='invalid-feedback'>{errors.userId.message}</div>}
+                        <input type="text" id="id" name="id" className="form-control" readOnly value="" />
                     </div>
 
                     <div className="mt-3">
@@ -74,7 +70,6 @@ function Join(props) {
                             type="password"
                             id="password"
                             name="password"
-                            {...register("password")}
                             className={`form-control ${errors.password ? 'is-invalid' : ''}`}
                         />
                         {errors.password && <div className='invalid-feedback'>{errors.password.message}</div>}
@@ -87,7 +82,6 @@ function Join(props) {
                             type="text"
                             id="name"
                             name="name"
-                            {...register("name")}
                             className={`form-control ${errors.name ? 'is-invalid' : ''}`}
                         />
                         {errors.name && <div className='invalid-feedback'>{errors.name.message}</div>}
@@ -102,7 +96,6 @@ function Join(props) {
                                     type="text"
                                     name="email"
                                     id="email"
-                                    {...register("email")}
                                     className={`form-control w-100 ${errors.email ? 'is-invalid' : ''}`}
                                 />
                             </div>
@@ -125,7 +118,6 @@ function Join(props) {
                             type="text"
                             id="phone"
                             name="phone"
-                            {...register("phone")}
                             className={`form-control w-100 ${errors.phone ? 'is-invalid' : ''}`}
                         />
                         {errors.phone && <div className='invalid-feedback'>{errors.phone.message}</div>}
@@ -136,17 +128,17 @@ function Join(props) {
                         </label>
                         <div className="row">
                             <div className="col-9">
-                                <input type="text" id="address" name="address" className="form-control w-100"
-                                    {...register("address")} value={address} readOnly />
+                                <input type="text" id="address" name="address" className="form-control w-100" value={address} readOnly />
                             </div>
                             <div className="col-3">
                                 <button type="button" onClick={handleShow} className='btn btn-dark w-100'>주소찾기</button>
                             </div>
                         </div>
-                        <input type="text" id="subAddress" name="subAddress" className='form-control mt-2' {...register("addressDetail")} placeholder='상세주소 입력' />
+                        <input type="text" id="subAddress" name="subAddress" className='form-control mt-2' placeholder='상세주소 입력' />
                     </div>
-                    <div className="btn_box mt-3">
-                        <button type='submit' className='btn btn-lg btn-dark w-100'>회원가입</button>
+                    <div className="btn_box mt-5 text-center">
+                        <button type='submit' className='btn btn-lg btn-dark w-25'>수정</button>
+                        <button type='button' className='btn btn-lg btn-light w-25 ms-2' onClick={() => navigate('/admin/user')}>취소</button>
                     </div>
 
                 </form>
@@ -154,8 +146,8 @@ function Join(props) {
             <CommonModal show={show} handleClose={handleClose} title="주소찾기">
                 <DaumPostcode onComplete={completeHandler} onClose={() => setShow(false)} />
             </CommonModal>
-        </>
+        </section>
     );
 }
 
-export default Join;
+export default UserForm;

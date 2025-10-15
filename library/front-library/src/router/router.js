@@ -2,10 +2,13 @@ import { createBrowserRouter } from "react-router";
 import Layout from "../pages/Layout";
 import Main from "../pages/Main";
 import Login from "../pages/login/Login";
-import BookList from "../pages/admin/list/BookList";
+import BookList from "../pages/admin/book/BookList";
 import AdminLayout from "../pages/admin/AdminLayout";
 import AddBook from "../pages/admin/upload/AddBook";
 import Join from "../pages/login/Join";
+import UserList from "../pages/admin/users/UserList";
+import UserForm from "../components/admin/userForm";
+import Policy from "../pages/admin/Policy";
 
 export const router = createBrowserRouter([
   {
@@ -32,12 +35,24 @@ export const router = createBrowserRouter([
     Component: AdminLayout,
     children: [
       {
+        path: "book",
         Component: BookList,
-        index: true,
       },
       {
-        path: "add",
+        path: "book/add",
         Component: AddBook,
+      },
+      {
+        path: "user",
+        Component: UserList,
+      },
+      {
+        path: "user/update",
+        Component: UserForm,
+      },
+      {
+        path: "policy",
+        Component: Policy,
       },
     ],
   },

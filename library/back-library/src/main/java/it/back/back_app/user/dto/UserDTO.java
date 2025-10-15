@@ -82,7 +82,7 @@ public class UserDTO {
                 .address(detail.getAddress())
                 .addressDetail(detail.getAddressDetail())
                 .cache(detail.getCache())
-                .role(UserRole.valueOf(detail.getRole()))
+                .role(detail.getRole() == null ? UserRole.USER : UserRole.valueOf(detail.getRole()))
                 .build();
         }
 
