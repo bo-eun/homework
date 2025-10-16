@@ -1,0 +1,78 @@
+.detail_box {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+.detail_box .left_box .img_box {
+  background: #f7f7f7;
+  min-height: 500px;
+  width: 100%;
+}
+.detail_box .left_box .img_box img {
+  height: auto;
+}
+
+.detail_box .right_box .info_box {
+  font-size: 16px;
+}
+.detail_box .right_box .info_box .title {
+  font-size: 26px;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+.detail_box .right_box .price_box {
+  font-size: 20px;
+}
+.detail_box .right_box .price_box .counter button {
+  border: 1px solid #c9c9c9;
+  width: 45px;
+  background: #fff;
+}
+.detail_box .right_box .price_box .counter input {
+  width: 60px;
+  border: 1px solid #c9c9c9;
+  border-left: none;
+  border-right: none;
+  text-align: center;
+}
+
+.detail_cont .detail_menu {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #f7f7f7;
+}
+
+.detail_cont .detail_menu li {
+  width: 220px;
+  padding: 10px 0;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.detail_cont .detail_info_box h3 {
+  font-size: 20px;
+  padding: 20px 0 20px;
+}
+
+.detail_cont .detail_table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.detail_cont .detail_info_cont {
+  width: 100%;
+  grid-template-columns: 5fr 2fr;
+  gap: 50px;
+}
+
+.detail_cont .float_menu {
+  position: sticky;
+  top: 0;
+  right: 0;
+  border: 1px solid #eee;
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 16px;
+}
