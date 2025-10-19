@@ -1,12 +1,13 @@
 .detail_box {
+  padding-top: 40px;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
 
 .detail_box .left_box .img_box {
   background: #f7f7f7;
-  min-height: 500px;
   width: 100%;
+  text-align: center;
 }
 .detail_box .left_box .img_box img {
   height: auto;
@@ -93,4 +94,9 @@
 .nav-tabs .nav-link:focus,
 .nav-tabs .nav-link:hover {
   border-bottom: 2px solid #222;
+}
+
+.user_list li span {
+  font-size: 14px;
+  color: #888;
 }

@@ -7,12 +7,9 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -31,55 +28,59 @@ public class BookRestController {
 
     private final BookService bookservice;
 
-    @GetMapping("/book")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> getBookList(
+    @GetMapping("/book/recommend")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getRecommendMain() throws Exception {
+        log.info("------------ 메인 추천책 리스트 가져오기 -------------");
+        Map<String, Object> resultMap = bookservice.getRecommendMain();
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+    }
+
+    @GetMapping("/book/newList")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getNewMain() throws Exception {
+        log.info("------------ 메인 신상 책 리스트 가져오기 -------------");
+        Map<String, Object> resultMap = bookservice.getNewMain();
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+    }  
+
+    @GetMapping("/book/bestList")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getBestMain() throws Exception {
+        log.info("------------ 메인 베스트 책 리스트 가져오기 -------------");
+        Map<String, Object> resultMap = bookservice.getBestMain();
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+    }       
+
+
+
+    @GetMapping("/book/list/recommend")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getRecommendList(
                 @PageableDefault(size=10, page=0, sort="createDate", direction=Direction.DESC) Pageable pageable) throws Exception {
-        log.info("------------ 책 리스트 가져오기 -------------");
-        Map<String, Object> resultMap = bookservice.getBookList(pageable);
+        log.info("------------ 추천책 리스트 가져오기 -------------");
+        Map<String, Object> resultMap = bookservice.getRecommendList(pageable);
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
     }
 
-    @PostMapping("/book")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> createBook(@ModelAttribute BookDTO.Request request) throws Exception {
-        log.info("------------ 책 등록 -------------");
-        Map<String, Object> resultMap = bookservice.createBook(request);
+    @GetMapping("/book/list/newList")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getNewList(
+                @PageableDefault(size=10, page=0, sort="createDate", direction=Direction.DESC) Pageable pageable) throws Exception {
+        log.info("------------ 신상 책 리스트 가져오기 -------------");
+        Map<String, Object> resultMap = bookservice.getNewList(pageable);
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
-    }
+    }    
 
-    @PutMapping("/book")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> updateBook(@ModelAttribute BookDTO.Request request) throws Exception {
-        log.info("------------ 책 수정 -------------");
-        Map<String, Object> resultMap = bookservice.updateBook(request);
+    @GetMapping("/book/list/bestList")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getBestList(
+                @PageableDefault(size=10, page=0, sort="createDate", direction=Direction.DESC) Pageable pageable) throws Exception {
+        log.info("------------ 베스트 책 리스트 가져오기 -------------");
+        Map<String, Object> resultMap = bookservice.getBestList(pageable);
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
-    }
-    @DeleteMapping("/book/file/{imageId}")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> deleteImage(@PathVariable("imageId") int imageId) throws Exception {
-        log.info("------------ 책 이미지 삭제하기 -------------");
-        Map<String, Object> resultMap = bookservice.deleteImage(imageId);
-        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
-    }
+    }  
 
-    @DeleteMapping("/book/{bookId}")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> deleteBook(@PathVariable(value="bookId") int bookId) throws Exception {
+    @GetMapping("book/{bookId}")
+    public ResponseEntity<ApiResponse<BookDTO.DetailResponse>> getBookList(@PathVariable(value="bookId") int bookId) throws Exception {
+        log.info("------------ "+ bookId+" 번 글 가져오기 -------------");
+        BookDTO.DetailResponse detail = bookservice.getBook(bookId);
 
-        log.info("------------ "+ bookId+" 번 글 삭제하기 -------------");
-        Map<String, Object> resultMap = bookservice.deleteBook(bookId);
-
-        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
-    }
-
-    @GetMapping("/publishingHouse")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> getPublishingHouse() throws Exception  {
-        log.info("------------ 출판사 리스트 가져오기 -------------");
-        Map<String, Object> resultMap = bookservice.getPublishingHouse();
-        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
-    }
-    
-    @GetMapping("/author")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> getAuthor() throws Exception  {
-        log.info("------------ 저자 리스트 가져오기 -------------");
-        Map<String, Object> resultMap = bookservice.getAuthor();
-        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(detail));
     }
     
 }

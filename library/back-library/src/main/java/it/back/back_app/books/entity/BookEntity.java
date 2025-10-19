@@ -50,16 +50,16 @@ public class BookEntity extends BaseEntity {
     private Boolean recommendationStatus;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "publishing_id")
     private PublishingHouseEntity publishingHouse;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "author_id")
     private AuthorEntity author;
 
     @Builder.Default
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "book",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<BookImageEntity> bookImages = new HashSet<>();
 
     public void addFiles(BookImageEntity entity) {

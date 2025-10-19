@@ -19,7 +19,7 @@ function Header(props) {
     navigate("/login");
   };
 
-  console.log(getUserRole())
+  console.log(getUserRole());
 
   return (
     <header>
@@ -49,7 +49,9 @@ function Header(props) {
                     title={`${userName} 님`}
                     id="navbarScrollDropdown"
                   >
-                    <NavDropdown.Item href="/mypage">마이페이지</NavDropdown.Item>
+                    <NavDropdown.Item href="/mypage">
+                      마이페이지
+                    </NavDropdown.Item>
                     <NavDropdown.Item onClick={handleLogout}>
                       로그아웃
                     </NavDropdown.Item>
@@ -65,12 +67,12 @@ function Header(props) {
         </Container>
       </Navbar>
       <Container>
-        <Nav defaultActiveKey="/home" as="ul">
+        <Nav as="ul">
           <Nav.Item as="li">
-            <Nav.Link href="/home">베스트</Nav.Link>
+            <Nav.Link href="/book/list/bestList">베스트</Nav.Link>
           </Nav.Item>
           <Nav.Item as="li">
-            <Nav.Link eventKey="link-1">신상품</Nav.Link>
+            <Nav.Link href="/book/list/newList">신상품</Nav.Link>
           </Nav.Item>
           <Nav.Item as="li">
             <Nav.Link eventKey="link-2">국내도서</Nav.Link>

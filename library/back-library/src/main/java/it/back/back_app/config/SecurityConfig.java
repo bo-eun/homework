@@ -72,6 +72,7 @@ public class SecurityConfig {
                                             .requestMatchers("/api/v1/logout/**").permitAll()
                                             .requestMatchers("/api/v1/join/**").permitAll()
                                             .requestMatchers("/api/v1/refresh").permitAll()
+                                            .requestMatchers("/static/images/**").permitAll()
                                             .anyRequest().authenticated()
             // LoginFilter 전에 JWTFilter를 실행
             ).addFilterBefore(new JWTFilter(jwtUtils), LoginFilter.class)

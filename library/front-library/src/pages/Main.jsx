@@ -9,22 +9,46 @@ import { useQuery } from "@tanstack/react-query";
 import { bookAPI } from "../service/bookService";
 
 function Main(props) {
+  let slideIndex = 1;
+
   const [page, setPage] = useState(0);
   const [recommendBooks, setRecommendBooks] = useState([]);
   const [newBooks, setNewBooks] = useState([]);
   const [bestBooks, setBestBooks] = useState([]);
 
-  const { data, isLoading, error } = useQuery({
+  // 추천 도서
+  const {
+    data: recommendBookDarta,
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ["recommendBook"],
     queryFn: () => bookAPI.recommendList(),
   });
 
+  // 신상 도서
+  const { data: newBookData, isLoading: newBookLoading } = useQuery({
+    queryKey: ["newBooks"],
+    queryFn: () => bookAPI.newList(),
+  });
+
+  // 베스트 도서
+  const { data: bestBookData, isLoading: bestBookLoading } = useQuery({
+    queryKey: ["newBooks"],
+    queryFn: () => bookAPI.newList(),
+  });
+
   useEffect(() => {
-    if (data) {
-      console.log(data);
-      setRecommendBooks(data.content);
+    if (recommendBookDarta) {
+      setRecommendBooks(recommendBookDarta.content);
     }
-  }, [data]);
+    if (newBookData) {
+      setNewBooks(newBookData.content);
+    }
+    if (bestBookData) {
+      setBestBooks(bestBookData.content);
+    }
+  }, [recommendBookDarta, newBookData, bestBookData]);
 
   return (
     <>
@@ -34,11 +58,15 @@ function Main(props) {
           slidesPerView={1}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
+          loop={true}
+          autoplay={true}
         >
-          <SwiperSlide>Slide 1</SwiperSlide>
-          <SwiperSlide>Slide 2</SwiperSlide>
-          <SwiperSlide>Slide 3</SwiperSlide>
-          <SwiperSlide>Slide 4</SwiperSlide>
+          <SwiperSlide>
+            <img src="/static/images/slide1.jpg" title="slide1" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <img src="/static/images/slide2.jpg" title="slide1" />
+          </SwiperSlide>
         </Swiper>
       </div>
       <Container>
@@ -57,13 +85,15 @@ function Main(props) {
                     <SwiperSlide>
                       <div className="d-flex gap-3">
                         <div className="img_box">
-                          <img src={`/static/images/${book.bookImages[0]?.storedName}`} />
+                          <img
+                            src={`/static/images/${book.bookImages[0]?.storedName}`}
+                          />
                         </div>
                         <div className="info_box">
-                          <p className="title">{book.bookName}</p>
+                          <p className="title fw-bold">{book.bookName}</p>
                           <p className="writer">{book.authorNames}</p>
-                          <p className="pt-2">{book.shortIntro}</p>
-                          <p>{book.intro}</p>
+                          <p className="pt-2 fw-bold">{book.shortIntro}</p>
+                          <p className="pt-3">{book.intro}</p>
                         </div>
                       </div>
                     </SwiperSlide>
@@ -82,12 +112,14 @@ function Main(props) {
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              {recommendBooks.length > 0 &&
-                recommendBooks.map((book) => {
+              {newBooks.length > 0 &&
+                newBooks.map((book) => {
                   return (
                     <SwiperSlide>
                       <div className="img_box">
-                        <img src={`/static/images/${book.bookImages[0]?.storedName}`} />
+                        <img
+                          src={`/static/images/${book.bookImages[0]?.storedName}`}
+                        />
                       </div>
                       <div className="info_box">
                         <p className="title">{book.bookName}</p>
@@ -109,13 +141,15 @@ function Main(props) {
               onSlideChange={() => console.log("slide change")}
               onSwiper={(swiper) => console.log(swiper)}
             >
-              {recommendBooks.length > 0 &&
-                recommendBooks.map((book) => {
+              {bestBooks.length > 0 &&
+                bestBooks.map((book) => {
                   return (
                     <SwiperSlide>
                       <div className="img_box">
-                        <img src={`/static/images/${book.bookImages[0]?.storedName}`} />
-                        <span className="rank">1</span>
+                        <img
+                          src={`/static/images/${book.bookImages[0]?.storedName}`}
+                        />
+                        <span className="rank">{slideIndex++}</span>
                       </div>
                     </SwiperSlide>
                   );

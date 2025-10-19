@@ -9,6 +9,7 @@ import Join from "../pages/login/Join";
 import UserList from "../pages/admin/users/UserList";
 import UserForm from "../components/admin/userForm";
 import Policy from "../pages/admin/Policy";
+import UpdateBook from "../pages/admin/book/UpdateBook";
 import AddBook from "../pages/admin/book/AddBook";
 import MypageLayout from "../pages/mypage/MypageLayout";
 import WishList from "../pages/mypage/WishList";
@@ -18,6 +19,10 @@ import UserUpdate from "../pages/mypage/UserUpdate";
 import Detail from "../pages/book/Detail";
 import Cart from "../pages/order/Cart";
 import Order from "../pages/order/Order";
+import BestList from "../pages/book/BestList";
+import NewList from "../pages/book/NewList";
+import ForeignList from "../pages/book/ForeignList";
+import DomesticList from "../pages/book/DomesticList";
 
 export const router = createBrowserRouter([
   {
@@ -71,11 +76,23 @@ export const router = createBrowserRouter([
         path: "order",
       },
       {
-        path: "list/best",
-        Component: BookList,
+        path: "/book/list/bestList",
+        Component: BestList,
       },
       {
-        path: "detail",
+        path: "/book/list/newList",
+        Component: NewList,
+      },
+      {
+        path: "/book/list/domestic",
+        Component: DomesticList,
+      },
+      {
+        path: "/book/list/foreign",
+        Component: ForeignList,
+      },
+      {
+        path: "/book/detail/:bookId",
         Component: Detail,
       },
     ],
@@ -92,6 +109,10 @@ export const router = createBrowserRouter([
       {
         path: "book/add",
         Component: AddBook,
+      },
+      {
+        path: "book/update/:bookId",
+        Component: UpdateBook,
       },
       {
         path: "user",

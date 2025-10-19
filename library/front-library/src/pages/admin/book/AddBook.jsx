@@ -6,9 +6,9 @@ import AuthorForm from "../../../components/admin/AuthorForm";
 import PublishingForm from "../../../components/admin/PublishingForm";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useBooks } from "../../../hooks/useBooks";
-import { bookAPI } from "../../../service/bookService";
+import { adminAPI } from "../../../service/adminService";
 import { useQuery } from "@tanstack/react-query";
+import { useAdmin } from "../../../hooks/useAdmin";
 
 const schema = yup.object({
   bookImages: yup.mixed().required("도서 표지를 입력하세요"),
@@ -35,7 +35,7 @@ function AddBook(props) {
     setModalTitle(title);
   };
 
-  const { createMutation } = useBooks();
+  const { createMutation } = useAdmin();
 
   const {
     register,
@@ -46,12 +46,12 @@ function AddBook(props) {
 
   const { data: authorData, error: authorError } = useQuery({
     queryKey: ["author"],
-    queryFn: () => bookAPI.authorList(),
+    queryFn: () => adminAPI.authorList(),
   });
 
   const { data: publishingData, error: publishingError } = useQuery({
     queryKey: ["publishing"],
-    queryFn: () => bookAPI.publishingHouseList(),
+    queryFn: () => adminAPI.publishingHouseList(),
   });
 
   const addBook = async (formData) => {
@@ -85,10 +85,14 @@ function AddBook(props) {
               type="file"
               id="bookImages"
               {...register("bookImages")}
-              className={`form-control ${errors.bookImages ? "is-invalid" : ""}`}
+              className={`form-control ${
+                errors.bookImages ? "is-invalid" : ""
+              }`}
             />
             {errors.bookImages && (
-              <div className="invalid-feedback">{errors.bookImages.message}</div>
+              <div className="invalid-feedback">
+                {errors.bookImages.message}
+              </div>
             )}
           </div>
 
@@ -120,8 +124,9 @@ function AddBook(props) {
                 {...register("publishingId", {
                   setValueAs: (v) => parseInt(v, 10),
                 })}
-                className={`form-select ${errors.publishingId ? "is-invalid" : ""
-                  }`}
+                className={`form-select ${
+                  errors.publishingId ? "is-invalid" : ""
+                }`}
               >
                 <option value="">선택</option>
                 {publishing.length > 0 &&
@@ -211,15 +216,35 @@ function AddBook(props) {
           </div>
 
           <div className="col mt-3">
-            <label htmlFor="" className="form-label w-100">도서 분류</label>
+            <label htmlFor="" className="form-label w-100">
+              도서 분류
+            </label>
             <div className={`${errors.bookType ? "is-invalid" : ""}`}>
-              <label htmlFor="domestic" className="form-label">국내도서</label>
-              <input type="radio" name="bookType" id="domestic" className=" ms-2 me-5
- ms-1 me-5" {...register("bookType")} value="DOMESTIC" />
+              <label htmlFor="domestic" className="form-label">
+                국내도서
+              </label>
+              <input
+                type="radio"
+                name="bookType"
+                id="domestic"
+                className=" ms-2 me-5
+ ms-1 me-5"
+                {...register("bookType")}
+                value="DOMESTIC"
+              />
 
-              <label htmlFor="bookType" name="bookType" className="form-label">해외도서</label>
-              <input type="radio" name="bookType" id="foreign" className=" ms-2 me-5
- ms-1 me-5" {...register("bookType")} value="FOREIGN" />
+              <label htmlFor="bookType" name="bookType" className="form-label">
+                해외도서
+              </label>
+              <input
+                type="radio"
+                name="bookType"
+                id="foreign"
+                className=" ms-2 me-5
+ ms-1 me-5"
+                {...register("bookType")}
+                value="FOREIGN"
+              />
             </div>
             {errors.bookType && (
               <div className="invalid-feedback">{errors.bookType.message}</div>
@@ -227,12 +252,25 @@ function AddBook(props) {
           </div>
 
           <div className="col mt-3">
-            <label htmlFor="" className="w-100 form-label">추천도서 분류</label>
-            <label htmlFor="domestic" className="form-label">추천도서</label>
-            <input type="checkbox" name="recommendationStatus" id="recommendationStatus" className=" ms-2 me-5
- ms-1 me-5" {...register("recommendationStatus")} value="true" />
+            <label htmlFor="" className="w-100 form-label">
+              추천도서 분류
+            </label>
+            <label htmlFor="domestic" className="form-label">
+              추천도서
+            </label>
+            <input
+              type="checkbox"
+              name="recommendationStatus"
+              id="recommendationStatus"
+              className=" ms-2 me-5
+ ms-1 me-5"
+              {...register("recommendationStatus")}
+              value="true"
+            />
           </div>
-          <span className="notice text-danger">* 메인페이지의 추천도서 영역에 노출됩니다.</span>
+          <span className="notice text-danger">
+            * 메인페이지의 추천도서 영역에 노출됩니다.
+          </span>
 
           {/* 페이지수 */}
           <div className="mt-3">
@@ -259,10 +297,14 @@ function AddBook(props) {
               type="date"
               id="publicationDate"
               {...register("publicationDate")}
-              className={`form-control ${errors.publicationDate ? "is-invalid" : ""}`}
+              className={`form-control ${
+                errors.publicationDate ? "is-invalid" : ""
+              }`}
             />
             {errors.publicationDate && (
-              <div className="invalid-feedback">{errors.publicationDate.message}</div>
+              <div className="invalid-feedback">
+                {errors.publicationDate.message}
+              </div>
             )}
           </div>
 

@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useEffect, useState } from "react";
-import { bookAPI } from "../../../service/bookService";
+import { adminAPI } from "../../../service/adminService";
 import { Button, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import { useBooks } from "../../../hooks/useBooks";
+import { useAdmin } from "../../../hooks/useAdmin";
 
 function BookList(props) {
   const [page, setPage] = useState(0);
@@ -13,13 +13,13 @@ function BookList(props) {
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["book", page],
-    queryFn: () => bookAPI.list(page),
+    queryFn: () => adminAPI.list(page),
   });
 
-  const { deleteMutation } = useBooks();
+  const { deleteMutation } = useAdmin();
 
   const deleteBook = async (bookId) => {
-    const isConfirm = confirm('해당 도서를 삭제하시겠습니까?');
+    const isConfirm = confirm("해당 도서를 삭제하시겠습니까?");
     if (isConfirm) {
       try {
         await deleteMutation.mutate(bookId);
@@ -27,8 +27,7 @@ function BookList(props) {
         alert("처리 중 오류가 발생했습니다. 다시 시도해 주세요");
       }
     }
-
-  }
+  };
 
   useEffect(() => {
     if (data) {
@@ -36,7 +35,6 @@ function BookList(props) {
       setBooks(data.content);
     }
   }, [data]);
-
 
   return (
     <Container className="book_list_cont">
@@ -59,20 +57,36 @@ function BookList(props) {
       <div className="pt-5">
         {books.map((book) => {
           return (
-            <div className="d-flex gap-4 py-4">
+            <div className="d-flex gap-4 py-4" key={book.bookId}>
               <div className="img_box">
                 <img src={`/static/images/${book.bookImages[0]?.storedName}`} />
               </div>
               <div className="info_box d-flex flex-column">
                 <p className="title">{book.bookName}</p>
                 <p className="writer">저자 : {book.authorNames}</p>
-                <p className="house mt-1">출판사 : {book.publishingHouseName}</p>
+                <p className="house mt-1">
+                  출판사 : {book.publishingHouseName}
+                </p>
                 <p className="stock mt-1">재고 : {book.stock}</p>
-                <p className="price mt-auto">판매가 : <strong>{book.price}</strong>원</p>
+                <p className="price mt-auto">
+                  판매가 : <strong>{book.price}</strong>원
+                </p>
               </div>
               <div className="btn_box ms-auto">
-                <button type="button" className="btn btn-outline-dark" onClick={() => navigate("/admin")}>수정</button>
-                <button type="button" className="btn btn-outline-danger ms-1" onClick={() => deleteBook(book.bookId)}>삭제</button>
+                <button
+                  type="button"
+                  className="btn btn-outline-dark"
+                  onClick={() => navigate(`/admin/book/update/${book.bookId}`)}
+                >
+                  수정
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-outline-danger ms-1"
+                  onClick={() => deleteBook(book.bookId)}
+                >
+                  삭제
+                </button>
               </div>
             </div>
           );

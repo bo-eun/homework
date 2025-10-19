@@ -15,7 +15,6 @@ public class BookImageDTO {
     private String fileName;
     private String storedName;
     private String filePath;
-    private String fileThumbName;
 
     public static BookImageDTO of(BookImageEntity entity) {
         return BookImageDTO.builder()
@@ -23,7 +22,6 @@ public class BookImageDTO {
                 .fileName(entity.getFileName())
                 .storedName(entity.getStoredName())
                 .filePath(entity.getFilePath())
-                .fileThumbName(entity.getFileThumbName())
                 .build();
     }
 }

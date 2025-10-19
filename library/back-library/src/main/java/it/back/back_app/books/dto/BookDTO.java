@@ -41,7 +41,7 @@ public class BookDTO {
         @DateTimeFormat(pattern = "yyyy-MM-dd")
         private LocalDate publicationDate;
         private Boolean recommendationStatus;
-        private MultipartFile bookImage;  // service에서 처리
+        private MultipartFile bookImages;  // service에서 처리
 
         // service에서 처리
         @NotNull(message = "출판사는 필수 항목입니다.")
@@ -85,6 +85,38 @@ public class BookDTO {
 
     @Getter
     @Builder
+    public static class RecommendListResponse {
+        private Integer bookId;
+        private String bookName;
+        private String authorNames;
+        private String publishingHouseName;
+        private List<BookImageDTO> bookImages;
+        private Integer price;
+        private Boolean recommendationStatus;
+        private String shortIntro;
+        private String intro;
+
+        public static RecommendListResponse of(BookEntity entity) {
+            List<BookImageDTO> images = entity.getBookImages().stream()
+                .map(BookImageDTO::of)
+                .toList();
+
+            return RecommendListResponse.builder()
+                    .bookId(entity.getBookId())
+                    .bookName(entity.getBookName())
+                    .authorNames(entity.getAuthor().getAuthorName())
+                    .publishingHouseName(entity.getPublishingHouse().getPublishingName())
+                    .price(entity.getPrice())
+                    .bookImages(images)
+                    .recommendationStatus(entity.getRecommendationStatus())
+                    .shortIntro(entity.getShortIntro())
+                    .intro(entity.getIntro())
+                    .build();
+        }
+    }    
+
+    @Getter
+    @Builder
     public static class ListResponse {
         private Integer bookId;
         private String bookName;
@@ -96,8 +128,8 @@ public class BookDTO {
 
         public static ListResponse of(BookEntity entity) {
             List<BookImageDTO> images = entity.getBookImages().stream()
-                    .map(BookImageDTO::of)
-                    .toList();
+                .map(BookImageDTO::of)
+                .toList();
 
             return ListResponse.builder()
                     .bookId(entity.getBookId())
@@ -117,14 +149,16 @@ public class BookDTO {
         private Integer bookId;
         private String bookName;
         private String bookType;
-        private Integer price;
-        private Integer stock;
+        private int price;
+        private int stock;
         private String shortIntro;
         private int pageCount;
         private String intro;
         private LocalDate publicationDate;
+        private int publishingId;
         private String publishingHouseName;
-        private String authorNames;
+        private int authorId;
+        private String authorName;
         private Boolean recommendationStatus;
         private List<BookImageDTO> bookImages;
         private LocalDateTime createDate;
@@ -145,8 +179,10 @@ public class BookDTO {
                     .pageCount(entity.getPageCount())
                     .intro(entity.getIntro())
                     .publicationDate(entity.getPublicationDate())
+                    .publishingId(entity.getPublishingHouse().getPublishingId())
                     .publishingHouseName(entity.getPublishingHouse().getPublishingName())
-                    .authorNames(entity.getAuthor().getAuthorName())
+                    .authorId(entity.getAuthor().getAuthorId())
+                    .authorName(entity.getAuthor().getAuthorName())
                     .recommendationStatus(entity.getRecommendationStatus())
                     .bookImages(images)
                     .createDate(entity.getCreateDate())

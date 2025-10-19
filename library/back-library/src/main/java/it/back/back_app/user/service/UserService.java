@@ -1,13 +1,17 @@
 package it.back.back_app.user.service;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import it.back.back_app.books.dto.BookDTO;
+import it.back.back_app.books.entity.BookEntity;
 import it.back.back_app.security.entity.UserEntity;
 import it.back.back_app.security.repository.UserRepository;
 import it.back.back_app.user.dto.UserDTO;
@@ -71,4 +75,19 @@ public class UserService {
 
          return resultMap;
     }
+
+
+    @Transactional(readOnly = true)
+    public Map<String,Object> getUsers(Pageable pageable) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        List<UserEntity> entity = userRepository.findAll();
+
+        List<UserDTO.Response> list = entity.stream()
+                    .map(UserDTO.Response::of)
+                    .toList();        
+                    
+        resultMap.put("content", list);
+        return resultMap;
+    }    
 }

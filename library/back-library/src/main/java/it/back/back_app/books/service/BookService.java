@@ -18,6 +18,7 @@ import it.back.back_app.books.dto.PublishingHouseDTO;
 import it.back.back_app.books.entity.AuthorEntity;
 import it.back.back_app.books.entity.BookEntity;
 import it.back.back_app.books.entity.BookImageEntity;
+import it.back.back_app.books.entity.BookType;
 import it.back.back_app.books.entity.PublishingHouseEntity;
 import it.back.back_app.books.repository.AuthorRepository;
 import it.back.back_app.books.repository.BookImageRepository;
@@ -39,6 +40,49 @@ public class BookService {
     @Value("${server.file.book.path}")
     String filePath;
 
+
+    /* 메인 추천 도서 */
+    public Map<String,Object> getRecommendMain() throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        List<BookEntity> entity = bookRepository.findTop10ByRecommendationStatusTrueOrderByCreateDateDesc();
+        List<BookDTO.RecommendListResponse> list = entity.stream()
+                .map(BookDTO.RecommendListResponse::of)
+                .toList();
+        resultMap.put("content", list);
+
+        return resultMap;
+    }
+
+    /* 메인 신상 도서 */
+    public Map<String,Object> getNewMain() throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        List<BookEntity> entity = bookRepository.findTop10ByOrderByCreateDateDesc();
+        List<BookDTO.ListResponse> list = entity.stream()
+                .map(BookDTO.ListResponse::of)
+                .toList();
+        resultMap.put("content", list);
+
+        return resultMap;
+    }
+
+    /* 메인 베스트, 판매량 순 도서 */
+    public Map<String,Object> getBestMain() throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        List<BookEntity> books = bookRepository.findTopSellingBooks();
+                    
+        List<BookDTO.ListResponse> list = books.stream()
+                    .map(BookDTO.ListResponse::of)
+                    .toList();
+
+        resultMap.put("content", list);
+        return resultMap;
+    }
+
+
+    /* 전체 책 리스트 */ 
     @Transactional(readOnly = true)
     public Map<String, Object> getBookList(Pageable pageable) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
@@ -55,6 +99,54 @@ public class BookService {
         return resultMap;
     }
 
+
+    @Transactional(readOnly = true)
+    public Map<String, Object> getRecommendList(Pageable pageable) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        Page<BookEntity> bookList = bookRepository.findAll(pageable);
+
+        // toList()로 불변객체를 만들어 데이터 변경을 막음
+        List<BookDTO.ListResponse> list = bookList.getContent().stream().map(BookDTO.ListResponse::of).toList();
+
+        resultMap.put("total", bookList.getTotalElements());
+        resultMap.put("page", bookList.getNumber());
+        resultMap.put("content", list);
+
+        return resultMap;
+    }
+
+    @Transactional(readOnly = true)
+    public Map<String, Object> getNewList(Pageable pageable) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        Page<BookEntity> bookList = bookRepository.findAll(pageable);
+
+        // toList()로 불변객체를 만들어 데이터 변경을 막음
+        List<BookDTO.ListResponse> list = bookList.getContent().stream().map(BookDTO.ListResponse::of).toList();
+
+        resultMap.put("total", bookList.getTotalElements());
+        resultMap.put("page", bookList.getNumber());
+        resultMap.put("content", list);
+
+        return resultMap;
+    }   
+ 
+    /* 메인 베스트, 판매량 순 도서 */
+    public Map<String,Object> getBestList(Pageable pageable) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        Page<BookEntity> books = bookRepository.findAllOrderBySalesDesc(pageable);
+
+        List<BookDTO.ListResponse> list = books.stream()
+                    .map(BookDTO.ListResponse::of)
+                    .toList();
+                    
+        resultMap.put("content", list);
+        return resultMap;
+    }
+
+
     @Transactional(readOnly = true)
     public Map<String, Object> getPublishingHouse() throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
@@ -65,7 +157,6 @@ public class BookService {
                                            .toList();
 
         resultMap.put("content", list);
-
         return resultMap;
     }
 
@@ -98,16 +189,14 @@ public class BookService {
 
 
         // 기존 파일 삭제
-        if(request.getBookImage() != null && !request.getBookImage().isEmpty()) {
-            Map<String, Object> fileMap = fileUtils.uploadFiles(request.getBookImage(), filePath);
-
+        if(request.getBookImages() != null && !request.getBookImages().isEmpty()) {
+            Map<String, Object> fileMap = fileUtils.uploadFiles(request.getBookImages(), filePath);
             if(fileMap != null) {
                 BookImageEntity imageEntity = new BookImageEntity();
                 imageEntity.setFileName(fileMap.get("fileName").toString());
                 imageEntity.setStoredName(fileMap.get("storedFileName").toString());
                 imageEntity.setFilePath(fileMap.get("filePath").toString());
-                imageEntity.setFileThumbName(filePath);
-                imageEntity.setFileSize(request.getBookImage().getSize());
+                imageEntity.setFileSize(request.getBookImages().getSize());
 
                 entity.addFiles(imageEntity);
             } else {
@@ -128,9 +217,17 @@ public class BookService {
     @Transactional
     public Map<String, Object> updateBook(@ModelAttribute BookDTO.Request request) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
-        BookEntity entity = bookRepository.findById(request.getBookId()).orElseThrow(() -> new RuntimeException("찾는 책 정보 없음"));
+        BookEntity entity = bookRepository.findByIdWithAuthorAndPublishing(request.getBookId()).orElseThrow(() -> new RuntimeException("찾는 책 정보 없음")); 
 
-        BookDTO.DetailResponse detail = BookDTO.DetailResponse.of(entity);
+        entity.setBookName(request.getBookName());
+        entity.setBookType(BookType.valueOf(request.getBookType()));
+        entity.setPrice(request.getPrice());
+        entity.setStock(request.getStock());
+        entity.setPageCount(request.getPageCount());
+        entity.setShortIntro(request.getShortIntro());
+        entity.setIntro(request.getIntro());
+        entity.setPublicationDate(request.getPublicationDate());
+        entity.setRecommendationStatus(request.getRecommendationStatus());
 
         AuthorEntity author = authorRepository.findById(request.getAuthorId()).orElseThrow(() -> new RuntimeException("Author not found"));
         entity.setAuthor(author);
@@ -139,14 +236,14 @@ public class BookService {
         entity.setPublishingHouse(publishingHouseEntity);
 
         // 첨부 파일이 있다면
-        if(request.getBookImage() != null && !request.getBookImage().isEmpty()) {
-            Map<String, Object> fileMap = fileUtils.uploadFiles(request.getBookImage(), filePath);
+        if(request.getBookImages() != null && !request.getBookImages().isEmpty()) {
+            Map<String, Object> fileMap = fileUtils.uploadFiles(request.getBookImages(), filePath);
             if(fileMap != null) {
                 BookImageEntity fileEntity = new BookImageEntity();
                 fileEntity.setFileName(fileMap.get("fileName").toString());
                 fileEntity.setStoredName(fileMap.get("storedFileName").toString());
                 fileEntity.setFilePath(fileMap.get("filePath").toString());
-                fileEntity.setFileSize(request.getBookImage().getSize());
+                fileEntity.setFileSize(request.getBookImages().getSize());
 
                 // 수정한 첨부 파일 추가
                 entity.getBookImages().clear();
@@ -157,8 +254,11 @@ public class BookService {
 
         }
 
+        bookRepository.save(entity);
+        BookDTO.DetailResponse detail = BookDTO.DetailResponse.of(entity);
+
         // 기존 파일 삭제
-        if(request.getBookImage() != null && !request.getBookImage().isEmpty()) {
+        if(request.getBookImages() != null && !request.getBookImages().isEmpty()) {
 
             for(BookImageDTO file : detail.getBookImages()) {
                 String oldFilePath = filePath + file.getStoredName();
@@ -169,6 +269,7 @@ public class BookService {
 
         resultMap.put("resultCode", 200);
         resultMap.put("resultMsg", "OK");
+        resultMap.put("content", detail);
 
         return resultMap;
     }
@@ -193,7 +294,7 @@ public class BookService {
 
     public Map<String, Object> deleteBook(int bookId) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
-        BookEntity entity = bookRepository.findById(bookId).orElseThrow(() -> new RuntimeException("찾는 게시글이 없음"));
+        BookEntity entity = bookRepository.findByIdWithAuthorAndPublishing(bookId).orElseThrow(() -> new RuntimeException("찾는 게시글이 없음"));
 
         // dto로 변경
         BookDTO.DetailResponse detail = BookDTO.DetailResponse.of(entity);
@@ -212,6 +313,16 @@ public class BookService {
         resultMap.put("resultMsg", "OK");
 
         return resultMap;
+    }
+
+
+    /* 책 상세정보 */
+    @Transactional(readOnly = true)
+    public BookDTO.DetailResponse getBook(int bookId) throws Exception {
+
+        BookEntity entity = bookRepository.findByIdWithAuthorAndPublishing(bookId).orElseThrow(() -> new RuntimeException("책 정보를 불러올 수 없습니다."));
+
+        return BookDTO.DetailResponse.of(entity);
     }
     
 }
