@@ -26,9 +26,11 @@ import it.back.back_app.books.repository.BookRepository;
 import it.back.back_app.books.repository.PublishingRepository;
 import it.back.back_app.common.utils.FileUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class BookService {
 
     private final BookRepository bookRepository;
@@ -161,7 +163,7 @@ public class BookService {
     }
 
     @Transactional(readOnly = true)
-    public Map<String, Object> getAuthor() throws Exception {
+    public Map<String, Object> getAuthorList() throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
 
         List<AuthorDTO> list = authorRepository.findAll()
@@ -172,7 +174,20 @@ public class BookService {
         resultMap.put("content", list);
 
         return resultMap;
-    }    
+    }  
+
+    @Transactional(readOnly = true)
+    public Map<String, Object> getBookAndAuthor(int bookId) throws Exception {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        BookEntity bookEntity = bookRepository.findById(bookId).orElseThrow(() -> new RuntimeException("책 정보를 찾을 수 없습니다."));
+
+        BookDTO.DetailResponse dto = BookDTO.DetailResponse.of(bookEntity);
+
+        resultMap.put("content", dto);
+
+        return resultMap;
+    }   
 
     @Transactional
     public Map<String, Object> createBook(@ModelAttribute BookDTO.Request request) throws Exception {
@@ -218,6 +233,7 @@ public class BookService {
     public Map<String, Object> updateBook(@ModelAttribute BookDTO.Request request) throws Exception {
         Map<String, Object> resultMap = new HashMap<>();
         BookEntity entity = bookRepository.findByIdWithAuthorAndPublishing(request.getBookId()).orElseThrow(() -> new RuntimeException("찾는 책 정보 없음")); 
+        BookDTO.DetailResponse detail = BookDTO.DetailResponse.of(entity);
 
         entity.setBookName(request.getBookName());
         entity.setBookType(BookType.valueOf(request.getBookType()));
@@ -235,6 +251,9 @@ public class BookService {
         PublishingHouseEntity publishingHouseEntity = publishingHouseRepository.findById(request.getPublishingId()).orElseThrow(() -> new RuntimeException("publishingHouse not found"));
         entity.setPublishingHouse(publishingHouseEntity);
 
+
+        log.info("이미지 : " + entity.getBookImages());
+
         // 첨부 파일이 있다면
         if(request.getBookImages() != null && !request.getBookImages().isEmpty()) {
             Map<String, Object> fileMap = fileUtils.uploadFiles(request.getBookImages(), filePath);
@@ -248,28 +267,42 @@ public class BookService {
                 // 수정한 첨부 파일 추가
                 entity.getBookImages().clear();
                 entity.addFiles(fileEntity);
+
+                bookRepository.save(entity);
+
+                // 기존 파일 삭제
+                for(BookImageDTO file : detail.getBookImages()) {
+                    String oldFilePath = filePath + file.getStoredName();
+                    fileUtils.deleteFile(oldFilePath);
+                }
+
             } else {
                 throw new RuntimeException("파일 업로드 오류");
             }
 
-        }
-
-        bookRepository.save(entity);
-        BookDTO.DetailResponse detail = BookDTO.DetailResponse.of(entity);
-
-        // 기존 파일 삭제
-        if(request.getBookImages() != null && !request.getBookImages().isEmpty()) {
-
-            for(BookImageDTO file : detail.getBookImages()) {
-                String oldFilePath = filePath + file.getStoredName();
-                fileUtils.deleteFile(oldFilePath);
+        } else {
+            // 새 이미지가 없고 → 기존 이미지가 없다면?
+            if (entity.getBookImages() == null || entity.getBookImages().isEmpty()) {
+                throw new RuntimeException("도서 이미지가 필요합니다."); // 필수 검사
             }
-
+            // 기존 이미지 유지
+            bookRepository.save(entity);
         }
+
+        // bookRepository.save(entity);
+        
+        // 기존 파일 삭제
+        // if(request.getBookImages() != null && !request.getBookImages().isEmpty()) {
+            
+        //     for(BookImageDTO file : detail.getBookImages()) {
+        //         String oldFilePath = filePath + file.getStoredName();
+        //         fileUtils.deleteFile(oldFilePath);
+        //     }
+            
+        // }
 
         resultMap.put("resultCode", 200);
         resultMap.put("resultMsg", "OK");
-        resultMap.put("content", detail);
 
         return resultMap;
     }

@@ -82,5 +82,18 @@ public class BookRestController {
 
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(detail));
     }
-    
+
+    @GetMapping("/author")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getAuthorList() throws Exception  {
+        log.info("------------ 저자 리스트 가져오기 -------------");
+        Map<String, Object> resultMap = bookservice.getAuthorList();
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+    }    
+
+    @GetMapping("/books/{bookId}")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getBookAndAuthor(@PathVariable int bookId) throws Exception  {
+        log.info("------------ 도서 정보 + 저자 정보 가져오기 -------------");
+        Map<String, Object> resultMap = bookservice.getBookAndAuthor(bookId);
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+    }        
 }

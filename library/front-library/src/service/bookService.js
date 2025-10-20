@@ -3,7 +3,7 @@ import api from "../api/axiosApi";
 export const bookAPI = {
   /* 추천 리스트 */
   recommendList: async (page) => {
-    const response = await api.get(`/api/v1/book/recommend`);
+    const response = await api.get(`/api/v1/book/recommend?page=${page}`);
     return response.data.response;
   },
 
@@ -31,8 +31,15 @@ export const bookAPI = {
     return response.data.response;
   },
 
+  /* 도서 상세 */
   detail: async (bookId) => {
     const response = await api.get(`/api/v1/book/${bookId}`);
+    return response.data.response;
+  },
+
+  /* 도서 + 작가 상세 */
+  bookAndAuthorDetail: async (bookId) => {
+    const response = await api.get(`/api/v1/books/${bookId}`);
     return response.data.response;
   },
 };

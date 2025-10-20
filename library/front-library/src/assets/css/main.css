@@ -12,7 +12,6 @@ section h2 {
 }
 
 .main_visual .swiper-slide {
-  height: 500px;
   background: #ddd;
 }
 .main_visual .swiper-slide:nth-child(2) {

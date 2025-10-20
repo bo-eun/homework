@@ -13,7 +13,8 @@ import { useNavigate, useParams } from "react-router";
 import { useAdmin } from "../../../hooks/useAdmin";
 
 const schema = yup.object({
-  bookImages: yup.mixed().required("도서 표지를 입력하세요"),
+  // bookImages: yup.mixed().required("도서 표지를 입력하세요") 
+  // 값이 없을 경우 기존 파일을 사용하기 위해 required처리 안함,
   bookName: yup.string().required("도서 이름을 입력하세요"),
   publishingId: yup.string().required("출판사를 선택하세요"),
   authorId: yup.string().required("저자를 선택하세요"),
@@ -64,6 +65,12 @@ function UpdateBook(props) {
   const updateBook = async (formData) => {
     console.log(formData);
     try {
+
+      // 파일이 있을 때만 FormData에 넣기, 안그려면 500에러남..
+      if (formData.bookImages && formData.bookImages.length > 0) {
+        formData.append("bookImages", formData.bookImages[0]); // 단일 파일 기준
+      }
+
       // mutation 실행 -> onSuccess(또는 onError) -> 호출한 곳
       await updateMutation.mutate(formData);
     } catch (error) {
@@ -77,8 +84,7 @@ function UpdateBook(props) {
         const data = await bookAPI.detail(bookId);
         console.log(data);
         setValue("bookId", data.bookId);
-        setValue("authorId", data.authorId);
-        setValue("bookImages", data.bookImages);
+        setValue("authorId", data.author.authorId);
         setValue("bookName", data.bookName);
         setValue("bookType", data.bookType);
         setValue("intro", data.intro);
@@ -108,27 +114,31 @@ function UpdateBook(props) {
 
   return (
     <>
-      <h2 className="title text-center mb-5">도서 등록</h2>
+      <h2 className="title text-center mb-5">도서 수정</h2>
       <Container style={{ maxWidth: "600px" }} className="add_book_container">
         <form onSubmit={handleSubmit(updateBook)}>
           {/* 표지등록 */}
-          <div className="mt-3">
+          <div className="mt-3 row">
             <label htmlFor="bookImages" className="form-label">
               표지등록
             </label>
-            <input
-              type="file"
-              id="bookImages"
-              {...register("bookImages")}
-              className={`form-control ${
-                errors.bookImages ? "is-invalid" : ""
-              }`}
-            />
-            {errors.bookImages && (
-              <div className="invalid-feedback">
-                {errors.bookImages.message}
+            <div className="col-4">
+              <div className="img_box ">
+                <img src={
+                  Array.isArray(detail?.bookImages) && detail.bookImages.length > 0
+                    ? `/static/images/${detail.bookImages[0].storedName}`
+                    : '/static/images/default.png'
+                } className="w-100" />
               </div>
-            )}
+            </div>
+            <div className="col-8">
+              <input
+                type="file"
+                id="bookImages"
+                {...register("bookImages")}
+                className={`form-control`}
+              />
+            </div>
           </div>
 
           {/* 도서제목 */}
@@ -159,9 +169,8 @@ function UpdateBook(props) {
                 {...register("publishingId", {
                   setValueAs: (v) => parseInt(v, 10),
                 })}
-                className={`form-select ${
-                  errors.publishingId ? "is-invalid" : ""
-                }`}
+                className={`form-select ${errors.publishingId ? "is-invalid" : ""
+                  }`}
                 value={detail.publishingId}
               >
                 <option value="">선택</option>
@@ -199,7 +208,7 @@ function UpdateBook(props) {
                   setValueAs: (v) => parseInt(v, 10),
                 })}
                 className={`form-select ${errors.authorId ? "is-invalid" : ""}`}
-                value={detail.authorId}
+                defaultValue={detail?.author?.authorId}
               >
                 <option value="">선택</option>
                 {author.length > 0 &&
@@ -302,7 +311,7 @@ function UpdateBook(props) {
               id="recommendationStatus"
               className=" ms-2 me-5
  ms-1 me-5"
-              {...register("recommen")}
+              {...register("recommendationStatus")}
               value="true"
               checked={checked}
               onChange={(e) => setChecked(e.target.checked)}
@@ -334,12 +343,11 @@ function UpdateBook(props) {
               출간일
             </label>
             <input
-              type="text"
+              type="date"
               id="publicationDate"
               {...register("publicationDate")}
-              className={`form-control ${
-                errors.publicationDate ? "is-invalid" : ""
-              }`}
+              className={`form-control ${errors.publicationDate ? "is-invalid" : ""
+                }`}
             />
             {errors.publicationDate && (
               <div className="invalid-feedback">
@@ -375,7 +383,7 @@ function UpdateBook(props) {
 
           <div className="d-flex justify-content-center gap-2 my-4">
             <button type="submit" className="btn btn-dark btn-lg w-25">
-              등록
+              수정
             </button>
             <button
               type="button"

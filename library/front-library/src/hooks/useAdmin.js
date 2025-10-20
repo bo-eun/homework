@@ -71,5 +71,29 @@ export const useAdmin = () => {
     },
   });
 
-  return { createMutation, updateMutation, deleteMutation };
+  const createPolicyMutation = useMutation({
+    mutationFn: async (formData) => {
+      try {
+        const response = await api.post(`/api/v1/admin/policy`, formData);
+        return response.data;
+      } catch (error) {
+        throw error.response?.data || error;
+      }
+    },
+    onSuccess: () => {
+      console.log("등록/수정 완료");
+      queryClient.invalidateQueries({ queryKey: ["policy"] });
+      // navigate("/admin/policy");
+    },
+    onError: (error) => {
+      console.error("등록/수정 실패", error);
+    },
+  });
+
+  return {
+    createMutation,
+    updateMutation,
+    deleteMutation,
+    createPolicyMutation,
+  };
 };

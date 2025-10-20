@@ -125,12 +125,13 @@ public class BookDTO {
         private List<BookImageDTO> bookImages;
         private Integer price;
         private Boolean recommendationStatus;
+        private int stock;
 
         public static ListResponse of(BookEntity entity) {
             List<BookImageDTO> images = entity.getBookImages().stream()
                 .map(BookImageDTO::of)
                 .toList();
-
+            
             return ListResponse.builder()
                     .bookId(entity.getBookId())
                     .bookName(entity.getBookName())
@@ -139,10 +140,12 @@ public class BookDTO {
                     .price(entity.getPrice())
                     .bookImages(images)
                     .recommendationStatus(entity.getRecommendationStatus())
+                    .stock(entity.getStock())
                     .build();
         }
     }
 
+    /* 책 정보, 상세 페이지에 노출 */
     @Getter
     @Builder
     public static class DetailResponse {
@@ -157,8 +160,7 @@ public class BookDTO {
         private LocalDate publicationDate;
         private int publishingId;
         private String publishingHouseName;
-        private int authorId;
-        private String authorName;
+        private AuthorDTO author;
         private Boolean recommendationStatus;
         private List<BookImageDTO> bookImages;
         private LocalDateTime createDate;
@@ -168,6 +170,8 @@ public class BookDTO {
             List<BookImageDTO> images = entity.getBookImages().stream()
                     .map(BookImageDTO::of)
                     .toList();
+
+            AuthorDTO author = AuthorDTO.of(entity.getAuthor());
 
             return DetailResponse.builder()
                     .bookId(entity.getBookId())
@@ -181,8 +185,7 @@ public class BookDTO {
                     .publicationDate(entity.getPublicationDate())
                     .publishingId(entity.getPublishingHouse().getPublishingId())
                     .publishingHouseName(entity.getPublishingHouse().getPublishingName())
-                    .authorId(entity.getAuthor().getAuthorId())
-                    .authorName(entity.getAuthor().getAuthorName())
+                    .author(author)
                     .recommendationStatus(entity.getRecommendationStatus())
                     .bookImages(images)
                     .createDate(entity.getCreateDate())

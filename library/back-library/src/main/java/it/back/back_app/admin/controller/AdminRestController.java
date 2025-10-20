@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import it.back.back_app.admin.dto.PolicyDTO;
+import it.back.back_app.admin.service.AdminService;
 import it.back.back_app.board.dto.ApiResponse;
 import it.back.back_app.books.dto.BookDTO;
 import it.back.back_app.books.service.BookService;
@@ -33,6 +36,7 @@ public class AdminRestController {
 
     private final BookService bookservice;
     private final UserService userService;
+    private final AdminService adminService;
 
     @GetMapping("/book")
     public ResponseEntity<ApiResponse<Map<String, Object>>> getBookList(
@@ -79,9 +83,9 @@ public class AdminRestController {
     }
     
     @GetMapping("/author")
-    public ResponseEntity<ApiResponse<Map<String, Object>>> getAuthor() throws Exception  {
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getAuthorList() throws Exception  {
         log.info("------------ 저자 리스트 가져오기 -------------");
-        Map<String, Object> resultMap = bookservice.getAuthor();
+        Map<String, Object> resultMap = bookservice.getAuthorList();
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
     }
 
@@ -92,4 +96,25 @@ public class AdminRestController {
         Map<String, Object> resultMap = userService.getUsers(pageable);
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
     }
+
+    @GetMapping("/policy")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> getPolicy() throws Exception  {
+        log.info("------------ 교환/환불/반품 가져오기 -------------");
+        Map<String, Object> resultMap = adminService.getPolicy();
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+    }    
+
+    @PostMapping("/policy")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> createPolicy(@RequestBody PolicyDTO request) throws Exception  {
+        log.info("------------ 교환/환불/반품 설정 -------------");
+        Map<String, Object> resultMap = adminService.createPolicy(request);
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+    }    
+
+    @DeleteMapping("/policy/{policyId}")
+    public ResponseEntity<ApiResponse<Map<String, Object>>> deletePolicy(@PathVariable int policyId) throws Exception  {
+        log.info("------------ 교환/환불/반품 삭제 -------------");
+        Map<String, Object> resultMap = adminService.deletePolicy(policyId);
+        return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));
+    }   
 }

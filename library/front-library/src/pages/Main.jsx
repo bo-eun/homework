@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "../assets/css/main.css";
 import { useQuery } from "@tanstack/react-query";
 import { bookAPI } from "../service/bookService";
+import { Link, useNavigate } from "react-router";
 
 function Main(props) {
   let slideIndex = 1;
@@ -16,30 +17,32 @@ function Main(props) {
   const [newBooks, setNewBooks] = useState([]);
   const [bestBooks, setBestBooks] = useState([]);
 
+  const navigate = useNavigate();
+
   // 추천 도서
   const {
     data: recommendBookDarta,
-    isLoading,
-    error,
+    isLoading: recommendBookLoading
   } = useQuery({
-    queryKey: ["recommendBook"],
-    queryFn: () => bookAPI.recommendList(),
+    queryKey: ["recommendBooks"],
+    queryFn: () => bookAPI.recommendList(page),
   });
 
   // 신상 도서
   const { data: newBookData, isLoading: newBookLoading } = useQuery({
     queryKey: ["newBooks"],
-    queryFn: () => bookAPI.newList(),
+    queryFn: () => bookAPI.newList(page),
   });
 
   // 베스트 도서
   const { data: bestBookData, isLoading: bestBookLoading } = useQuery({
     queryKey: ["newBooks"],
-    queryFn: () => bookAPI.newList(),
+    queryFn: () => bookAPI.bestList(page),
   });
 
   useEffect(() => {
     if (recommendBookDarta) {
+      console.log(recommendBookDarta)
       setRecommendBooks(recommendBookDarta.content);
     }
     if (newBookData) {
@@ -62,10 +65,10 @@ function Main(props) {
           autoplay={true}
         >
           <SwiperSlide>
-            <img src="/static/images/slide1.jpg" title="slide1" />
+            <img src="/images/slide1.jpg" title="slide1" />
           </SwiperSlide>
           <SwiperSlide>
-            <img src="/static/images/slide2.jpg" title="slide1" />
+            <img src="/images/slide2.jpg" title="slide1" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -83,19 +86,21 @@ function Main(props) {
                 recommendBooks.map((book) => {
                   return (
                     <SwiperSlide>
-                      <div className="d-flex gap-3">
-                        <div className="img_box">
-                          <img
-                            src={`/static/images/${book.bookImages[0]?.storedName}`}
-                          />
+                      <Link to={`/book/detail/${book.bookId}`}>
+                        <div className="d-flex gap-3">
+                          <div className="img_box">
+                            <img
+                              src={`/static/images/${book.bookImages[0]?.storedName}`}
+                            />
+                          </div>
+                          <div className="info_box">
+                            <p className="title fw-bold">{book.bookName}</p>
+                            <p className="writer">{book.authorNames}</p>
+                            <p className="pt-2 fw-bold">{book.shortIntro}</p>
+                            <p className="pt-3">{book.intro}</p>
+                          </div>
                         </div>
-                        <div className="info_box">
-                          <p className="title fw-bold">{book.bookName}</p>
-                          <p className="writer">{book.authorNames}</p>
-                          <p className="pt-2 fw-bold">{book.shortIntro}</p>
-                          <p className="pt-3">{book.intro}</p>
-                        </div>
-                      </div>
+                      </Link>
                     </SwiperSlide>
                   );
                 })}
@@ -116,13 +121,15 @@ function Main(props) {
                 newBooks.map((book) => {
                   return (
                     <SwiperSlide>
-                      <div className="img_box">
-                        <img
-                          src={`/static/images/${book.bookImages[0]?.storedName}`}
-                        />
-                      </div>
+                      <Link to={`/book/detail/${book.bookId}`}>
+                        <div className="img_box">
+                          <img
+                            src={`/static/images/${book.bookImages[0]?.storedName}`}
+                          />
+                        </div>
+                      </Link>
                       <div className="info_box">
-                        <p className="title">{book.bookName}</p>
+                        <Link to={`/book/detail/${book.bookId}`}><p className="title">{book.bookName}</p></Link>
                         <p className="writer">{book.authorNames}</p>
                       </div>
                     </SwiperSlide>
@@ -145,12 +152,14 @@ function Main(props) {
                 bestBooks.map((book) => {
                   return (
                     <SwiperSlide>
-                      <div className="img_box">
-                        <img
-                          src={`/static/images/${book.bookImages[0]?.storedName}`}
-                        />
-                        <span className="rank">{slideIndex++}</span>
-                      </div>
+                      <Link to={`/book/detail/${book.bookId}`}>
+                        <div className="img_box">
+                          <img
+                            src={`/static/images/${book.bookImages[0]?.storedName}`}
+                          />
+                          <span className="rank">{slideIndex++}</span>
+                        </div>
+                      </Link>
                     </SwiperSlide>
                   );
                 })}

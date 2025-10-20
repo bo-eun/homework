@@ -1,4 +1,4 @@
-package it.back.order.entity;
+package it.back.back_app.order.entity;
 
 import java.time.LocalDateTime;
 import java.util.List;

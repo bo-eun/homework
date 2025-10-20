@@ -20,19 +20,21 @@ function Detail(props) {
   const handleShow = () => setShow(true);
 
   const [detail, setDetail] = useState({});
+  const [authorDetail, sesAuthorDetail] = useState({});
 
   const { bookId } = useParams();
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["detail"],
-    queryFn: () => bookAPI.detail(bookId),
+    queryFn: () => bookAPI.bookAndAuthorDetail(bookId),
   });
+
 
   useEffect(() => {
     if (data) {
       console.log(data);
-      console.log(data.bookImages[0]);
       setDetail(data);
     }
+
   }, [data]);
 
   if (isLoading) {
@@ -126,7 +128,7 @@ function Detail(props) {
                     <h3>도서 소개</h3>
                     <div className="">{detail?.shortIntro}</div>
 
-                    <div className="mt-3">{detail?.intro}</div>
+                    <div className="my-3">{detail?.intro}</div>
 
                     <h3>작가 정보</h3>
                     <div className="author_info_box">

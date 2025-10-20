@@ -1,7 +1,18 @@
 import React from "react";
 import { Container, Nav, Navbar } from "react-bootstrap";
+import { authStore } from "../../store/authStore";
+import { useNavigate } from "react-router";
 
 function Header(props) {
+  const { isAuthenticated, clearAuth, getUserRole } = authStore();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    clearAuth();
+    localStorage.removeItem("auth-info");
+    navigate("/login");
+  };
+
   return (
     <header>
       <Navbar expand="lg" className="bg-body-tertiary">
@@ -17,7 +28,7 @@ function Header(props) {
           </Navbar.Collapse>
           <Nav>
             <Nav.Link href="/">홈</Nav.Link>
-            <Nav.Link href="/logout">로그아웃</Nav.Link>
+            <Nav.Link href="#" onClick={handleLogout}>로그아웃</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
