@@ -28,13 +28,11 @@ function Detail(props) {
     queryFn: () => bookAPI.bookAndAuthorDetail(bookId),
   });
 
-
   useEffect(() => {
     if (data) {
       console.log(data);
-      setDetail(data);
+      setDetail(data.content);
     }
-
   }, [data]);
 
   if (isLoading) {
@@ -46,7 +44,7 @@ function Detail(props) {
   }
   return (
     <>
-      <div className="detail_cont">
+      <div className="detail_cont pb-5 mb-5">
         <Container>
           <div className="detail_box d-lg-grid d-block">
             <div className="left_box d-flex align-items-center">
@@ -60,9 +58,12 @@ function Detail(props) {
               <div className="info_box">
                 <p className="title mt-lg-0 mt-3">{detail?.bookName}</p>
                 <p className="writer">
-                  {detail?.authorName} | {detail?.publishingHouseName}
+                  {detail?.author?.authorName} | {detail?.publishingHouseName}
                 </p>
-                <p className="stars">★★★★★(50)</p>
+                <p className="pt-1 text-opacity-50 text-black">
+                  {detail?.publicationDate}
+                </p>
+                <p className="stars pt-2">★★★★★(50)</p>
               </div>
               <div className="price_box border-top pt-3 mt-3">
                 <div className="option_box d-flex justify-content-between">
@@ -112,7 +113,7 @@ function Detail(props) {
                           </tr>
                           <tr>
                             <th>저자</th>
-                            <td>{detail?.authorName}</td>
+                            <td>{detail?.author?.authorName}</td>
                           </tr>
                           <tr>
                             <th>가격</th>
@@ -132,10 +133,21 @@ function Detail(props) {
 
                     <h3>작가 정보</h3>
                     <div className="author_info_box">
-                      <p className="name">{detail?.authorName}</p>
-                      <div className="d-flex gap-3 align-items-center">
-                        <div className="img_box"></div>
-                        <div className="info_box"></div>
+                      <p className="name pb-4">
+                        {detail?.author?.authorName} (
+                        {detail?.author?.birthDate})
+                      </p>
+                      <div className="d-flex gap-4">
+                        <div className="img_box">
+                          <img
+                            src={
+                              detail?.author?.image
+                                ? detail?.author?.image
+                                : "/static/images/profile.png"
+                            }
+                          />
+                        </div>
+                        <div className="info_box">{detail?.author?.intro}</div>
                       </div>
                     </div>
                     <Swiper
@@ -150,6 +162,7 @@ function Detail(props) {
                         },
                       }}
                       style={{ maxWidth: "800px" }}
+                      className="mt-4"
                     >
                       <SwiperSlide>
                         <div className="img_box">
@@ -255,12 +268,30 @@ function Detail(props) {
 
             <div className="float_menu_cont d-lg-block d-none">
               <div className="float_menu">
-                <div className="img_box">
-                  <img src="" alt="" />
+                <div className="d-flex gap-3 p-3 pb-4 border-bottom">
+                  <div className="img_box">
+                    <img
+                      src={`/static/images/${detail?.bookImages?.[0]?.storedName}`}
+                    />
+                  </div>
+                  <div>
+                    <p className="title">{detail?.bookName}</p>
+                    <p className="author">{detail?.author?.authorName}</p>
+                    <div className="price">{detail?.price}원</div>
+                  </div>
                 </div>
-                <p className="title">책이름</p>
-                <p className="author">저자</p>
-                <div className="price">가격</div>
+                <div className="d-flex justify-content-between align-items-center pt-4 p-3">
+                  <Counter />
+                  <strong className="price">{detail.price}원</strong>
+                </div>
+                <div className="btn_box p-3">
+                  <button type="button" className="btn btn-outline-dark w-100">
+                    장바구니
+                  </button>
+                  <button type="button" className="btn btn-dark w-100 mt-2">
+                    바로구매
+                  </button>
+                </div>
               </div>
             </div>
           </div>

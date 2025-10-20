@@ -126,6 +126,7 @@ public class BookDTO {
         private Integer price;
         private Boolean recommendationStatus;
         private int stock;
+        private String shortIntro;
 
         public static ListResponse of(BookEntity entity) {
             List<BookImageDTO> images = entity.getBookImages().stream()
@@ -141,6 +142,7 @@ public class BookDTO {
                     .bookImages(images)
                     .recommendationStatus(entity.getRecommendationStatus())
                     .stock(entity.getStock())
+                    .shortIntro(entity.getShortIntro())
                     .build();
         }
     }

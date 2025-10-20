@@ -16,6 +16,8 @@ export const authStore = create(
       // 권한 가져오기
       getUserRole: () => get().userRole,
 
+      getUserId: () => get().userId,
+
       // 로그인 후 정보 저장
       setLogin: ({ token, userId, userName, userRole }) => {
         set((state) => {

@@ -24,7 +24,9 @@ function BestList(props) {
     <>
       <h2 className="text-center">베스트 도서</h2>
       <Container>
-        <BookList books={books} />
+        <ul>
+          <BookList books={books} />
+        </ul>
       </Container>
     </>
   );

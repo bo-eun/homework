@@ -65,10 +65,10 @@
   position: sticky;
   top: 60px;
   right: 0;
-  border: 1px solid #eee;
-  border-radius: 15px;
-  padding: 15px;
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
   font-size: 16px;
+  min-width: 350px;
 }
 
 .review_box ul li {
@@ -102,4 +102,21 @@
 }
 .detail_info_box {
   font-size: 16px;
+}
+
+.author_info_box .name {
+  font-size: 18px;
+}
+.author_info_box .img_box {
+  max-width: 120px;
+}
+.author_info_box .img_box img {
+  width: 100%;
+}
+
+.float_menu_cont .img_box img {
+  width: 90px;
+}
+.float_menu_cont .price {
+  font-size: 18px;
 }

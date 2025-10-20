@@ -24,7 +24,9 @@ function ForeignList(props) {
     <>
       <h2 className="text-center">해외 도서</h2>
       <Container>
-        <BookList books={books} />
+        <ul>
+          <BookList books={books} />
+        </ul>
       </Container>
     </>
   );

@@ -24,7 +24,9 @@ function DomesticList(props) {
     <>
       <h2 className="text-center">국내 도서</h2>
       <Container>
-        <BookList books={books} />
+        <ul>
+          <BookList books={books} />
+        </ul>
       </Container>
     </>
   );

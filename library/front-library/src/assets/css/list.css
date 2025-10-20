@@ -1,0 +1,22 @@
+.container ul > li .img_box {
+  max-width: 150px;
+}
+.container ul > li .img_box img {
+  width: 100%;
+}
+.container ul > li .info_box {
+  font-size: 15px;
+}
+.container ul > li .info_box .title {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+}
+.container ul > li .price {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.container ul .btn_box {
+  min-width: 160px;
+}
