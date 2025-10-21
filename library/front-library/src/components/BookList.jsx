@@ -4,6 +4,8 @@ import "../assets/css/list.css";
 import CartAddButton from "./button/CartAddButton";
 
 function BookList({ books }) {
+
+
   return (
     <>
       {books.map((book) => {
@@ -25,7 +27,7 @@ function BookList({ books }) {
               </div>
 
               <div className="btn_box">
-                <CartAddButton bookId={book.bookId} quantity={1} />
+                <CartAddButton bookId={book.bookId} quantity={1} styles="btn btn-outline-dark w-100 mt-2" />
                 <button type="button" className="btn btn-dark w-100 mt-2">
                   바로구매
                 </button>

@@ -1,0 +1,22 @@
+.cart_list li {
+  position: relative;
+}
+.cart_list .close_btn {
+  position: absolute;
+  right: 0;
+  top: 10px;
+  border: 0;
+  background: none;
+}
+
+.order_cont h3 {
+  font-size: 20px;
+}
+
+.total_price_box {
+  font-size: 18px;
+  line-height: 50px;
+}
+.total_price {
+  font-size: 26px;
+}

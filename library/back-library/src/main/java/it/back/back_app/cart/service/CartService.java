@@ -3,6 +3,7 @@ package it.back.back_app.cart.service;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -51,8 +52,18 @@ public class CartService {
         BookEntity bookEntity = bookRepository.findById(request.getBookId())
                 .orElseThrow(() -> new RuntimeException("책을 찾을 수 없습니다."));
 
-        entity.setBook(bookEntity);
-        entity.setUser(userEntity);
+        // 이미 장바구니에 있는지 확인
+        Optional<CartEntity> optionalCart = cartRepository.findByUserIdAndBookId(request.getUserId(), request.getBookId());
+
+        if(optionalCart.isPresent()) {
+            // 이미 담겨 있다면 수량만 증가
+            entity = optionalCart.get();
+            entity.setQuantity(entity.getQuantity() + request.getQuantity());
+        } else {
+            // 새로 담는 경우
+            entity.setBook(bookEntity);
+            entity.setUser(userEntity);
+        } 
 
         cartRepository.save(entity);
 

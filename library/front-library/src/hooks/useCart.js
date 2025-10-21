@@ -28,9 +28,9 @@ export const useCart = () => {
   });
 
   const updateMutation = useMutation({
-    mutationFn: async (cartId, quantity) => {
+    mutationFn: async ({ cartId, ...data }) => {
       try {
-        const response = await api.put(`/api/v1/cart/${cartId}`, quantity);
+        const response = await api.put(`/api/v1/cart/${cartId}`, data);
 
         return response.data;
       } catch (error) {
@@ -59,7 +59,7 @@ export const useCart = () => {
     onSuccess: () => {
       console.log("삭제 완료");
       queryClient.invalidateQueries({ queryKey: ["cart"] });
-      navigate("/admin");
+      navigate("/cart");
     },
     onError: (error) => {
       console.error("삭제 실패", error);

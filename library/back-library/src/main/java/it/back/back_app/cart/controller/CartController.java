@@ -43,6 +43,7 @@ public class CartController {
 
     @PutMapping("/{cartId}")
     public ResponseEntity<ApiResponse<Map<String, Object>>> updateQuantity(@RequestBody CartDTO.Request request) {
+        log.info("------------ 수량 번경 -------------");
         Map<String, Object> resultMap = cartService.updateQuantity(request);                                                    
         return ResponseEntity.status(HttpStatus.OK).body(ApiResponse.ok(resultMap));                                                    
     }

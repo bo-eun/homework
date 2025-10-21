@@ -11,10 +11,13 @@ import Counter from "../../components/button/Counter";
 import { useQuery } from "@tanstack/react-query";
 import { bookAPI } from "../../service/bookService";
 import { useParams } from "react-router";
+import CartAddButton from "../../components/button/CartAddButton";
 
 function Detail(props) {
   const [show, setShow] = useState(false);
   const [key, setKey] = useState("info");
+
+  const [quantity, setQuantity] = useState(1);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -67,16 +70,11 @@ function Detail(props) {
               </div>
               <div className="price_box border-top pt-3 mt-3">
                 <div className="option_box d-flex justify-content-between">
-                  <Counter />
-                  <strong>{detail?.price} 원</strong>
+                  <Counter value={quantity} setValue={setQuantity} />
+                  <strong>{quantity * detail?.price} 원</strong>
                 </div>
                 <div className="btn_box mt-3 d-flex gap-2">
-                  <button
-                    type="button"
-                    className="btn btn-outline-dark btn-lg w-100"
-                  >
-                    장바구니
-                  </button>
+                  <CartAddButton bookId={bookId} quantity={quantity} styles="btn btn-outline-dark btn-lg w-100" />
                   <button type="button" className="btn btn-dark btn-lg w-100">
                     바로구매
                   </button>
@@ -281,13 +279,11 @@ function Detail(props) {
                   </div>
                 </div>
                 <div className="d-flex justify-content-between align-items-center pt-4 p-3">
-                  <Counter />
-                  <strong className="price">{detail.price}원</strong>
+                  <Counter value={quantity} setValue={setQuantity} />
+                  <strong className="price">{quantity * detail?.price} 원</strong>
                 </div>
                 <div className="btn_box p-3">
-                  <button type="button" className="btn btn-outline-dark w-100">
-                    장바구니
-                  </button>
+                  <CartAddButton bookId={bookId} quantity={quantity} styles="btn btn-outline-dark w-100" />
                   <button type="button" className="btn btn-dark w-100 mt-2">
                     바로구매
                   </button>

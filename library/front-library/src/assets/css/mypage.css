@@ -1,0 +1,96 @@
+.mypage_main_section .my_info_box {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+}
+.mypage_main_section .my_info_box .text_box {
+  width: 160px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.mypage_main_section .card_list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  gap: 10px;
+}
+
+.mypage_main_section .card_list li {
+  padding: 12px 0;
+  background: #eee;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.mypage_main_section .card_list li p {
+  font-size: 14px;
+  padding-bottom: 5px;
+}
+.mypage_main_section .card_list li strong {
+  font-size: 18px;
+}
+
+.mypage_menu {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.mypage_main_section h3 {
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.order_list .order {
+  padding-top: 30px;
+}
+.order_list .order h4 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.book_list {
+  position: relative;
+}
+.book_list li {
+  padding: 15px 0;
+}
+.book_list li + li {
+  border-top: 1px solid #eee;
+}
+.book_list li .img_box {
+  width: 80px;
+  height: 110px;
+  background: #eee;
+}
+.book_list li .img_box img {
+  width: 100px;
+}
+.book_list li .title {
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.book_list li .author {
+  font-size: 14px;
+}
+.book_list li .price {
+  margin-top: auto;
+  font-size: 18px;
+  font-weight: bold;
+  color: #428b7f;
+}
+
+.book_list .close_btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: #ddd;
+  cursor: pointer;
+}
