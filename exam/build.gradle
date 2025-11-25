@@ -1,0 +1,93 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.6'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'back.smart'
+version = '0.0.1-SNAPSHOT'
+description = 'smart-back'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // --- Spring Boot starters (버전은 BOM에 위임) ---
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation' // ← 버전 제거
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
+
+    // --- Lombok / config processor ---
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    // --- Test (버전은 BOM에 위임) ---
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+    // --- 기타 유틸 ---
+    implementation 'org.apache.commons:commons-lang3:3.18.0'
+    implementation 'org.webjars.npm:axios:1.11.0'
+
+    // 이미지 리사이즈
+    implementation 'com.jhlabs:filters:2.0.235-1'
+    implementation 'com.mortennobel:java-image-scaling:0.8.6'
+
+    // SQL 로깅
+    implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.9.0'
+
+    // Commons
+    implementation (
+            [group: 'org.apache.commons', name: 'commons-collections4', version: '4.4'],
+            [group: 'commons-io', name: 'commons-io', version: '2.20.0']
+    )
+
+    // JSON
+    implementation 'org.json:json:20250517'
+
+    // SpringDoc
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.13'
+
+    // --- QueryDSL ---
+    implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
+    annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"
+    annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+    annotationProcessor "jakarta.persistence:jakarta.persistence-api"
+
+    // QLRM (둘 다 필요하면 유지, 아니면 하나만 쓰세요)
+    implementation 'org.qlrm:qlrm:4.0.1'
+    implementation 'ch.simas.qlrm:qlrm:1.7.1'
+
+    // https://mvnrepository.com/artifact/software.amazon.awssdk/s3
+    implementation 'software.amazon.awssdk:s3:2.37.5'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+/** ===== Java 21 기준 빌드 안정화 ===== */
+
+// 컴파일 타깃 릴리즈를 21로 고정 (툴체인과 함께 사용)
+tasks.withType(JavaCompile).configureEach {
+    options.release = 21
+    options.encoding = 'UTF-8'
+}
