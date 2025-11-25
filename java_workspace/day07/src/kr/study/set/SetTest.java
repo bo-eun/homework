@@ -1,0 +1,36 @@
+package kr.study.set;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class SetTest {
+	public static void main(String[] args) {
+		Person p1 = new Person("p101", "김철수");
+		Person p2 = new Person("p101", "김철수");
+		Person p3 = new Person("p102", "김철수");
+		Person p4 = new Person("p103", "이미자");
+		
+		// 삽입, 삭제, 출력 가능
+		// 중복 값 들어가지 않음
+		Set<Person> set = new HashSet<>();
+		
+		// 등록
+		set.add(p1);
+		set.add(p2);
+		set.add(p3);
+		set.add(p4);
+		
+		// 중간삽입 X, 치환 X
+		
+		// 삭제 remove(객체 또는 값);
+		set.remove(p1);
+		
+		System.out.println("크기 : " + set.size());
+		
+		// 향상된 for문
+		// set은 index가 없기 때문에 for문으로 요소 출력이 불가능해서 향상된 for문으로 데이터를 출력함
+		for(Person p : set) {
+			System.out.println(p);
+		}
+	}
+}
